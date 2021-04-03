@@ -1,0 +1,933 @@
+Using pre-set license
+Built from '2020.3/release' branch; Version is '2020.3.2f1 (8fd9074bf66c) revision 9427207'; Using compiler version '192528614'; Build Type 'Release'
+OS: 'Windows 10 Pro; OS build 18363.1440; Version 1909; 64bit' Language: 'en' Physical Memory: 32697 MB
+BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
+
+ COMMAND LINE ARGUMENTS:
+C:\Program Files\Unity\Hub\Editor\2020.3.2f1\Editor\Unity.exe
+-adb2
+-batchMode
+-noUpm
+-name
+AssetImportWorker0
+-projectPath
+C:/Users/Max-Martin Sherie/Documents/GitHub/Yuggoth/Yuggoth
+-logFile
+Logs/AssetImportWorker0.log
+-srvPort
+54400
+Successfully changed project path to: C:/Users/Max-Martin Sherie/Documents/GitHub/Yuggoth/Yuggoth
+C:/Users/Max-Martin Sherie/Documents/GitHub/Yuggoth/Yuggoth
+Using Asset Import Pipeline V2.
+Refreshing native plugins compatible for Editor in 19.20 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Initialize engine version: 2020.3.2f1 (8fd9074bf66c)
+[Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.2f1/Editor/Data/Resources/UnitySubsystems
+[Subsystems] Discovering subsystems at path C:/Users/Max-Martin Sherie/Documents/GitHub/Yuggoth/Yuggoth/Assets
+GfxDevice: creating device client; threaded=0
+Direct3D:
+    Version:  Direct3D 11.0 [level 11.1]
+    Renderer: NVIDIA GeForce RTX 3090 (ID=0x2204)
+    Vendor:   
+    VRAM:     24348 MB
+    Driver:   27.21.14.6109
+Initialize mono
+Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.2f1/Editor/Data/Managed'
+Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.2f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
+Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.2f1/Editor/Data/MonoBleedingEdge/etc'
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56732
+Begin MonoManager ReloadAssembly
+Registering precompiled unity dll's ...
+Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.2f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
+Registered in 0.001868 seconds.
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 20.99 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.924 seconds
+Platform modules already initialized, skipping
+Registering precompiled user dll's ...
+Registered in 0.000668 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-000001CC7A228030 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC7DE203A0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC7DE0F820 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC05A7060 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC7E498020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC7E184430 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC798AC010 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC79D4E1F0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC7E498020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC7ED12E20 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.19 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.688 seconds
+Platform modules already initialized, skipping
+========================================================================
+Worker process is ready to serve import requests
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 0.27 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1116 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.4 MB.
+System memory in use after: 69.5 MB.
+
+Unloading 10 unused Assets to reduce memory usage. Loaded Objects now: 1575.
+Total: 1.677500 ms (FindLiveObjects: 0.134200 ms CreateObjectMapping: 0.034200 ms MarkObjects: 1.419600 ms  DeleteObjects: 0.088500 ms)
+
+========================================================================
+Received Import Request.
+  path: Assets/New Terrain.asset
+  artifactKey: Guid(2df61afea44a082438b6ca7d21b0869e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/New Terrain.asset using Guid(2df61afea44a082438b6ca7d21b0869e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b89449c05128d55f3bb936e2f09dcea2') in 0.068834 seconds
+  Import took 0.070841 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 34.024399 seconds.
+  path: Assets/FPc_1
+  artifactKey: Guid(17abe2acc753e7d4d8d2c384cbdb378c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FPc_1 using Guid(17abe2acc753e7d4d8d2c384cbdb378c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '14512df49ed56cb92f7250f52dc46fe9') in 0.021047 seconds
+  Import took 0.022716 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.642619 seconds.
+  path: Assets/FPc_1/Script
+  artifactKey: Guid(8ec2660587ab303479d663d9c3db1f6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FPc_1/Script using Guid(8ec2660587ab303479d663d9c3db1f6f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a1ddb295d653898d0b67c326bebd68ef') in 0.020967 seconds
+  Import took 0.022614 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.690171 seconds.
+  path: Assets/FPc_1/Script/Player
+  artifactKey: Guid(a12fd21a5c6c0144cb849a271b4873c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FPc_1/Script/Player using Guid(a12fd21a5c6c0144cb849a271b4873c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '578f9d824c2e35dd5eac55a1d53ab8cd') in 0.021469 seconds
+  Import took 0.023081 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 1.108589 seconds.
+  path: Assets/FPc_1/Script/Player/CameraController.cs
+  artifactKey: Guid(ee4a324acde53f04ab5a94e5a62f6c8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FPc_1/Script/Player/CameraController.cs using Guid(ee4a324acde53f04ab5a94e5a62f6c8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7b87d78592e2d67d3b5142eabecc4f32') in 0.023836 seconds
+  Import took 0.025423 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000867 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-000001CAC140EF30 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC0DE0020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC79C9A6F0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC7E4CC030 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC79A21E50 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC0DE0020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC19DF010 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC7E4CC030 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC04B3010 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC7ED12E20 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.21 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.650 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.18 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1111 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.4 MB.
+System memory in use after: 69.4 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1578.
+Total: 1.644500 ms (FindLiveObjects: 0.138600 ms CreateObjectMapping: 0.032900 ms MarkObjects: 1.398500 ms  DeleteObjects: 0.073600 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000652 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-000001CC7E63B830 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC10E8720 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC79D14CA0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC0DF0030 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC0889020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC10E8720 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC7E25C040 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC79B45010 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC79B11D40 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC7ED12E20 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.18 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.640 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.21 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1111 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.4 MB.
+System memory in use after: 69.5 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1581.
+Total: 1.409200 ms (FindLiveObjects: 0.133900 ms CreateObjectMapping: 0.033100 ms MarkObjects: 1.182600 ms  DeleteObjects: 0.058700 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 164.672853 seconds.
+  path: Assets/FPc_1/Script/Player/CameraController.cs
+  artifactKey: Guid(ee4a324acde53f04ab5a94e5a62f6c8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FPc_1/Script/Player/CameraController.cs using Guid(ee4a324acde53f04ab5a94e5a62f6c8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4fc8f33bb0ee9384b8a07d65dfc042e1') in 0.021665 seconds
+  Import took 0.023754 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.002439 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-000001CC79E5CCF0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC0E6C240 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC79C9A6F0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC1898080 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC107CA40 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC10C6020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC7E25C040 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC45DA0E0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC79F43020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC79C9A6F0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.41 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.830 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.19 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1111 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.4 MB.
+System memory in use after: 69.5 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1584.
+Total: 2.259700 ms (FindLiveObjects: 0.199800 ms CreateObjectMapping: 0.055900 ms MarkObjects: 1.919100 ms  DeleteObjects: 0.082900 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000659 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-000001CC7E387CF0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC4214030 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC79C9A6F0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC18CB980 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC7EC1E010 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC7E8D3020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC7E25C040 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC79D13030 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC79F43020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC1F98040 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.19 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.634 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.18 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1111 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.4 MB.
+System memory in use after: 69.5 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1587.
+Total: 1.404100 ms (FindLiveObjects: 0.132100 ms CreateObjectMapping: 0.034700 ms MarkObjects: 1.179900 ms  DeleteObjects: 0.056300 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 44.944286 seconds.
+  path: Assets/FPc_1/Script/Player/CameraController.cs
+  artifactKey: Guid(ee4a324acde53f04ab5a94e5a62f6c8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FPc_1/Script/Player/CameraController.cs using Guid(ee4a324acde53f04ab5a94e5a62f6c8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '9b215125139cfc3a7238225b5a9ece42') in 0.021551 seconds
+  Import took 0.023158 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000773 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-000001CAC056E850 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC4214030 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC79C9A6F0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC44B4140 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC4683F40 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC01AC1B0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC7E25C040 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC79CF7030 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC79F43020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC79D4EDF0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.18 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.628 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.18 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1111 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.4 MB.
+System memory in use after: 69.5 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1590.
+Total: 1.969000 ms (FindLiveObjects: 0.143200 ms CreateObjectMapping: 0.037000 ms MarkObjects: 1.720000 ms  DeleteObjects: 0.067600 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000640 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-000001CAC0D8F470 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC4214030 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC18BE100 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC1446610 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC1C1CF10 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC1605880 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC16950E0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC0563020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC7E628AC0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC79D4EDF0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.19 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.668 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.18 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1111 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.4 MB.
+System memory in use after: 69.5 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1593.
+Total: 1.595000 ms (FindLiveObjects: 0.138500 ms CreateObjectMapping: 0.028800 ms MarkObjects: 1.365000 ms  DeleteObjects: 0.061700 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000670 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-000001CAC12648B0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC4214030 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC173E020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC1446610 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC1C1CF10 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC44FE010 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC7E162010 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC0563020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC08B9050 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC7988E010 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.18 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.633 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.18 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1111 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.4 MB.
+System memory in use after: 69.5 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1596.
+Total: 2.258300 ms (FindLiveObjects: 0.133400 ms CreateObjectMapping: 0.035000 ms MarkObjects: 2.003500 ms  DeleteObjects: 0.085400 ms)
+
+========================================================================
+Received Import Request.
+  Time since last request: 82.201135 seconds.
+  path: Assets/FPc_1/Script/Player/CameraController.cs
+  artifactKey: Guid(ee4a324acde53f04ab5a94e5a62f6c8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/FPc_1/Script/Player/CameraController.cs using Guid(ee4a324acde53f04ab5a94e5a62f6c8a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'de376f03dfa18e04cfb431984f4523a0') in 0.022258 seconds
+  Import took 0.023968 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000679 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-000001CAC4FF4030 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC449E0A0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC0566E50 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC1446610 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC46C4FA0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC48150F0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC4E33010 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC4518080 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC0597050 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC79D4EDF0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.19 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.638 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.24 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1111 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.4 MB.
+System memory in use after: 69.5 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1599.
+Total: 1.626600 ms (FindLiveObjects: 0.181700 ms CreateObjectMapping: 0.048900 ms MarkObjects: 1.316600 ms  DeleteObjects: 0.078400 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000643 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-000001CC79B4EE40 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC449E0A0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC0566E50 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC79C95680 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC4C47AE0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC449E0A0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC1F72B80 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC79C95680 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC79F43020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC40D4010 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.19 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.625 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.23 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1111 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.5 MB.
+System memory in use after: 69.5 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1602.
+Total: 2.195700 ms (FindLiveObjects: 0.155200 ms CreateObjectMapping: 0.037200 ms MarkObjects: 1.937400 ms  DeleteObjects: 0.064700 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000622 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-000001CAC1F0FEF0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC0889020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC79F1F030 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC4104010 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC5346010 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC108E010 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC53B18E0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC4626020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC179F020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC79C07030 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.21 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.632 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.19 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1111 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.5 MB.
+System memory in use after: 69.5 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1605.
+Total: 1.531300 ms (FindLiveObjects: 0.131800 ms CreateObjectMapping: 0.033200 ms MarkObjects: 1.303000 ms  DeleteObjects: 0.062500 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000626 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-000001CAC44A7ED0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC4C36060 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC14379A0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC7E833020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC7E0DA010 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC108E010 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC7E162010 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC7E833020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC4C47AE0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC5052C10 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.18 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.653 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.18 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1111 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.5 MB.
+System memory in use after: 69.5 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1608.
+Total: 1.561600 ms (FindLiveObjects: 0.135000 ms CreateObjectMapping: 0.035600 ms MarkObjects: 1.326900 ms  DeleteObjects: 0.063400 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000638 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-000001CC79B96440 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC7E21C020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC51FF010 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC0A93010 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC4924EF0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC7E8D3020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC1F72B80 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC15DA1C0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC1DC6E60 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC4909190 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.19 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.628 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.18 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1111 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.5 MB.
+System memory in use after: 69.5 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1611.
+Total: 1.572400 ms (FindLiveObjects: 0.121900 ms CreateObjectMapping: 0.030500 ms MarkObjects: 1.356400 ms  DeleteObjects: 0.062500 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000769 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-000001CAC197C020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC5376040 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC51FF010 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC0A93010 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC3FC7CE0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC4F94020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC7E162010 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC15DA1C0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC79F43020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC190D000 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.24 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.645 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.18 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1111 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.5 MB.
+System memory in use after: 69.5 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1614.
+Total: 1.614600 ms (FindLiveObjects: 0.131600 ms CreateObjectMapping: 0.028800 ms MarkObjects: 1.394200 ms  DeleteObjects: 0.059400 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000728 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-000001CAC4F9DE50 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC1A4C010 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC0D88020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC4626020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC5145860 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC1A4C010 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC7E162010 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC4626020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC5016AC0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC79D4EDF0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.18 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.628 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.19 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1111 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.5 MB.
+System memory in use after: 69.6 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1617.
+Total: 1.457100 ms (FindLiveObjects: 0.129900 ms CreateObjectMapping: 0.034700 ms MarkObjects: 1.227300 ms  DeleteObjects: 0.064300 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000716 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-000001CAC4FF4030 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC7E21C020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC539B370 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC0A93010 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC5656020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC7E8D3020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC4924EF0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC45C7020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC1652280 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC190D000 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.20 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.645 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.18 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1111 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.5 MB.
+System memory in use after: 69.6 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1620.
+Total: 1.521000 ms (FindLiveObjects: 0.136100 ms CreateObjectMapping: 0.037100 ms MarkObjects: 1.281600 ms  DeleteObjects: 0.065100 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000672 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-000001CAC1DE0020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC7E21C020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC539B370 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC0A93010 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC5656020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC3F75C40 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC53F2010 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC45C7020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC79F43020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC190D000 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.20 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.661 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.25 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1111 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.5 MB.
+System memory in use after: 69.6 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1623.
+Total: 2.321400 ms (FindLiveObjects: 0.281600 ms CreateObjectMapping: 0.068800 ms MarkObjects: 1.895400 ms  DeleteObjects: 0.073900 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000763 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-000001CAC5397080 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC46E5030 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC79E12E70 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC79CF5020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC4E5C520 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC7E8D3020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC1F72B80 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC48A6170 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC557B070 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC1495010 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.18 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.637 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.18 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1111 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.5 MB.
+System memory in use after: 69.6 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1626.
+Total: 1.624200 ms (FindLiveObjects: 0.115300 ms CreateObjectMapping: 0.029300 ms MarkObjects: 1.418300 ms  DeleteObjects: 0.060300 ms)
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.000611 seconds.
+Begin MonoManager ReloadAssembly
+Symbol file data-000001CAC15E1FF0 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VSCode.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC0B1AC40 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC79E12E70 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.VisualStudio.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC4CB8880 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEngine.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC4BF6020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC0B1AC40 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Timeline.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC4805030 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.TextMeshPro.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC4CB8880 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.CollabProxy.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CC79F43020 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\UnityEditor.TestRunner.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Symbol file data-000001CAC1495010 doesn't match image C:\Users\Max-Martin Sherie\Documents\GitHub\Yuggoth\Yuggoth\Library\ScriptAssemblies\Unity.Rider.Editor.dll
+Symbol file LoadedFromMemory is not a mono symbol file
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.18 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  0.637 seconds
+Platform modules already initialized, skipping
+Refreshing native plugins compatible for Editor in 0.20 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 1111 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 69.5 MB.
+System memory in use after: 69.6 MB.
+
+Unloading 5 unused Assets to reduce memory usage. Loaded Objects now: 1629.
+Total: 1.605500 ms (FindLiveObjects: 0.142900 ms CreateObjectMapping: 0.035100 ms MarkObjects: 1.362900 ms  DeleteObjects: 0.063400 ms)
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file

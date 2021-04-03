@@ -4,15 +4,9 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [SerializeField] private float m_sensX;
-    [SerializeField] private float m_sensY;
+    [SerializeField] private float m_mouseSensitivity = 100;
 
     Camera m_cam;
-
-    float m_mouseX;
-    float m_mouseY;
-
-    public float m_multiplier = 0.01f;
 
     float m_xRotation;
     float m_yRotation;
@@ -27,20 +21,18 @@ public class CameraController : MonoBehaviour
 
     private void Update()
     {
-        MyInput();
+        float mouseX = Input.GetAxisRaw("Mouse X");
+        float mouseY = Input.GetAxisRaw("Mouse Y");
 
+        //Set the values of rotations
+        m_yRotation += mouseX * m_mouseSensitivity * Time.deltaTime;
+        m_xRotation += - mouseY * m_mouseSensitivity * Time.deltaTime;
+        
+        m_xRotation = Mathf.Clamp(m_xRotation, -80f, 80);
+        
+        //Affectation of values
         m_cam.transform.localRotation = Quaternion.Euler(m_xRotation, 0, 0);
         transform.rotation = Quaternion.Euler(0, m_yRotation, 0);
     }
 
-    void MyInput()
-    {
-        m_mouseX = Input.GetAxisRaw("Mouse X");
-        m_mouseY = Input.GetAxisRaw("Mouse Y");
-
-        m_yRotation += m_mouseX * m_sensX * m_multiplier;
-        m_xRotation += m_mouseY * m_sensY * m_multiplier;
-
-        m_xRotation = Mathf.Clamp(m_xRotation, -80f, 80);
-    }
 }
