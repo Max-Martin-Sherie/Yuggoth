@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    float m_playerHeight = 1f;
+    [Header("Stats")]
+    [SerializeField] private float m_moveSpeed = 5f;
+    [SerializeField] private float m_jumpForce = 7f;
+    [SerializeField] private float m_playerHeight = 1f;
 
-    [Header("Movement")]
-    public float m_moveSpeed = 5f;
-    public float m_jumpForce = 7f;
 
     [Header("Multiplier")]
-    [SerializeField] float m_groundControlMultiplier = 10f;
-    [SerializeField] float m_airControlMultiplier = 0.4f;
-    [SerializeField] float m_jumpForceMultiplier = 10f;
+    [SerializeField] private float m_groundControlMultiplier = 10f;
+    [SerializeField] private float m_airControlMultiplier = 0.4f;
+    [SerializeField] private float m_jumpForceMultiplier = 10f;
 
     [Header("Drag")]
     public float m_groundDrag = 6f;
@@ -27,17 +27,16 @@ public class PlayerController : MonoBehaviour
     [SerializeField]
     private LayerMask m_groundMask;
 
-    float m_horizontal;
-    float m_vertical;
+    private bool m_isGrounded;
 
-    bool m_isGrounded;
+    private Vector3 m_moveDir;
+    private Vector3 m_slopeMoveDir;
 
-    Vector3 m_moveDir;
-    Vector3 m_slopeMoveDir;
+    private Rigidbody m_playerRb;
 
-    Rigidbody m_playerRb;
+    private RaycastHit m_slopeHit;
 
-    RaycastHit m_slopeHit;
+    private OxygeneTimer m_oxygeneTimer;
 
 
     private bool OnSlope() 
@@ -45,13 +44,9 @@ public class PlayerController : MonoBehaviour
         if (Physics.Raycast(transform.position, Vector3.down, out m_slopeHit, m_playerHeight / 2 + 0.5f))
         {
             if(m_slopeHit.normal != Vector3.up)
-            {
                 return true;
-            }
             else
-            {
                 return false;
-            }
         }
         return false;
     }
@@ -60,30 +55,35 @@ public class PlayerController : MonoBehaviour
     {
         m_playerRb = GetComponent<Rigidbody>();
         m_playerRb.freezeRotation = true;
+        m_oxygeneTimer = GetComponent<OxygeneTimer>();
     }
 
     void Update()
     {
-        m_isGrounded = Physics.CheckSphere(m_groundCheck.position, m_groundDistance, m_groundMask);
-
-        MyInput();
-        ControlDrag();
-
-        if (Input.GetAxisRaw("Jump") > 0 && m_isGrounded)
+        if (!m_oxygeneTimer.m_stopTimer)
         {
-            Debug.Log("jump");
-            Jump();
-        }
+            m_isGrounded = Physics.CheckSphere(m_groundCheck.position, m_groundDistance, m_groundMask);
 
-        m_slopeMoveDir = Vector3.ProjectOnPlane(m_moveDir, m_slopeHit.normal);
+            MyInput();
+            ControlDrag();
+
+            if (m_isGrounded && Input.GetAxisRaw("Jump") > 0)
+                Jump();
+
+            m_slopeMoveDir = Vector3.ProjectOnPlane(m_moveDir, m_slopeHit.normal);
+        }
+        else
+        {
+            m_moveDir = new Vector3( 0f, 0f, 0f);
+        }
     }
 
     void MyInput()
     {
-        m_horizontal = Input.GetAxisRaw("Horizontal");
-        m_vertical = Input.GetAxisRaw("Vertical");
+        float horizontal = Input.GetAxisRaw("Horizontal");
+        float vertical = Input.GetAxisRaw("Vertical");
 
-        m_moveDir = transform.forward * m_vertical + transform.right * m_horizontal;
+        m_moveDir = transform.forward * vertical + transform.right * horizontal;
     }
 
     void Jump()
@@ -95,14 +95,9 @@ public class PlayerController : MonoBehaviour
     void ControlDrag()
     {
         if (m_isGrounded)
-        {
-
             m_playerRb.drag = m_groundDrag;
-        }
         else
-        { 
             m_playerRb.drag = m_airDrag;
-        }
 }
 
     private void FixedUpdate()
