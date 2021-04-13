@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PickObject : MonoBehaviour
+public class PickObject : PlayerCompetence
 {
     [SerializeField] private string m_selectableObject = "Selectable";
 
