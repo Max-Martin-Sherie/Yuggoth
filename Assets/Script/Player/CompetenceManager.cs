@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CapacityManager : MonoBehaviour
+public class CompetenceManager : MonoBehaviour
 {
     public PlayerCompetence[] m_capacityList = new PlayerCompetence[1];
 
