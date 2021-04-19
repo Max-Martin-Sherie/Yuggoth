@@ -5,7 +5,7 @@ using UnityEngine;
 
 public class Receiver : MonoBehaviour
 {
-    private bool m_lasered = false;
+    public bool m_lasered = false;
     private Laser[] m_childrenLasers;
 
     private void Start()
@@ -19,13 +19,11 @@ public class Receiver : MonoBehaviour
         
         if (m_lasered)
         {
-            Debug.Log("on");
             foreach (Laser script in m_childrenLasers){
                 script.m_range = 64;
             }
         }else
         {
-            Debug.Log("off");
             foreach (Laser script in m_childrenLasers)
             {
                 script.m_range = 0;

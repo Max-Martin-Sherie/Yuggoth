@@ -5,7 +5,6 @@ using UnityEngine;
 
 public class Laser : MonoBehaviour
 {
-
     [SerializeField] public float m_range;
     // Start is called before the first frame update
     void Start()
@@ -46,17 +45,17 @@ public class Laser : MonoBehaviour
                             Debug.DrawRay(start, direction * hit.distance, Color.red);
                             if (hit.collider.gameObject.layer == 0b11)
                             {
-                                Debug.Log($"bounce{i}");
+                                //Debug.Log($"bounce{i}");
                             }
                             else if (hit.collider.gameObject.layer == 0b110)
                             {
-                                Debug.Log("you win");
+                                //Debug.Log("you win");
                                 break;
                             }
                             else if (hit.collider.gameObject.layer == 0b111)
                             {
-                                Debug.Log("receiver");
                                 hit.collider.gameObject.GetComponent<Receiver>().ActivateChildren();
+                                Debug.Log(hit.collider.gameObject.GetComponent<Receiver>().m_lasered);
                                 break;
                             }
                             else
@@ -77,5 +76,6 @@ public class Laser : MonoBehaviour
         {
             Debug.DrawRay(transform.position, transform.forward * m_range, Color.green);
         }
+        
     }
 }
