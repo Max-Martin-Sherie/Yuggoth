@@ -4,9 +4,11 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [Range(200, 1000)] public float m_mouseSensitivity = 200;
-    [SerializeField] [Range(-1,1)] private int m_yInvertion = -1;
-    [SerializeField] [Range(-1, 1)] private int m_xInvertion = 1;
+    [Range(200, 1000)] private float m_mouseSensitivity = 200;
+
+    //Valeurs d'inversion de la caméra
+    [SerializeField] [Range(-1,1)] public int m_yInvertion = -1;
+    [SerializeField] [Range(-1, 1)] public int m_xInvertion = 1;
 
     private Camera m_cam;
 

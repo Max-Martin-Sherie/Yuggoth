@@ -40,7 +40,7 @@ public class PlayerController : MonoBehaviour
 
     private bool OnSlope() 
     {
-        if (Physics.Raycast(transform.position, Vector3.down, out m_slopeHit, m_playerHeight / 2 + 0.5f))
+        if (Physics.Raycast(transform.position, Vector3.down, out m_slopeHit, m_playerHeight / 2 + 1f))
         {
             if(m_slopeHit.normal != Vector3.up)
                 return true;

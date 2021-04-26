@@ -24,7 +24,7 @@ public class PickableObject : PlayerCompetence
                 {
                     PickUpObject(hit.transform.gameObject);
                 }
-                Debug.Log("essaie");
+                //Debug.Log("essaie");
             }
             else if(m_heldObj != null)
             {
@@ -45,21 +45,20 @@ public class PickableObject : PlayerCompetence
             Vector3 moveDir = m_newParent.position - m_heldObj.transform.position;
             m_heldObj.GetComponent<Rigidbody>().AddForce(moveDir * m_moveForce);
         }
-        //m_heldObj.transform.rotation = m_newParent.transform.rotation;
     }
 
     private void PickUpObject(GameObject p_pickObj)
     {
-        if (p_pickObj.GetComponent<Rigidbody>())
+        Rigidbody objRb = p_pickObj.GetComponent<Rigidbody>();
+        if (objRb)
         {
-            //m_newParent.transform.position = p_pickObj.transform.position;
-            Rigidbody objRb = p_pickObj.GetComponent<Rigidbody>();
+            m_newParent.transform.position = p_pickObj.transform.position + new Vector3(0, 1.2f,0);
             objRb.useGravity = false;
             objRb.drag = 10;
 
             objRb.transform.parent = m_newParent;
             m_heldObj = p_pickObj;
-            Debug.Log("j'ai");
+            //Debug.Log("j'ai");
         }
     }
 
@@ -71,6 +70,9 @@ public class PickableObject : PlayerCompetence
 
         heldRb.transform.parent = m_oldParent;
         m_heldObj = null;
-        Debug.Log("j'ai pas");
+        m_newParent.transform.position = new Vector3(0, 0, 0);
+        //Debug.Log("j'ai pas");
     }
+
+
 }

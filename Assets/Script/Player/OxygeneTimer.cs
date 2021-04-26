@@ -5,10 +5,11 @@ using UnityEngine.UI;
 
 public class OxygeneTimer : MonoBehaviour
 {
-    public Slider m_timerSlider;
+    [SerializeField] private Slider m_timerSlider;
 
-    //m_oxygeneTimer correspond a la durée que le joueur peut parcourir en minutes.
+    //m_oxygeneTimer correspond a la durée que le joueur peut parcourir en minutes. Variable de référence pour le timer. Si cette
     public float m_oxygeneTimer;
+
     //m_timer correspond au moment où le joueur n'aura plus d'oxygène.
     private float m_timer;
 
@@ -29,8 +30,10 @@ public class OxygeneTimer : MonoBehaviour
 
         m_onO2 = false;
 
+        //Passage des minutes en secondes
         m_oxygeneTimer *= 60;
 
+        //Set des valeur
         m_timerSlider.maxValue = m_oxygeneTimer;
         m_timerSlider.value = m_oxygeneTimer;
 
@@ -45,7 +48,8 @@ public class OxygeneTimer : MonoBehaviour
         if (time <= 0)
         {
             m_playerController.m_moveDir = new Vector3(0f, 0f, 0f);
-            m_cameraController.m_mouseSensitivity = 0f;
+            m_cameraController.m_xInvertion = 0;
+            m_cameraController.m_yInvertion = 0;
         }
 
         if (!m_stopTimer)
