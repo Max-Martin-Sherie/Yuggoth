@@ -475,7 +475,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fadb30155435e1140b7e462c4baaa082, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_index: 1
+  m_index: 0
 --- !u!1 &622961579
 GameObject:
   m_ObjectHideFlags: 0
@@ -1369,8 +1369,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5534c8128f0ed8744ad341092d9a3abf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_pickUpRange: 5
-  m_moveForce: 100
+  m_pickUpRange: 20
+  m_moveForce: 50
   m_newParent: {fileID: 1000130847}
   m_oldParent: {fileID: 218668257}
 --- !u!1 &2097260918
@@ -1527,7 +1527,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3059539965231309398, guid: 122734c89153f1e4b9acaf34d34ef279, type: 3}
       propertyPath: m_jumpForce
-      value: 7
+      value: 6
       objectReference: {fileID: 0}
     - target: {fileID: 3059539965231309398, guid: 122734c89153f1e4b9acaf34d34ef279, type: 3}
       propertyPath: m_moveSpeed
@@ -1600,6 +1600,10 @@ PrefabInstance:
     - target: {fileID: 5065815884429289737, guid: 122734c89153f1e4b9acaf34d34ef279, type: 3}
       propertyPath: m_Name
       value: Main
+      objectReference: {fileID: 0}
+    - target: {fileID: 8128774651325878882, guid: 122734c89153f1e4b9acaf34d34ef279, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8128774651325878882, guid: 122734c89153f1e4b9acaf34d34ef279, type: 3}
       propertyPath: m_timerSlider
