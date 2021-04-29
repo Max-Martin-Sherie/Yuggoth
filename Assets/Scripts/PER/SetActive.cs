@@ -29,44 +29,18 @@ public class SetActive : MonoBehaviour
          2 = purple 
          3 = orange
          */
-        if (m_receiversScripts[0].m_lasered)
+
+        for (int i = 0; i < m_activatorObjects.Count; i++)
         {
-            m_activablePlatforms[0].SetActive(true);
-            
-        } else if (!m_receiversScripts[0].m_lasered)
-        {
-            m_activablePlatforms[0].SetActive(false);
+            if (m_receiversScripts[i].m_lasered)
+            {
+                m_activablePlatforms[i].SetActive(true);
+
+            }
+            else
+            {
+                m_activablePlatforms[i].SetActive(false);
+            }
         }
-        
-        if (m_receiversScripts[1].m_lasered)
-        {
-            m_activablePlatforms[1].SetActive(true);
-            
-        } else if (!m_receiversScripts[1].m_lasered)
-        {
-            m_activablePlatforms[1].SetActive(false);
-        }
-        
-        if (m_receiversScripts[2].m_lasered)
-        {
-            m_activablePlatforms[2].SetActive(true);
-            
-        } else if (!m_receiversScripts[2].m_lasered)
-        {
-            m_activablePlatforms[2].SetActive(false);
-        }
-        
-        if (m_receiversScripts[3].m_lasered)
-        {
-            m_activablePlatforms[3].SetActive(true);
-            
-        } else if (!m_receiversScripts[3].m_lasered)
-        {
-            m_activablePlatforms[3].SetActive(false);
-        }
-        
-       
-        
-        
     }
 }
