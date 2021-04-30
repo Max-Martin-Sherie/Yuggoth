@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public float m_mouseSensitivity = 100;
-    [SerializeField] private float m_yInvertion = 1;
-    [SerializeField] private float m_xInvertion = 1;
+    [Range(200, 1000)] public float m_mouseSensitivity = 200;
+    [SerializeField] [Range(-1,1)] private int m_yInvertion = -1;
+    [SerializeField] [Range(-1, 1)] private int m_xInvertion = 1;
 
-    private Camera m_cam;
+    private GameObject m_cam;
 
     private float m_xRotation;
     private float m_yRotation;
 
     private void Start()
     {
-        m_cam = GetComponentInChildren<Camera>();
+        m_cam = GetComponentInChildren<Camera>().gameObject;
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -36,5 +36,4 @@ public class CameraController : MonoBehaviour
             m_cam.transform.localRotation = Quaternion.Euler(m_xRotation, 0, 0);
             transform.rotation = Quaternion.Euler(0, m_yRotation, 0);
     }
-
 }
