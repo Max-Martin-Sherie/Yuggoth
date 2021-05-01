@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c48d82d4c34eb3144a66cd463243cdac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_laserRange: 10
+  m_laserRange: 64
 --- !u!120 &6547841964717512278
 LineRenderer:
   m_ObjectHideFlags: 0
@@ -150,9 +150,7 @@ LineRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Positions:
-  - {x: 0, y: 0, z: 0}
-  - {x: -0.000000059604645, y: 0, z: 1.89039}
+  m_Positions: []
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 2

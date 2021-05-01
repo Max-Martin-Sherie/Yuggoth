@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class LaserChangeColor : MonoBehaviour
@@ -13,7 +11,17 @@ public class LaserChangeColor : MonoBehaviour
     void Start()
     {
         m_meshMaterial = GetComponent<MeshRenderer>().material;
-        m_receptorScript = GetComponent<LaserReceptor>();
+        
+        //Checking if the player has a LaserReceptor script
+        bool lrIsPresent = TryGetComponent<LaserReceptor>(out m_receptorScript);
+        
+        //warning the level designer if he doesn't have a LaserReceptor script
+        if (!lrIsPresent)
+        {
+            Debug.LogWarning($"Hey There is no LineRenderer on {gameObject.name} please add one!");
+            gameObject.SetActive(false);
+            return;
+        }
     }
 
     // Update is called once per frame

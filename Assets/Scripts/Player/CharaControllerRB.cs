@@ -15,7 +15,7 @@ public class CharaControllerRB : MonoBehaviour
     
     //Global Variables that can be changed by the user in the unity inspector
     [Header("Movement")]
-    [SerializeField][Tooltip("The movement speed of the player")][Range(0,30)]private float m_moveSpeed;
+    [SerializeField][Tooltip("The movement speed of the player")][Range(0,30)]public float m_moveSpeed;
     [SerializeField][Tooltip("the jump height in meters")][Range(0,5)]private float m_jumpHeight;
     [SerializeField][Tooltip("the level of slobe at which the player registers himself as not grounded anymore")][Range(0,90)] private short m_slideAngle;
 
@@ -31,6 +31,8 @@ public class CharaControllerRB : MonoBehaviour
     private int m_collsionCount;
     private float m_colliderWidth;
 
+
+    public bool m_leftRightFrozen = false;
     /**/
     
     //(to be removed before launch) the position at which the player starts tz
@@ -119,7 +121,7 @@ public class CharaControllerRB : MonoBehaviour
         {
             if (Vector2.Distance(new Vector2(contactPoint.point.x, contactPoint.point.z) , new Vector2(transform.position.x,transform.position.z)) <= m_colliderWidth +0.1f)
             {
-                m_collsionCount++;
+                m_collsionCount=1;
                 
                 Vector3 collisionNormal = contactPoint.normal;
                 if (Vector3.Angle(collisionNormal, Vector3.up) < m_slideAngle)
@@ -165,7 +167,9 @@ public class CharaControllerRB : MonoBehaviour
     private Vector3 SetDirection()
     {
         //Fetching the player's analogical inputs and applying them to variables
-        float horizontal = Input.GetAxisRaw("Horizontal");
+        float horizontal;
+        if(m_leftRightFrozen)horizontal = 0;
+        else horizontal= Input.GetAxisRaw("Horizontal");
         float vertical = Input.GetAxisRaw("Vertical");
         
         //Getting the transform for later use

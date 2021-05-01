@@ -54,22 +54,22 @@
   <ItemGroup>
      <Compile Include="Assets\Graphics\Test_Enviro\FirstPerson\Scripts\FirstPersonMovement.cs" />
      <Compile Include="Assets\Graphics\Test_Enviro\FirstPerson\Scripts\Components\Zoom.cs" />
+     <Compile Include="Assets\Scripts\Laser\LaserReflector.cs" />
      <Compile Include="Assets\Graphics\Test_Enviro\FirstPerson\Scripts\Components\FirstPersonAudio.cs" />
      <Compile Include="Assets\Graphics\Test_Enviro\FirstPerson\Scripts\FirstPersonLook.cs" />
-     <Compile Include="Assets\Graphics\Test_Enviro\Enviro_Assets\Starfield Skybox\Demo\Script\LookCamera.cs" />
-     <Compile Include="Assets\Graphics\Test_Enviro\FirstPerson\Scripts\Components\Jump.cs" />
-     <Compile Include="Assets\Graphics\Test_Enviro\FirstPerson\Scripts\Components\Crouch.cs" />
-     <Compile Include="Assets\Graphics\Test_Enviro\FirstPerson\Scripts\Components\GroundCheck.cs" />
-     <Compile Include="Assets\Scripts\Laser\LaserSetClassActive.cs" />
      <Compile Include="Assets\Scripts\Laser\LaserSource.cs" />
-     <Compile Include="Assets\Scripts\Laser\Laser.cs" />
-     <Compile Include="Assets\Scripts\Laser\LaserReflector.cs" />
      <Compile Include="Assets\Scripts\Player\PickupRb.cs" />
-     <Compile Include="Assets\Scripts\Player\RotateObject.cs" />
+     <Compile Include="Assets\Graphics\Test_Enviro\Enviro_Assets\Starfield Skybox\Demo\Script\LookCamera.cs" />
+     <Compile Include="Assets\Scripts\Laser\LaserSetClassActive.cs" />
      <Compile Include="Assets\Scripts\Player\CharaControllerRB.cs" />
-     <Compile Include="Assets\Scripts\Laser\LaserReceptor.cs" />
+     <Compile Include="Assets\Graphics\Test_Enviro\FirstPerson\Scripts\Components\Jump.cs" />
      <Compile Include="Assets\Scripts\Laser\LaserChangeColor.cs" />
+     <Compile Include="Assets\Scripts\Laser\Laser.cs" />
+     <Compile Include="Assets\Graphics\Test_Enviro\FirstPerson\Scripts\Components\Crouch.cs" />
      <Compile Include="Assets\Scripts\Player\CameraController.cs" />
+     <Compile Include="Assets\Scripts\Player\RotateObject.cs" />
+     <Compile Include="Assets\Scripts\Laser\LaserReceptor.cs" />
+     <Compile Include="Assets\Graphics\Test_Enviro\FirstPerson\Scripts\Components\GroundCheck.cs" />
  <Reference Include="UnityEngine">
  <HintPath>C:/Program Files/Unity/Hub/Editor/2020.3.2f1/Editor/Data/Managed/UnityEngine/UnityEngine.dll</HintPath>
  </Reference>

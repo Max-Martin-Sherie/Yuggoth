@@ -1,3 +1,5 @@
+using System;
+using TMPro;
 using UnityEngine;
 public class PickupRb : MonoBehaviour
 {
@@ -8,20 +10,26 @@ public class PickupRb : MonoBehaviour
     [SerializeField] private Transform m_oldParent;
 
     private GameObject m_heldObj = null;
-    
+
+    private Camera m_camera;
+
+    private void Start()
+    {
+        m_camera = Camera.main;
+    }
 
     void Update()
     {
-        if (Input.GetButtonDown("Fire2"))
+        if (Input.GetButtonDown("Fire1"))
         {
-            if (m_heldObj == null)
+            if (!m_heldObj)
             {
                 RaycastHit hit;
-                if (Physics.Raycast(transform.position, transform.forward, out hit, m_pickUpRange))
+                if (Physics.Raycast(m_camera.transform.position, m_camera.transform.forward, out hit, m_pickUpRange))
                 {
-                    PickUpObject(hit.transform.gameObject);
+                    GameObject hitObject = hit.transform.gameObject;
+                    if (hitObject != gameObject) PickUpObject(hit.transform.gameObject);
                 }
-                Debug.Log("essaie");
             }
             else if(m_heldObj != null)
             {
@@ -29,7 +37,7 @@ public class PickupRb : MonoBehaviour
             }
         }
 
-        if(m_heldObj != null)
+        if(m_heldObj)
         {
             MoveObject();
         }
