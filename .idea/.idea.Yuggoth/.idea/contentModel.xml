@@ -33,8 +33,10 @@
           </e>
         </e>
         <e p="Scripts" t="Include">
-          <e p="Laser" t="Include">
+          <e p="_Archive" t="Include">
             <e p="Laser.cs" t="Include" />
+          </e>
+          <e p="Laser" t="Include">
             <e p="LaserChangeColor.cs" t="Include" />
             <e p="LaserReceptor.cs" t="Include" />
             <e p="LaserReflector.cs" t="Include" />
@@ -44,6 +46,7 @@
           <e p="Player" t="Include">
             <e p="CameraController.cs" t="Include" />
             <e p="CharaControllerRB.cs" t="Include" />
+            <e p="InteractRaycast.cs" t="Include" />
             <e p="PickupRb.cs" t="Include" />
             <e p="RotateObject.cs" t="Include" />
           </e>

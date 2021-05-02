@@ -11,7 +11,7 @@ using UnityEngine;
 public class CharaControllerRB : MonoBehaviour
 {
     //This class uses RigiBody based movement
-    private Rigidbody m_rb;
+    [HideInInspector]public Rigidbody m_rb;
     
     //Global Variables that can be changed by the user in the unity inspector
     [Header("Movement")]
@@ -24,6 +24,8 @@ public class CharaControllerRB : MonoBehaviour
     [SerializeField][Range(0,5)]private float m_groundDrag;
     [Tooltip("The level of control over his movement the character has in both states (in air & grounded)")]
     [SerializeField][Range(0,0.5f)]private float m_airDrag;
+
+    public bool m_canJump = true;
     
     private bool m_hasJumped = false;
     public bool m_grounded;
@@ -76,7 +78,7 @@ public class CharaControllerRB : MonoBehaviour
         // Be grounded
         // Isn't holding in the jump key since his last jump
         // Is pressing the jump key
-        if (m_grounded && !m_hasJumped && Input.GetAxis("Jump") != 0)
+        if (m_grounded && m_canJump && !m_hasJumped && Input.GetAxis("Jump") != 0)
         {
             //Making the GameObject jump
             Jump(m_jumpHeight);

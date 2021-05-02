@@ -48,6 +48,7 @@ public class LaserSource : MonoBehaviour
         //Doing a raycast to simulate if the laser hit something or not
         if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit, m_laserRange))
         {
+            m_lr.positionCount = 2;
             //Seeting the position of the second point the first shot
             m_lr.SetPosition(1,hit.point);
             
