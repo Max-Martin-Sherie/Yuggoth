@@ -394,3 +394,66 @@ Received Import Request.
 Start importing Assets/Scenes/Test_Dev_CharaController.unity using Guid(0c5aac6a803dade40926e69810a51475) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'b20ff81774c192e4d34d0ecaace49bcf') in 0.021983 seconds
   Import took 0.028517 seconds .
 
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001497 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.51 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Warning: Annotation not found!
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs:593)
+UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/HierarchyListener.cs:21)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs line 593]
+
+Received signal SIGSEGV
+Stack trace:
+0x00007ff6391de9eb (Unity) <lambda_a5913db5b2e4c341c16d5dbfce51ef6f>::operator()
+0x00007ff639156954 (Unity) LMDB_Transaction::Run
+0x00007ff6391f6849 (Unity) SourceAssetScanner::Refresh
+0x00007ff63918bd04 (Unity) ImportAtPathV2
+0x00007ff6390f53fd (Unity) AssetDatabase::ImportAtPath
+0x00007ff63917cc06 (Unity) CreateFolderV2
+0x00007ff6390ebf6e (Unity) AssetDatabase::CreateFolder
+0x00007ff639903f7f (Unity) AssetDatabaseBindings::CreateFolder
+0x00007ff639805ea8 (Unity) AssetDatabase_CUSTOM_CreateFolder
+0x00000206c782f74d (Mono JIT Code) (wrapper managed-to-native) UnityEditor.AssetDatabase:CreateFolder (string,string)
+0x00000206c782f3e3 (Mono JIT Code) [CreateLocalDepotOnLaunch.cs:17] Startup:.cctor () 
+0x00000206c782f4fd (Mono JIT Code) (wrapper runtime-invoke) object:runtime_invoke_void (object,intptr,intptr,intptr)
+0x00007ffd2b95e640 (mono-2.0-bdwgc) [mini-runtime.c:2812] mono_jit_runtime_invoke 
+0x00007ffd2b8e2ac2 (mono-2.0-bdwgc) [object.c:2921] do_runtime_invoke 
+0x00007ffd2b8eb1dc (mono-2.0-bdwgc) [object.c:477] mono_runtime_class_init_full 
+0x00007ffd2b898d3e (mono-2.0-bdwgc) [icall.c:990] ves_icall_System_Runtime_CompilerServices_RuntimeHelpers_RunClassConstructor 
+0x00000206c63b6710 (Mono JIT Code) (wrapper managed-to-native) System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (intptr)
+0x00000206c63b65fb (Mono JIT Code) System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+0x00000206c63b6473 (Mono JIT Code) UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+0x00000206c887ce20 (Mono JIT Code) (wrapper runtime-invoke) <Module>:runtime_invoke_void_object (object,intptr,intptr,intptr)
+0x00007ffd2b95e640 (mono-2.0-bdwgc) [mini-runtime.c:2812] mono_jit_runtime_invoke 
+0x00007ffd2b8e2ac2 (mono-2.0-bdwgc) [object.c:2921] do_runtime_invoke 
+0x00007ffd2b8ebb1f (mono-2.0-bdwgc) [object.c:2968] mono_runtime_invoke 
+0x00007ff6379b67b4 (Unity) scripting_method_invoke
+0x00007ff6379af135 (Unity) ScriptingInvocation::Invoke
+0x00007ff6379a8035 (Unity) ScriptingInvocation::Invoke<void>
+0x00007ff63604588b (Unity) Scripting::UnityEditor::EditorAssembliesProxy::ProcessInitializeOnLoadAttributes
+0x00007ff63797cb85 (Unity) MonoManager::SetupLoadedEditorAssemblies
+0x00007ff637973e8c (Unity) MonoManager::EndReloadAssembly
+0x00007ff63797ad69 (Unity) MonoManager::ReloadAssembly
+0x00007ff638d1d691 (Unity) LoadDomainAndUserAssemblies
+0x00007ff638d1db3e (Unity) LoadUserAssemblies
+0x00007ff6391514e8 (Unity) <lambda_79a3ebc38cb5166d44d10a16a21fca24>::operator()
+0x00007ff63921c6e2 (Unity) asio::detail::completion_handler<core::mutable_function<void __cdecl(void)> >::do_complete
+0x00007ff63921e840 (Unity) asio::detail::win_iocp_io_service::do_one
+0x00007ff639221fce (Unity) asio::io_service::run
+0x00007ff639198050 (Unity) RunAssetImportWorkerClientV2
+0x00007ff6391980a0 (Unity) RunAssetImporterV2
+0x00007ff6386a89e6 (Unity) Application::InitializeProject
+0x00007ff6390248b2 (Unity) WinMain
+0x00007ff63ae9c916 (Unity) __scrt_common_main_seh
+0x00007ffdd97a7034 (KERNEL32) BaseThreadInitThunk
+0x00007ffddb202651 (ntdll) RtlUserThreadStart
+
