@@ -25,7 +25,7 @@ public class CharaControllerRB : MonoBehaviour
     [Tooltip("The level of control over his movement the character has in both states (in air & grounded)")]
     [SerializeField][Range(0,0.5f)]private float m_airDrag;
 
-    public bool m_canJump = true;
+    [HideInInspector]public bool m_canJump = true;
     
     private bool m_hasJumped = false;
     public bool m_grounded;
