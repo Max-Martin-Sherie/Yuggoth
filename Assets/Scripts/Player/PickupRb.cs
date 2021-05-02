@@ -6,7 +6,7 @@ public class PickupRb : MonoBehaviour
     [SerializeField] float m_minRange = 1;
     
     [SerializeField] private float m_moveForce = 150f;
-    [SerializeField][Range(0,50)] private float m_maxVelocity = 4;
+    [SerializeField][Range(0,100)] private float m_maxVelocity = 4;
     [SerializeField] private Transform m_newParent;
     [SerializeField][Range(-1.5f,1.5f)][Tooltip("the offset of the height at which the cube will be held")] private float m_yOffset = -0.2f;
     [SerializeField][Range(0, 2)][Tooltip("the size of the steps at which the player will pickup the cube")] private float m_step = 0.5f;
@@ -21,10 +21,13 @@ public class PickupRb : MonoBehaviour
 
     private GameObject m_seenObject;
     
+    
+    
     private void Start()
     {
         m_camera = Camera.main;
         m_oldParent = transform.parent;
+
     }
 
     void Update()
@@ -37,16 +40,17 @@ public class PickupRb : MonoBehaviour
             {
                 if (m_seenObject != InteractRaycast.m_hitTarget.collider.gameObject)
                 {
-                    if(m_seenObject) m_seenObject.GetComponent<MeshRenderer>().material.color = Color.gray;
+                    //Changing the metallic instead of the color material because i can't get the initial color of a pickable obj (Nono) 
+                    if(m_seenObject) m_seenObject.GetComponent<MeshRenderer>().material.SetFloat("_Metallic", 0f);
                     m_seenObject = InteractRaycast.m_hitTarget.collider.gameObject;
-                    m_seenObject.GetComponent<MeshRenderer>().material.color = Color.yellow;
+                    m_seenObject.GetComponent<MeshRenderer>().material.SetFloat("_Metallic", 1f);
                 }
             }
             else
             {
                 if (m_seenObject)
                 {
-                    m_seenObject.GetComponent<MeshRenderer>().material.color = Color.gray;
+                    m_seenObject.GetComponent<MeshRenderer>().material.SetFloat("_Metallic", 0f);
                     m_seenObject = null;
                 }
             }
@@ -95,7 +99,7 @@ public class PickupRb : MonoBehaviour
 
     private void MoveObject()
     {
-        m_heldObj.GetComponent<MeshRenderer>().material.color = Color.green;
+        //m_heldObj.GetComponent<MeshRenderer>().material.color = Color.green;
         if(Vector3.Distance(m_heldObj.transform.position, m_newParent.position) > 0.1f)
         {
             Vector3 moveDir = m_newParent.position - m_heldObj.transform.position;
@@ -143,7 +147,10 @@ public class PickupRb : MonoBehaviour
 
     private void DropObject()
     {
-        m_heldObj.GetComponent<MeshRenderer>().material.color = Color.gray;
+        // (Temporary line) When the object is dropped, it faces the player (used only for the box in the holes puzzle) 
+        m_heldObj.transform.localRotation = new Quaternion(0, 0, 0, 0);
+        
+        m_heldObj.GetComponent<MeshRenderer>().material.SetFloat("_Metallic", 0f);
         Rigidbody heldRb = m_heldObj.GetComponent<Rigidbody>();
         heldRb.useGravity = true;
         heldRb.drag = 1;

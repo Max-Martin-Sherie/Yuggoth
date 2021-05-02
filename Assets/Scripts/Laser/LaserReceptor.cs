@@ -7,7 +7,7 @@ using UnityEngine;
 
 public class LaserReceptor : MonoBehaviour
 {
-    [HideInInspector]
+    //[HideInInspector]
     public bool m_laserHit = false;
     
     //Declaration of the variable that will hold all the info about the incoming laser
