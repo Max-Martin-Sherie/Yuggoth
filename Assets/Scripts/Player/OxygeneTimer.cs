@@ -16,7 +16,7 @@ public class OxygeneTimer : MonoBehaviour
     [HideInInspector]
     public bool m_stopTimer;
 
-    private PlayerController m_playerController;
+    private CharaControllerRb m_playerController;
     private CameraController m_cameraController;
 
 
@@ -25,7 +25,7 @@ public class OxygeneTimer : MonoBehaviour
 
     private void Start()
     {
-        m_playerController = GetComponent<PlayerController>();
+        m_playerController = GetComponent<CharaControllerRb>();
         m_cameraController = GetComponent<CameraController>();
 
         m_onO2 = false;
@@ -47,9 +47,9 @@ public class OxygeneTimer : MonoBehaviour
 
         if (time <= 0)
         {
-            m_playerController.m_moveDir = new Vector3(0f, 0f, 0f);
-            m_cameraController.m_xInvertion = 0;
-            m_cameraController.m_yInvertion = 0;
+            m_playerController.m_moveSpeed = new Vector3(0f, 0f, 0f);
+            m_cameraController.m_xRotation = 0;
+            m_cameraController.m_yRotation = 0;
         }
 
         if (!m_stopTimer)

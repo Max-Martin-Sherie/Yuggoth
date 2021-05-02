@@ -4,20 +4,18 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    [Range(200, 1000)] private float m_mouseSensitivity = 200;
+    [Range(200, 1000)] public float m_mouseSensitivity = 200;
+    [SerializeField] [Range(-1,1)] private int m_yInvertion = -1;
+    [SerializeField] [Range(-1, 1)] private int m_xInvertion = 1;
 
-    //Valeurs d'inversion de la caméra
-    [SerializeField] [Range(-1,1)] public int m_yInvertion = -1;
-    [SerializeField] [Range(-1, 1)] public int m_xInvertion = 1;
-
-    private Camera m_cam;
+    private GameObject m_cam;
 
     private float m_xRotation;
     private float m_yRotation;
 
     private void Start()
     {
-        m_cam = GetComponentInChildren<Camera>();
+        m_cam = GetComponentInChildren<Camera>().gameObject;
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
