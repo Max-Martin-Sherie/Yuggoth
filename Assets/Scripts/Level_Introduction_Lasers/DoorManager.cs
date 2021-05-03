@@ -1,43 +1,37 @@
+
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using JetBrains.Annotations;
 using UnityEngine;
 
 public class DoorManager : MonoBehaviour
 {
-    private GameObject m_door;
-    private LaserReceptor m_receptorScript;
-    [SerializeField] private List<GameObject> m_doors;
-    [SerializeField] private List<LaserReceptor> m_laserReceptors;
+    [SerializeField] private DoorAndReceptors[] m_doorAndReceptors;
     
-    /// <summary>
-    /// Set the game object m_door to be the first door in the list 
-    /// </summary>
-    private void Start()
-    {
-        m_door = m_doors[0];
-        
-        for (int i = 0; i < m_laserReceptors.Count; i++)
-        {
-            GetComponent<LaserReceptor>();
-        }
-        
-    }
 
     private void Update()
     {
-        for (int i = 0; i < m_doors.Count; i++)
+        foreach (DoorAndReceptors system in m_doorAndReceptors)
         {
-            if (m_laserReceptors[i].m_laserHit)
+            bool allEnabled = true;
+            foreach (LaserReceptor receptor in system._receptors)
             {
-                m_doors[i].gameObject.SetActive(false);
+                if (!receptor.m_laserHit)
+                {
+                    allEnabled = false;
+                    break;
+                }
             }
 
-            else
-            {
-                m_doors[i].gameObject.SetActive(true);
-            }
+            if (allEnabled) system._door.SetActive(system._invert);
+            else system._door.SetActive(!system._invert);
         }
+    }
+
+    [System.Serializable]
+    struct DoorAndReceptors
+    {
+        public GameObject _door;
+        public LaserReceptor[] _receptors;
+        public bool _invert;
     }
 }
