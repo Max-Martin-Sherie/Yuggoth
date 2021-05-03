@@ -66,7 +66,7 @@ public class TestSlope : MonoBehaviour
         Vector3 inputMove = transform.forward * (Input.GetAxis("Vertical"));
         inputMove += transform.right * (Input.GetAxis("Horizontal"));
 
-        inputMove = Vector3.Normalize(inputMove);
+        //inputMove = Vector3.Normalize(inputMove);
         
         
 
