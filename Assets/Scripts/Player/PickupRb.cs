@@ -147,9 +147,7 @@ public class PickupRb : MonoBehaviour
 
     private void DropObject()
     {
-        // (Temporary line) When the object is dropped, it faces the player (used only for the box in the holes puzzle) 
-        m_heldObj.transform.localRotation = new Quaternion(0, 0, 0, 0);
-        
+       
         m_heldObj.GetComponent<MeshRenderer>().material.SetFloat("_Metallic", 0f);
         Rigidbody heldRb = m_heldObj.GetComponent<Rigidbody>();
         heldRb.useGravity = true;
