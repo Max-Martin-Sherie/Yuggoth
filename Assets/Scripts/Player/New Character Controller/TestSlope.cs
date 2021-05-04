@@ -1,14 +1,11 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
-using UnityEngine.EventSystems;
-using UnityEngine.Serialization;
 
 public class TestSlope : MonoBehaviour
 {
     
     CharacterController m_cr = null;
-    Vector3 m_hitNormal = Vector3.zero;
+    public Vector3 m_hitNormal = Vector3.zero;
     public Vector3 m_velocity = Vector3.zero;
 
     [SerializeField] private float m_moveSpeed = 1;
@@ -17,12 +14,18 @@ public class TestSlope : MonoBehaviour
     [SerializeField] float m_gravity = 9.81f;
     [SerializeField] private bool m_useUnityPhysicsGravity;
     [SerializeField][Range(0.5f,1)] private float m_drag;
-    [SerializeField] private bool m_instantStop;
     
     
     [SerializeField] private bool m_showForces;
 
     public bool m_isOnSlope;
+
+    private void OnDrawGizmos()
+    {
+        CharacterController cr = GetComponent<CharacterController>();
+        Gizmos.color = Color.green;
+        Gizmos.DrawSphere(transform.position + Vector3.down * (cr.height / 2 - cr.radius/2) , cr.radius+0.05f);
+    }
 
     // Start is called before the first frame update
     void Start()
@@ -30,50 +33,30 @@ public class TestSlope : MonoBehaviour
         m_cr = GetComponent<CharacterController>();
 
         if (m_useUnityPhysicsGravity) m_gravity = Physics.gravity.y;
-        if (m_instantStop) m_drag = 0;
     }
-    
+
     // Update is called once per frame
     void Update()
     {
-        //If the player is grounded reset the hit normal
-        if (!m_cr.isGrounded)
-        {
-            m_hitNormal = Vector3.up;
-        }
-
-        
-
-        
+        float radius = m_cr.radius;
+        bool grounded = Physics.CheckSphere(transform.position + Vector3.down* (m_cr.height / 2 - radius/2), radius+0.05f,~LayerMask.GetMask("Player"));
         if(m_showForces) DebugForce(); //Show the forces applied to the player in the form of debug Rays
 
+        Debug.Log(grounded);
         
         //Cheking if the player is on a slope
         m_isOnSlope = (Vector3.Angle(Vector3.up, m_hitNormal) > m_cr.slopeLimit);
         
         
         //If the player is grounded resetting the gravity and giving the player the possibility to jump
-        if (!m_isOnSlope && m_cr.isGrounded)
+        if (!m_isOnSlope && grounded)
         {
-            m_velocity.y = 0;
+            if (m_velocity.y < 0) m_velocity.y = 0;
             if(Input.GetButton("Jump"))m_velocity.y = Mathf.Sqrt(m_jumpHeight * -2f * m_gravity);
         }
         
-        //Update Gravity
-        m_velocity.y += m_gravity * Time.deltaTime;
-        
-        //Adding the players input
-        Vector3 inputMove = transform.forward * (Input.GetAxis("Vertical"));
-        inputMove += transform.right * (Input.GetAxis("Horizontal"));
-
-        //inputMove = Vector3.Normalize(inputMove);
-        
-        
-
-        inputMove*= (m_moveSpeed * 0.1f);
-        
         //if the player is on a slope apply the sliding force
-        if (m_isOnSlope)
+        if (m_isOnSlope && grounded)
         {
             float yOpposite = 1f - m_hitNormal.y;
             
@@ -81,10 +64,23 @@ public class TestSlope : MonoBehaviour
             m_velocity.z += (yOpposite * m_hitNormal.z) * m_slideAcceleration;
         }
         
-        Debug.Log(inputMove);
+        //Update Gravity
+        m_velocity.y += m_gravity * Time.deltaTime;
+        
+        //https://www.youtube.com/watch?v=ybljJGA1ksk
+        
+        //Adding the players input
+        Vector3 inputMove = transform.forward * Input.GetAxis("Vertical");
+        inputMove += transform.right * Input.GetAxis("Horizontal");
+
+        //inputMove = Vector3.Normalize(inputMove);
+        inputMove*= (m_moveSpeed * 0.1f);
+
+        inputMove = Vector3.ProjectOnPlane(inputMove, m_hitNormal);
+        
         
         m_velocity += inputMove;
-        
+
         //Apply velocity
         m_cr.Move( m_velocity * Time.deltaTime);
 
@@ -92,7 +88,7 @@ public class TestSlope : MonoBehaviour
         m_velocity.x *= m_drag;
         m_velocity.z *= m_drag;
         
-        Debug.Log(new Vector2(m_velocity.x,m_velocity.z).magnitude);
+        if(grounded)m_velocity.y *= m_drag;
     }
 
     void OnControllerColliderHit(ControllerColliderHit hit)
