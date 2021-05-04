@@ -38,6 +38,10 @@ public class TestSlope : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        //Apply velocity
+        m_cr.Move( m_velocity * Time.deltaTime);
+        
+        
         float radius = m_cr.radius;
         bool grounded = Physics.CheckSphere(transform.position + Vector3.down* (m_cr.height / 2 - radius/2), radius+0.05f,~LayerMask.GetMask("Player"));
         if(m_showForces) DebugForce(); //Show the forces applied to the player in the form of debug Rays
@@ -63,10 +67,9 @@ public class TestSlope : MonoBehaviour
             m_velocity.x += (yOpposite * m_hitNormal.x) * m_slideAcceleration;
             m_velocity.z += (yOpposite * m_hitNormal.z) * m_slideAcceleration;
         }
-        
         //Update Gravity
-        m_velocity.y += m_gravity * Time.deltaTime;
-        
+        if(!grounded || m_isOnSlope)m_velocity.y += m_gravity * Time.deltaTime;
+
         //https://www.youtube.com/watch?v=ybljJGA1ksk
         
         //Adding the players input
@@ -76,13 +79,15 @@ public class TestSlope : MonoBehaviour
         //inputMove = Vector3.Normalize(inputMove);
         inputMove*= (m_moveSpeed * 0.1f);
 
-        inputMove = Vector3.ProjectOnPlane(inputMove, m_hitNormal);
+        if(grounded){
+            if (Physics.Raycast(transform.position + Vector3.down * (m_cr.height / 2), Vector3.down, out RaycastHit hit, 0.2f))
+                inputMove = Vector3.ProjectOnPlane(inputMove, hit.normal);
+            else
+                inputMove = Vector3.ProjectOnPlane(inputMove, m_hitNormal);
+        }
         
         
         m_velocity += inputMove;
-
-        //Apply velocity
-        m_cr.Move( m_velocity * Time.deltaTime);
 
         //Apply Drag
         m_velocity.x *= m_drag;
