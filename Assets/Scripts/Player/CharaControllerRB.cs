@@ -16,7 +16,7 @@ public class CharaControllerRB : MonoBehaviour
     //Global Variables that can be changed by the user in the unity inspector
     [Header("Movement")]
     [SerializeField][Tooltip("The movement speed of the player")][Range(0,30)]public float m_moveSpeed;
-    [SerializeField][Tooltip("the jump height in meters")][Range(0,5)]private float m_jumpHeight;
+    [SerializeField][Tooltip("the jump height in meters")][Range(0,5)]public float m_jumpHeight;
     [SerializeField][Tooltip("the level of slobe at which the player registers himself as not grounded anymore")][Range(0,90)] private short m_slideAngle;
 
     [Header("Drag")]
@@ -25,22 +25,26 @@ public class CharaControllerRB : MonoBehaviour
     [Tooltip("The level of control over his movement the character has in both states (in air & grounded)")]
     [SerializeField][Range(0,0.5f)]private float m_airDrag;
 
-    public bool m_canJump = true;
+    [HideInInspector]public bool m_canJump = true;
+    
+        public bool m_leftRightFrozen = false;
+        
+    #region private & hide
     
     private bool m_hasJumped = false;
     public bool m_grounded;
     private Vector3 m_groundNormal;
     private int m_collsionCount;
     private float m_colliderWidth;
-
-
-    public bool m_leftRightFrozen = false;
+    
     /**/
     
     //(to be removed before launch) the position at which the player starts tz
     
     private Vector3 m_startPos;
     /**/
+    
+    #endregion
 
     /// <summary>
     /// Start is called before the first frame update
