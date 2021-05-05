@@ -6,9 +6,10 @@ public class PlayerMove : MonoBehaviour
 {
     
     CharacterController m_cr = null;
-    Vector3 m_velocity = Vector3.zero;
+    public Vector3 m_velocity = Vector3.zero;
+    [HideInInspector]public bool m_canJump = true;
 
-    [SerializeField][Tooltip("The player's movement speed")] private float m_moveSpeed = 1;
+    [SerializeField][Tooltip("The player's movement speed")]public float m_moveSpeed = 1;
     [SerializeField][Tooltip("The player's jump height in meters")] private float m_jumpHeight;
     [SerializeField][Tooltip("The speed at which the player will fall while sliding")] private float m_slideAcceleration;
     [SerializeField][Tooltip("The acceleration of the gravity applied top the player")] float m_gravity = 9.81f;
@@ -71,7 +72,7 @@ public class PlayerMove : MonoBehaviour
             inputMove = Vector3.ProjectOnPlane(inputMove, hitNormal);
             
             //Fetching the jump key and jumping
-            if(Input.GetButton("Jump")) m_velocity.y = Mathf.Sqrt(m_jumpHeight * -2f * m_gravity); //Jump height is accurate
+            if(Input.GetButton("Jump") && m_canJump) m_velocity.y = Mathf.Sqrt(m_jumpHeight * -2f * m_gravity); //Jump height is accurate
         }else m_velocity.y += m_gravity * Time.deltaTime; //Adding gravity
         
         //Adding the player's input to the global velocity

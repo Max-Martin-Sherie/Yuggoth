@@ -11,7 +11,7 @@ public class RotateObject : MonoBehaviour
     [SerializeField][Tooltip("Speed at which an object can be rotated")] private float m_rotateSpeed;
 
     // Fetching the scripts that output the player's info to modify
-    private CharaControllerRB m_controllerScript;
+    private PlayerMove m_controllerScript;
     private CameraController m_cameraController;
     
     //creating a camera for the raycast
@@ -24,7 +24,7 @@ public class RotateObject : MonoBehaviour
     private void Start()
     {
         //Fetching the component scripts that output the player's info to modify
-        m_controllerScript = GetComponent<CharaControllerRB>();
+        m_controllerScript = GetComponent<PlayerMove>();
         m_cameraController = GetComponent<CameraController>();
 
         //Getting the original movement speed and sensitivity of the player
@@ -58,8 +58,8 @@ public class RotateObject : MonoBehaviour
                     
                     
                     //Making the player loose all velocity except on the y axis
-                    float y = m_controllerScript.m_rb.velocity.y;
-                    m_controllerScript.m_rb.velocity = new Vector3(Vector3.zero.x,y,Vector3.zero.z);
+                    float y = m_controllerScript.m_velocity.y;
+                    m_controllerScript.m_velocity = new Vector3(Vector3.zero.x,y,Vector3.zero.z);
                     
                     //Using his mouse laser input to rotate  the object
                     float horizontal = Input.GetAxis("Mouse X");
