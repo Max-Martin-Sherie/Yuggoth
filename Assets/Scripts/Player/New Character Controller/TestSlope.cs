@@ -5,7 +5,6 @@ public class TestSlope : MonoBehaviour
 {
     
     CharacterController m_cr = null;
-    public Vector3 m_hitNormal = Vector3.zero;
     public Vector3 m_velocity = Vector3.zero;
 
     [SerializeField] private float m_moveSpeed = 1;
@@ -15,16 +14,12 @@ public class TestSlope : MonoBehaviour
     [SerializeField] private bool m_useUnityPhysicsGravity;
     [SerializeField][Range(0.5f,1)] private float m_drag;
     
-    
-    [SerializeField] private bool m_showForces;
-
-    public bool m_isOnSlope;
-
+    private MeshRenderer m_meshRenderer;
     private void OnDrawGizmos()
     {
         CharacterController cr = GetComponent<CharacterController>();
         Gizmos.color = Color.green;
-        Gizmos.DrawSphere(transform.position + Vector3.down * (cr.height / 2 - cr.radius/2) , cr.radius+0.05f);
+        Gizmos.DrawSphere( transform.position + Vector3.down * ((cr.height / 2f) - cr.radius ) , cr.radius);
     }
 
     // Start is called before the first frame update
@@ -33,84 +28,65 @@ public class TestSlope : MonoBehaviour
         m_cr = GetComponent<CharacterController>();
 
         if (m_useUnityPhysicsGravity) m_gravity = Physics.gravity.y;
+
+        m_meshRenderer = GetComponent<MeshRenderer>();
     }
 
+  //  [SerializeField] private float m_castTravel = 0.2f;
+
     // Update is called once per frame
-    void Update()
-    {
-        //Apply velocity
-        m_cr.Move( m_velocity * Time.deltaTime);
+    void FixedUpdate() {
         
+        float radius = m_cr.radius; //The radius of the character controller
         
-        float radius = m_cr.radius;
-        bool grounded = Physics.CheckSphere(transform.position + Vector3.down* (m_cr.height / 2 - radius/2), radius+0.05f,~LayerMask.GetMask("Player"));
-        if(m_showForces) DebugForce(); //Show the forces applied to the player in the form of debug Rays
+        //The point from where the ground checking SphereCast will be sent
+        //It will be sent from the bottom of the capsule collider of the character controller downwards
+        Vector3 origin = transform.position + Vector3.down * (m_cr.height / 2f - radius ); 
 
-        Debug.Log(grounded);
+        //Sending out the sphereCast to check the position of the player
+        bool grounded = Physics.SphereCast(origin,radius, Vector3.down, out RaycastHit hit, .1f);
         
-        //Cheking if the player is on a slope
-        m_isOnSlope = (Vector3.Angle(Vector3.up, m_hitNormal) > m_cr.slopeLimit);
+        Vector3 hitNormal = hit.normal; //The ground hit normal
         
-        
-        //If the player is grounded resetting the gravity and giving the player the possibility to jump
-        if (!m_isOnSlope && grounded)
+        //using the character controller's slope limit to check if the player is on a slope or not
+        bool onSlope = (Vector3.Angle(Vector3.up, hitNormal) > m_cr.slopeLimit);
+
+        //Making the player slide down a slope if he is on one
+        if (onSlope)
         {
-            if (m_velocity.y < 0) m_velocity.y = 0;
-            if(Input.GetButton("Jump"))m_velocity.y = Mathf.Sqrt(m_jumpHeight * -2f * m_gravity);
-        }
-        
-        //if the player is on a slope apply the sliding force
-        if (m_isOnSlope && grounded)
-        {
-            float yOpposite = 1f - m_hitNormal.y;
+            float yOpposite = 1f - hitNormal.y; //avoiding a recurring operation
             
-            m_velocity.x += (yOpposite * m_hitNormal.x) * m_slideAcceleration;
-            m_velocity.z += (yOpposite * m_hitNormal.z) * m_slideAcceleration;
+            //Moving the player down
+            m_velocity.x += (yOpposite * hitNormal.x) * m_slideAcceleration;
+            m_velocity.z += (yOpposite * hitNormal.z) * m_slideAcceleration;
         }
-        //Update Gravity
-        if(!grounded || m_isOnSlope)m_velocity.y += m_gravity * Time.deltaTime;
-
-        //https://www.youtube.com/watch?v=ybljJGA1ksk
         
-        //Adding the players input
+        //Fetching the player's input 
         Vector3 inputMove = transform.forward * Input.GetAxis("Vertical");
         inputMove += transform.right * Input.GetAxis("Horizontal");
 
-        //inputMove = Vector3.Normalize(inputMove);
+        //Adding the speed plus a small multiplier to it
         inputMove*= (m_moveSpeed * 0.1f);
-
-        if(grounded){
-            if (Physics.Raycast(transform.position + Vector3.down * (m_cr.height / 2), Vector3.down, out RaycastHit hit, 0.2f))
-                inputMove = Vector3.ProjectOnPlane(inputMove, hit.normal);
-            else
-                inputMove = Vector3.ProjectOnPlane(inputMove, m_hitNormal);
-        }
         
+        //Projecting the player's movement direction onto a plane to avoid stepping
+        if(!onSlope && grounded){
+            inputMove = Vector3.ProjectOnPlane(inputMove, hitNormal);
+            
+            //Fetching the jump key and jumping
+            if(Input.GetButton("Jump")) m_velocity.y = Mathf.Sqrt(m_jumpHeight * -2f * m_gravity); //Jump height is accurate
+        }else m_velocity.y += m_gravity * Time.deltaTime; //Adding gravity
         
+        //Adding the player's input to the global velocity
         m_velocity += inputMove;
 
-        //Apply Drag
+        //Applying Drag to the horizontal axis
         m_velocity.x *= m_drag;
         m_velocity.z *= m_drag;
         
-        if(grounded)m_velocity.y *= m_drag;
+        //Applying drag to the vertical axis if the player is grounded and on a slope
+        if(grounded && !onSlope) m_velocity.y *= m_drag;
+        
+        //Applying the global velocity
+        m_cr.Move( m_velocity * Time.deltaTime);
     }
-
-    void OnControllerColliderHit(ControllerColliderHit hit)
-    {
-        m_hitNormal = hit.normal;
-    }
-    
-    /// <summary>
-    /// A function to draw rays according to the different forces applied to the object
-    /// </summary>
-    private void DebugForce()
-    {
-            //Debug Rays
-            Vector3 position = transform.position;
-            Debug.DrawRay(position, Vector3.Scale(m_velocity , new Vector3(1, 0, 1)) * m_velocity.magnitude / 30, Color.blue); //horizontal velocity
-            Debug.DrawRay(position, Vector3.down * m_velocity.y / 30, Color.red); //vertical velocity
-            Debug.DrawRay(position, m_velocity * m_velocity.magnitude / 30, Color.green); //general velocity
-    }
-
 }
