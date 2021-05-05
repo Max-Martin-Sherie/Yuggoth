@@ -1,20 +1,20 @@
-using System;
 using UnityEngine;
-
-public class TestSlope : MonoBehaviour
+/// <summary>
+/// This class allows the player to control a gameObject using the horizontal and vertical axis
+/// </summary>
+public class PlayerMove : MonoBehaviour
 {
     
     CharacterController m_cr = null;
-    public Vector3 m_velocity = Vector3.zero;
+    Vector3 m_velocity = Vector3.zero;
 
-    [SerializeField] private float m_moveSpeed = 1;
-    [SerializeField] private float m_jumpHeight;
-    [SerializeField] private float m_slideAcceleration;
-    [SerializeField] float m_gravity = 9.81f;
-    [SerializeField] private bool m_useUnityPhysicsGravity;
-    [SerializeField][Range(0.5f,1)] private float m_drag;
+    [SerializeField][Tooltip("The player's movement speed")] private float m_moveSpeed = 1;
+    [SerializeField][Tooltip("The player's jump height in meters")] private float m_jumpHeight;
+    [SerializeField][Tooltip("The speed at which the player will fall while sliding")] private float m_slideAcceleration;
+    [SerializeField][Tooltip("The acceleration of the gravity applied top the player")] float m_gravity = 9.81f;
+    [SerializeField][Tooltip("If enabled the previously set gravity value will be replaced by the in game gravity")] private bool m_useUnityPhysicsGravity;
+    [SerializeField][Tooltip("The multiplier that will be affected to the acceleration every frame")][Range(0.5f,1)] private float m_drag;
     
-    private MeshRenderer m_meshRenderer;
     private void OnDrawGizmos()
     {
         CharacterController cr = GetComponent<CharacterController>();
@@ -25,11 +25,9 @@ public class TestSlope : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        m_cr = GetComponent<CharacterController>();
+        m_cr = GetComponent<CharacterController>();//Fetching the character controller
 
-        if (m_useUnityPhysicsGravity) m_gravity = Physics.gravity.y;
-
-        m_meshRenderer = GetComponent<MeshRenderer>();
+        if (m_useUnityPhysicsGravity) m_gravity = Physics.gravity.y; //if the m_useUnityPhysicsGravity bool is enabled then replacing the in game gravity by the default unity one
     }
 
   //  [SerializeField] private float m_castTravel = 0.2f;

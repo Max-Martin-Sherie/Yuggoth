@@ -84,7 +84,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8862348629703936180}
-  - component: {fileID: 8862348629703936182}
+  - component: {fileID: 7023959137304098750}
   - component: {fileID: 1971044425100267106}
   - component: {fileID: 6025888775239353068}
   - component: {fileID: 2566867900074197638}
@@ -117,7 +117,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8862348629703936182
+--- !u!114 &7023959137304098750
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -126,18 +126,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 8862348629703936191}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f498c691322186a4fa188d6b6c7a9752, type: 3}
+  m_Script: {fileID: 11500000, guid: f8a9fe09e385ec14ea11b245a366cb63, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_rb: {fileID: 0}
-  m_moveSpeed: 19.8
-  m_jumpHeight: 3.03
-  m_slideAngle: 45
-  m_groundDrag: 1.89
-  m_airDrag: 0.069
-  m_canJump: 1
-  m_grounded: 0
-  m_leftRightFrozen: 0
+  m_velocity: {x: 0, y: 0, z: 0}
+  m_moveSpeed: 4
+  m_jumpHeight: 2
+  m_slideAcceleration: 6
+  m_gravity: -9.81
+  m_useUnityPhysicsGravity: 1
+  m_drag: 0.862
 --- !u!114 &1971044425100267106
 MonoBehaviour:
   m_ObjectHideFlags: 0
