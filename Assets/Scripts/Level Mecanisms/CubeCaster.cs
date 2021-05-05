@@ -13,7 +13,7 @@ public class CubeCaster : MonoBehaviour
     //Creation du delegate qui sera appele lorsque le raycast sera complet
     public delegate void RaycastDelegate();
     public static event RaycastDelegate onRaycastComplete;
-    
+
     //Bool qui gere si le poteau active ou desactive un objet 
     [Tooltip("Si ce boolean est false alors le poteau va activer le target objet, si ce boolean est true alors le poteau va desactiver le target objet ")]
     [SerializeField] private bool m_unactiveObject; 
@@ -52,7 +52,8 @@ public class CubeCaster : MonoBehaviour
                     {
                         Debug.DrawRay(transform.position, Vector3.up * m_raycastDistance, Color.blue);
                         m_raycastCompleted = true;
-                        onRaycastComplete();
+                        if(onRaycastComplete!=null)onRaycastComplete();
+                        onRaycastComplete = null;
                     }
                 }
                 //Si le raycast n'est pas complete, les effets s'annulent 

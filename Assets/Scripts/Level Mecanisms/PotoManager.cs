@@ -11,9 +11,7 @@ public class PotoManager : MonoBehaviour
     //stock the current rotations of the cylinders
     public List<Quaternion> m_currentLocalRotations = new List<Quaternion>();
     //Create the interpolation ratio 
-    private float m_interpolationRatio = 0.1f;
-    
-
+    private float m_interpolationRatio = 1f;
 
     private void Start()
     {
@@ -27,31 +25,36 @@ public class PotoManager : MonoBehaviour
         {
             m_initialLocalRotations.Add(transform.localRotation);
         }
-        
     }
 
     private void OnEnable()
     {
-        CubeCaster.onRaycastComplete += GetToInitialRotation;
+        CubeCaster.onRaycastComplete += GetCurrentRotation;
     }
 
     private void OnDisable()
     {
-        CubeCaster.onRaycastComplete -= GetToInitialRotation;
+        CubeCaster.onRaycastComplete -= GetCurrentRotation;
     }
 
-    private void GetToInitialRotation()
+    private void GetCurrentRotation()
     {
-        for (int i = 0; i < m_cylinders.Count; i++)
+        for (int i = 0; i < 3; i++)
         {
             m_currentLocalRotations.Add(m_cylinders[i].transform.localRotation);
+            GoToInitialRotation();
         }
+
+    }
+    private void GoToInitialRotation()
+    {
+        //Start lerp if the raycast is completed to allow cylinder to return to their original pos
         for (int i = 0; i < m_cylinders.Count; i++)
         {
-            //Start lerp if the raycast is completed to allow cylinder to return to their original pos
-            Quaternion.Lerp(m_currentLocalRotations[i], m_initialLocalRotations[i], m_interpolationRatio);
+            m_cylinders[i].transform.localRotation = Quaternion.Lerp(m_currentLocalRotations[i], m_initialLocalRotations[i], Time.deltaTime * m_interpolationRatio);
         }
-        
     }
     
 }
+
+
