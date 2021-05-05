@@ -77,8 +77,6 @@ public class RotateObject : MonoBehaviour
                 m_cameraController.m_mouseSensitivity = m_sensitivity;
                 m_controllerScript.m_canJump = true;
                 InteractRaycast.m_interacting = false;
-                
-                Debug.Log("yeah");
             }
         }
     }

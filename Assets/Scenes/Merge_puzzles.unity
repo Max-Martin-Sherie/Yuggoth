@@ -2615,6 +2615,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: source (2)
       objectReference: {fileID: 0}
+    - target: {fileID: 6547841964717512279, guid: 74aa268f019f4f04ea56d9f598cafac1, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 74aa268f019f4f04ea56d9f598cafac1, type: 3}
 --- !u!4 &266329937 stripped
@@ -10497,6 +10501,11 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &967395199 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6547841964717512279, guid: 74aa268f019f4f04ea56d9f598cafac1, type: 3}
+  m_PrefabInstance: {fileID: 260052120}
+  m_PrefabAsset: {fileID: 0}
 --- !u!43 &968108875
 Mesh:
   m_ObjectHideFlags: 0
@@ -11547,7 +11556,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f5a38ba71f7ed68469930060cbd64026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_targetRayCast: {fileID: 1322404993}
+  m_firstTargetRaycast: {fileID: 1322404993}
+  m_secondTargetRaycast: {fileID: 1394445566}
+  m_objectActivated: {fileID: 967395199}
   m_raycastDistance: 10
 --- !u!65 &1051541559
 BoxCollider:
@@ -14061,7 +14072,6 @@ GameObject:
   - component: {fileID: 1322404997}
   - component: {fileID: 1322404996}
   - component: {fileID: 1322404995}
-  - component: {fileID: 1322404998}
   m_Layer: 0
   m_Name: cube mid
   m_TagString: Untagged
@@ -14145,20 +14155,6 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1322404993}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
---- !u!114 &1322404998
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1322404993}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f5a38ba71f7ed68469930060cbd64026, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  m_targetRayCast: {fileID: 1394445566}
-  m_raycastDistance: 10
 --- !u!1 &1322522162
 GameObject:
   m_ObjectHideFlags: 0
@@ -16327,6 +16323,36 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c0c095ec8f2ca1a468997cf5a982dda0, type: 3}
+--- !u!1 &1607524000
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1607524001}
+  m_Layer: 0
+  m_Name: ActivatorManagerLVL3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1607524001
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1607524000}
+  m_LocalRotation: {x: -0, y: -0.70710576, z: 0, w: 0.7071079}
+  m_LocalPosition: {x: 14.999931, y: 26, z: -24.000048}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5668882978783873671}
+  m_RootOrder: 9
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1630470087 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 6609381982383364773, guid: c0c095ec8f2ca1a468997cf5a982dda0, type: 3}
@@ -42142,6 +42168,7 @@ Transform:
   - {fileID: 5668882979798380313}
   - {fileID: 5668882978620110033}
   - {fileID: 1251381060}
+  - {fileID: 1607524001}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 90, z: 0}
@@ -43093,6 +43120,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5668882979152377219}
+  - component: {fileID: 5668882979152377217}
   m_Layer: 0
   m_Name: Poto bleu
   m_TagString: Untagged
@@ -43100,6 +43128,20 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &5668882979152377217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5668882979152377216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 10444d87d8b99064abd446d4ef0d3c2b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_cylinders: []
+  m_initialLocalRotations: []
 --- !u!4 &5668882979152377219
 Transform:
   m_ObjectHideFlags: 0
