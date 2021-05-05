@@ -15,13 +15,6 @@ public class PlayerMove : MonoBehaviour
     [SerializeField][Tooltip("The acceleration of the gravity applied top the player")] float m_gravity = 9.81f;
     [SerializeField][Tooltip("If enabled the previously set gravity value will be replaced by the in game gravity")] private bool m_useUnityPhysicsGravity;
     [SerializeField][Tooltip("The multiplier that will be affected to the acceleration every frame")][Range(0.5f,1)] private float m_drag;
-    
-    private void OnDrawGizmos()
-    {
-        CharacterController cr = GetComponent<CharacterController>();
-        Gizmos.color = Color.green;
-        Gizmos.DrawSphere( transform.position + Vector3.down * ((cr.height / 2f) - cr.radius ) , cr.radius);
-    }
 
     // Start is called before the first frame update
     void Start()
@@ -78,6 +71,10 @@ public class PlayerMove : MonoBehaviour
         //Adding the player's input to the global velocity
         m_velocity += inputMove;
 
+        //Applying the global velocity
+        m_cr.Move( m_velocity * Time.deltaTime);
+        
+        
         //Applying Drag to the horizontal axis
         m_velocity.x *= m_drag;
         m_velocity.z *= m_drag;
@@ -85,7 +82,5 @@ public class PlayerMove : MonoBehaviour
         //Applying drag to the vertical axis if the player is grounded and on a slope
         if(grounded && !onSlope) m_velocity.y *= m_drag;
         
-        //Applying the global velocity
-        m_cr.Move( m_velocity * Time.deltaTime);
     }
 }
