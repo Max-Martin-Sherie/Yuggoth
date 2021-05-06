@@ -3,16 +3,19 @@ using UnityEngine.Serialization;
 
 public class PickupRb : MonoBehaviour
 {
+    //Définition de la distance minimal pour récupérer un objet
     [SerializeField] float m_minRange = 1;
     
     [SerializeField] private float m_moveForce = 150f;
-    [SerializeField][Range(0,50)] private float m_maxVelocity = 4;
+    [SerializeField][Range(0,100)] private float m_maxVelocity = 4;
+    //Définition du parent dans lequel le gameObject va être transféré 
     [SerializeField] private Transform m_newParent;
     [SerializeField][Range(-1.5f,1.5f)][Tooltip("the offset of the height at which the cube will be held")] private float m_yOffset = -0.2f;
     [SerializeField][Range(0, 2)][Tooltip("the size of the steps at which the player will pickup the cube")] private float m_step = 0.5f;
     
     [SerializeField] bool m_mouseHold = false;
     
+    //Définition de l'ancien parent dans lequel le gameObject sera renvoyé
     private Transform m_oldParent;
 
     public GameObject m_heldObj = null;
@@ -21,32 +24,39 @@ public class PickupRb : MonoBehaviour
 
     private GameObject m_seenObject;
     
+    
+    
     private void Start()
     {
         m_camera = Camera.main;
         m_oldParent = transform.parent;
+
     }
 
     void Update()
     {
+        //Vérifie si le Raycast touche quelque chose et, si oui, si ce quelque chose a pour Layer "Pickupable"
         bool target = InteractRaycast.m_hitSomething && InteractRaycast.m_hitTarget.collider.gameObject.layer == LayerMask.NameToLayer("Pickupable");
 
-
+        //Actions à réaliser quand le joueur ne tiens pas d'objet et qu'il observe l'espace autour de lui
         if(!m_heldObj){
+            //Actions à réaliser quand le joueur ne tiens pas d'objet et qu'il observe un objet "Pickupable"
             if (target)
             {
                 if (m_seenObject != InteractRaycast.m_hitTarget.collider.gameObject)
                 {
-                    if(m_seenObject) m_seenObject.GetComponent<MeshRenderer>().material.color = Color.gray;
+                    //Changing the metallic instead of the color material because i can't get the initial color of a pickable obj (Nono) 
+                    if(m_seenObject) m_seenObject.GetComponent<MeshRenderer>().material.SetFloat("_Metallic", 0f);
                     m_seenObject = InteractRaycast.m_hitTarget.collider.gameObject;
-                    m_seenObject.GetComponent<MeshRenderer>().material.color = Color.yellow;
+                    m_seenObject.GetComponent<MeshRenderer>().material.SetFloat("_Metallic", 1f);
                 }
             }
+            //Actions à réaliser quand le joueur ne tiens pas d'objet et qu'il n'observe plus un objet "Pickupable"
             else
             {
                 if (m_seenObject)
                 {
-                    m_seenObject.GetComponent<MeshRenderer>().material.color = Color.gray;
+                    m_seenObject.GetComponent<MeshRenderer>().material.SetFloat("_Metallic", 0f);
                     m_seenObject = null;
                 }
             }
@@ -95,7 +105,7 @@ public class PickupRb : MonoBehaviour
 
     private void MoveObject()
     {
-        m_heldObj.GetComponent<MeshRenderer>().material.color = Color.green;
+        //m_heldObj.GetComponent<MeshRenderer>().material.color = Color.green;
         if(Vector3.Distance(m_heldObj.transform.position, m_newParent.position) > 0.1f)
         {
             Vector3 moveDir = m_newParent.position - m_heldObj.transform.position;
@@ -143,7 +153,8 @@ public class PickupRb : MonoBehaviour
 
     private void DropObject()
     {
-        m_heldObj.GetComponent<MeshRenderer>().material.color = Color.gray;
+       
+        m_heldObj.GetComponent<MeshRenderer>().material.SetFloat("_Metallic", 0f);
         Rigidbody heldRb = m_heldObj.GetComponent<Rigidbody>();
         heldRb.useGravity = true;
         heldRb.drag = 1;

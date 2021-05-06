@@ -9,7 +9,7 @@ public class LaserReflector : MonoBehaviour
     private LaserReceptor m_receptorScript;
     
     
-    private LaserReceptor m_hitObjectReceptor = null;
+    private GameObject m_hitObject = null;
     
     // Start is called before the first frame update
     void Start()
@@ -57,34 +57,46 @@ public class LaserReflector : MonoBehaviour
 
             //Fetching the hit object
             GameObject hitObject = hit.collider.gameObject;
-
+            
+            //Making sure that the m_laserHit boolean stays loyal yo the simulation
+            if (m_hitObject != hitObject)
+            {
+                if(m_hitObject)
+                {
+                    if(m_hitObject.TryGetComponent<LaserReceptor>(out LaserReceptor secondHitObjectReceptor))
+                        secondHitObjectReceptor.m_laserHit = false;
+                }
+            }
+            
             //Fetching his receptor script and calling the ReceiveLaserFunction
             if (hitObject.TryGetComponent<LaserReceptor>(out LaserReceptor hitObjectReceptor))
             {
-                if (m_hitObjectReceptor != hitObjectReceptor)
-                {
-                    if(m_hitObjectReceptor != null)m_hitObjectReceptor.m_laserHit = false;
-                    m_hitObjectReceptor = hitObjectReceptor;
-                }
 
                 hitObjectReceptor.ReceiveLaser(p_laserProperties._range,reflectionDirection,p_laserProperties._lineRenderer,hit,p_laserProperties._pointCount+1);
                 hitObjectReceptor.m_laserHit = true;
             }
+
+            m_hitObject = hitObject;
         }
         //... if it doesn't
         else
         {
             lr.SetPosition(p_laserProperties._pointCount,source + reflectionDirection * p_laserProperties._range);
-            if (m_hitObjectReceptor && m_hitObjectReceptor.m_laserHit) m_hitObjectReceptor.m_laserHit = false;
+            if (m_hitObject)
+            {
+                if(m_hitObject.TryGetComponent<LaserReceptor>(out LaserReceptor secondHitObjectReceptor))
+                    secondHitObjectReceptor.m_laserHit = false;
+                m_hitObject = null;
+            }
         }
     }
 
     private void FixedUpdate()
     {
-        if (m_hitObjectReceptor && !m_receptorScript.m_laserHit)
+        if (m_hitObject && !m_receptorScript.m_laserHit)
         {
-            m_hitObjectReceptor.m_laserHit = false;
-            m_hitObjectReceptor = null;
+            if(m_hitObject.TryGetComponent<LaserReceptor>(out LaserReceptor laserHit))laserHit.m_laserHit = false;
+            m_hitObject = null;
         }
     }
 }

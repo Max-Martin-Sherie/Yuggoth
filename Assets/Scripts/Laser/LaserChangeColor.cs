@@ -13,6 +13,9 @@ public class LaserChangeColor : MonoBehaviour
 
     //Creating the variable that will contain the Material of the gameObject
     private Material m_meshMaterial;
+    
+    //Creating the variable that will contain the initial color of the game object 
+    private Color m_initialColor; 
 
     /// <summary>
     ///  Start is called before the first frame update
@@ -21,6 +24,10 @@ public class LaserChangeColor : MonoBehaviour
     {
         //Getting the mesh renderer of the game object
         m_meshMaterial = GetComponent<MeshRenderer>().material;
+        
+        //Getting the initial color of the game object 
+        m_initialColor = m_meshMaterial.color; 
+        
         
         //Checking if the player has a LaserReceptor script
         bool lrIsPresent = TryGetComponent<LaserReceptor>(out m_receptorScript);
@@ -41,8 +48,8 @@ public class LaserChangeColor : MonoBehaviour
     {
         // Using the public boolean m_laserHit of the LaserReceptor class
         //if it is true change the color to green
-        if (m_receptorScript.m_laserHit) m_meshMaterial.color = Color.green;
-        //if it is false change the color to gray
-        else m_meshMaterial.color = Color.gray;
+        if (m_receptorScript.m_laserHit) m_meshMaterial.color = Color.black; 
+        //if it is false change the color to the original color of the object 
+        else m_meshMaterial.color = m_initialColor;
     }
 }
