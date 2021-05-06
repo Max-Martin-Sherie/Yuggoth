@@ -53,19 +53,8 @@ public class CubeCaster : MonoBehaviour
                         Debug.DrawRay(transform.position, Vector3.up * m_raycastDistance, Color.blue);
                         m_raycastCompleted = true;
                         if(onRaycastComplete!=null)onRaycastComplete();
-                        onRaycastComplete = null;
                     }
                 }
-                //Si le raycast n'est pas complete, les effets s'annulent 
-                else 
-                {
-                    m_raycastCompleted = false;
-                }
-                
-            }
-            else 
-            {
-                m_raycastCompleted = false;
             }
 
         }

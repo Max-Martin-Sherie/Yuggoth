@@ -21,9 +21,8 @@ public class DoorManager : MonoBehaviour
                     break;
                 }
             }
-
-            if (allEnabled) system._door.SetActive(system._invert);
-            else system._door.SetActive(!system._invert);
+            if (allEnabled) system._door.SetActive(!system._invert);
+            else system._door.SetActive(system._invert);
         }
     }
 
