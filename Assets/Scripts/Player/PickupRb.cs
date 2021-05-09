@@ -1,6 +1,10 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 
+/// <summary>
+/// Script pour ramasser, déplacer et lacher les objets déplaçable
+/// </summary>
+
 public class PickupRb : MonoBehaviour
 {
     //Définition de la distance minimal pour récupérer un objet
@@ -62,6 +66,7 @@ public class PickupRb : MonoBehaviour
             }
         }
 
+        //Conditions en fonction de si le joueur doit garder Fire1 enfoncé ou non
         if (m_mouseHold && Input.GetButton("Fire1"))
         {
             if (!m_heldObj)
@@ -103,6 +108,9 @@ public class PickupRb : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Fonction permettant le déplacement d'objet dans l'espace par rapport au parent dans la hiérarchie
+    /// </summary>
     private void MoveObject()
     {
         //m_heldObj.GetComponent<MeshRenderer>().material.color = Color.green;
@@ -131,11 +139,15 @@ public class PickupRb : MonoBehaviour
         if(distance > m_minRange && distance < InteractRaycast.m_range)m_newParent.position = newPosition;
     }
 
+    /// <summary>
+    /// Récupération de données et définition du nouveau parent de l'objet déplaçable
+    /// </summary>
+    /// <param name="p_pickObj"></param>
     private void PickUpObject(GameObject p_pickObj)
     {
         Rigidbody objRb = p_pickObj.GetComponent<Rigidbody>();
         
-        Debug.Log("hey");
+        //Debug.Log("PickUp");
         Vector3 ogPos = p_pickObj.transform.position;
         m_newParent.transform.position = new Vector3(ogPos.x, m_camera.transform.position.y + m_yOffset,ogPos.z);
 
@@ -151,6 +163,9 @@ public class PickupRb : MonoBehaviour
         InteractRaycast.m_interacting = true;
     }
 
+    /// <summary>
+    /// Fonction pour lacher un objet
+    /// </summary>
     private void DropObject()
     {
        
