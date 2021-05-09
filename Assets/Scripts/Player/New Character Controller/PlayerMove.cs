@@ -6,7 +6,7 @@ public class PlayerMove : MonoBehaviour
 {
     
     CharacterController m_cr = null;
-    Vector3 m_velocity = Vector3.zero;
+    public Vector3 m_velocity = Vector3.zero;
 
     [SerializeField][Tooltip("The player's movement speed")] private float m_moveSpeed = 1;
     [SerializeField][Tooltip("The player's jump height in meters")] private float m_jumpHeight;
