@@ -37,7 +37,6 @@
             <e p="Laser.cs" t="Include" />
           </e>
           <e p="CreateLocalDepotOnLaunch.cs" t="Include" />
-          <e p="Enable_RB_On_Trigger.cs" t="Include" />
           <e p="Laser" t="Include">
             <e p="LaserChangeColor.cs" t="Include" />
             <e p="LaserReceptor.cs" t="Include" />
@@ -45,8 +44,12 @@
             <e p="LaserSetClassActive.cs" t="Include" />
             <e p="LaserSource.cs" t="Include" />
           </e>
-          <e p="Level_Introduction_Lasers" t="Include">
+          <e p="Level Mecanisms" t="Include">
+            <e p="CubeCaster.cs" t="Include" />
             <e p="DoorManager.cs" t="Include" />
+            <e p="Enable_RB_On_Trigger.cs" t="Include" />
+            <e p="PotoManager.cs" t="Include" />
+            <e p="TimerTower.cs" t="Include" />
           </e>
           <e p="Level_Shaped_Box" t="Include">
             <e p="CubeHolder.cs" t="Include" />
@@ -56,12 +59,10 @@
           </e>
           <e p="Player" t="Include">
             <e p="CameraController.cs" t="Include" />
-            <e p="CharaControllerRB.cs" t="Include" />
             <e p="InteractRaycast.cs" t="Include" />
-            <e p="New Character Controller" t="Include">
-              <e p="PlayerMove.cs" t="Include" />
-            </e>
             <e p="PickupRb.cs" t="Include" />
+            <e p="PlayerMove.cs" t="Include" />
+            <e p="Pull_Player_To_Point.cs" t="Include" />
             <e p="RotateObject.cs" t="Include" />
             <e p="ShakeCameraOnHighVSpeed.cs" t="Include" />
           </e>
