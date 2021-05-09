@@ -1,18 +1,25 @@
 using UnityEngine;
 using UnityEngine.Serialization;
 
+/// <summary>
+/// Script pour ramasser, déplacer et lacher les objets déplaçable
+/// </summary>
+
 public class PickupRb : MonoBehaviour
 {
+    //Définition de la distance minimal pour récupérer un objet
     [SerializeField] float m_minRange = 1;
     
     [SerializeField] private float m_moveForce = 150f;
     [SerializeField][Range(0,100)] private float m_maxVelocity = 4;
+    //Définition du parent dans lequel le gameObject va être transféré 
     [SerializeField] private Transform m_newParent;
     [SerializeField][Range(-1.5f,1.5f)][Tooltip("the offset of the height at which the cube will be held")] private float m_yOffset = -0.2f;
     [SerializeField][Range(0, 2)][Tooltip("the size of the steps at which the player will pickup the cube")] private float m_step = 0.5f;
     
     [SerializeField] bool m_mouseHold = false;
     
+    //Définition de l'ancien parent dans lequel le gameObject sera renvoyé
     private Transform m_oldParent;
 
     public GameObject m_heldObj = null;
@@ -32,10 +39,12 @@ public class PickupRb : MonoBehaviour
 
     void Update()
     {
+        //Vérifie si le Raycast touche quelque chose et, si oui, si ce quelque chose a pour Layer "Pickupable"
         bool target = InteractRaycast.m_hitSomething && InteractRaycast.m_hitTarget.collider.gameObject.layer == LayerMask.NameToLayer("Pickupable");
 
-
+        //Actions à réaliser quand le joueur ne tiens pas d'objet et qu'il observe l'espace autour de lui
         if(!m_heldObj){
+            //Actions à réaliser quand le joueur ne tiens pas d'objet et qu'il observe un objet "Pickupable"
             if (target)
             {
                 if (m_seenObject != InteractRaycast.m_hitTarget.collider.gameObject)
@@ -46,6 +55,7 @@ public class PickupRb : MonoBehaviour
                     m_seenObject.GetComponent<MeshRenderer>().material.SetFloat("_Metallic", 1f);
                 }
             }
+            //Actions à réaliser quand le joueur ne tiens pas d'objet et qu'il n'observe plus un objet "Pickupable"
             else
             {
                 if (m_seenObject)
@@ -56,6 +66,7 @@ public class PickupRb : MonoBehaviour
             }
         }
 
+        //Conditions en fonction de si le joueur doit garder Fire1 enfoncé ou non
         if (m_mouseHold && Input.GetButton("Fire1"))
         {
             if (!m_heldObj)
@@ -97,6 +108,9 @@ public class PickupRb : MonoBehaviour
         }
     }
 
+    /// <summary>
+    /// Fonction permettant le déplacement d'objet dans l'espace par rapport au parent dans la hiérarchie
+    /// </summary>
     private void MoveObject()
     {
         //m_heldObj.GetComponent<MeshRenderer>().material.color = Color.green;
@@ -125,11 +139,15 @@ public class PickupRb : MonoBehaviour
         if(distance > m_minRange && distance < InteractRaycast.m_range)m_newParent.position = newPosition;
     }
 
+    /// <summary>
+    /// Récupération de données et définition du nouveau parent de l'objet déplaçable
+    /// </summary>
+    /// <param name="p_pickObj"></param>
     private void PickUpObject(GameObject p_pickObj)
     {
         Rigidbody objRb = p_pickObj.GetComponent<Rigidbody>();
         
-        Debug.Log("hey");
+        //Debug.Log("PickUp");
         Vector3 ogPos = p_pickObj.transform.position;
         m_newParent.transform.position = new Vector3(ogPos.x, m_camera.transform.position.y + m_yOffset,ogPos.z);
 
@@ -145,6 +163,9 @@ public class PickupRb : MonoBehaviour
         InteractRaycast.m_interacting = true;
     }
 
+    /// <summary>
+    /// Fonction pour lacher un objet
+    /// </summary>
     private void DropObject()
     {
        
