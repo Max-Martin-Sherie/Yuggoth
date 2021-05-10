@@ -83,12 +83,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_velocity: {x: 0, y: 0, z: 0}
   m_canJump: 1
-  m_moveSpeed: 4
-  m_jumpHeight: 2
+  m_moveSpeed: 12.97
+  m_jumpHeight: 0.38
   m_slideAcceleration: 6
   m_gravity: -9.81
   m_useUnityPhysicsGravity: 1
-  m_drag: 0.862
+  m_drag: 0.79
+  m_grounded: 0
 --- !u!114 &1971044425100267106
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -130,7 +131,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_minRange: 1
+  m_pickupDistance: 1
   m_moveForce: 30
+  m_rotateSpeed: 10
   m_maxVelocity: 50
   m_newParent: {fileID: 1619310513214220649}
   m_yOffset: -0.5
@@ -211,13 +214,13 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8862348630066012730}
-  m_LocalRotation: {x: -0, y: -0.92387927, z: -0, w: 0.38268423}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0.7499999, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8862348629703936180}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: -135, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!20 &8862348630066012726
 Camera:
   m_ObjectHideFlags: 0
