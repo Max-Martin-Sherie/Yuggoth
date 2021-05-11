@@ -47,7 +47,7 @@ public class LaserChangeColor : MonoBehaviour
     void Update()
     {
         // Using the public boolean m_laserHit of the LaserReceptor class
-        //if it is true change the color to green
+        //if it is true change the color to black 
         if (m_receptorScript.m_laserHit) m_meshMaterial.color = Color.black; 
         //if it is false change the color to the original color of the object 
         else m_meshMaterial.color = m_initialColor;

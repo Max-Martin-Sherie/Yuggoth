@@ -20,8 +20,15 @@ public class CubeCaster : MonoBehaviour
     
     //Bool qui indique si les objets sont dans la bonne position ou non
     [HideInInspector]
-    public bool m_raycastCompleted; 
+    public bool m_raycastCompleted;
     
+    //Initial position de l'objet a activer 
+    private Vector3 m_targetInitialPos;
+    
+    //Offset pour desactiver la source 
+    private Vector3 m_offsetPos = new Vector3(0, 1, 0);
+
+
     //Object que le poteau active
     [Tooltip("Glisser ici l'objet a activer ou a desactiver par le poteau")]
     [SerializeField] private GameObject m_targetObject;
@@ -29,12 +36,17 @@ public class CubeCaster : MonoBehaviour
     //Distance du raycast 
     [SerializeField] private float m_raycastDistance = 5.0f;
 
+    private void Start()
+    {
+        m_targetInitialPos = m_targetObject.transform.position; 
+    }
+
     // Update is called once per frame
     void Update()
     {
-        //Fonction qui gere l'apparition et la disparition de l'objet si le raycast est complete ou non
+        //Appel de la fonction qui active ou desactive l'objet cible 
         ActivateOrDesactivateTargetObject();
-        //Premier raycast a partir du premier cube (cube du bas) 
+        //Premier raycast a partir du cube lanceur (cube du bas) 
         Debug.DrawRay(transform.position, Vector3.up * m_raycastDistance, Color.green);
         if (Physics.Raycast(transform.position, Vector3.up, out RaycastHit objectHit, m_raycastDistance))
         {
@@ -47,7 +59,7 @@ public class CubeCaster : MonoBehaviour
                 if (Physics.Raycast(m_firstTargetRaycast.transform.position, Vector3.up, out RaycastHit secondObjectHit,
                     m_raycastDistance))
                 {
-                    //Si la deuxieme cible est atteinte alors le raycast est complete
+                    //Si la deuxieme cible est atteinte alors le raycast est complet
                     if (secondObjectHit.transform.gameObject == m_secondTargetRaycast)
                     {
                         Debug.DrawRay(transform.position, Vector3.up * m_raycastDistance, Color.blue);
@@ -61,22 +73,27 @@ public class CubeCaster : MonoBehaviour
         
     }
 
+    /// <summary>
+    /// Fonction qui gere l'apparition ou la disparition (selon la valeur du boolean unactive) de l'objet target 
+    /// </summary>
     void ActivateOrDesactivateTargetObject()
     {
+        //Si le raycast est complet, l'objet s'active 
         if (m_raycastCompleted)
         {
-            m_targetObject.SetActive(true);
+            m_targetObject.transform.position = m_targetInitialPos;
             if (m_unactiveObject)
             {
-                m_targetObject.SetActive(false);
+                m_targetObject.transform.position = m_targetInitialPos;
             }
         }
+        //Si le raycast est complet et que le bool unactive est true alors l'objet se desactive 
         else if (!m_raycastCompleted)
         {
-            m_targetObject.SetActive(false);
+            m_targetObject.transform.position = m_targetInitialPos + m_offsetPos;
             if (m_unactiveObject)
             {
-                m_targetObject.SetActive(true);
+                m_targetObject.transform.position = m_targetInitialPos + m_offsetPos;
             }
         }
     }
