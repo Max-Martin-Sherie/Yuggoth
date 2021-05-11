@@ -137,7 +137,10 @@ public class PickupRb : MonoBehaviour
             {
                 DropObject();
                 return;
-            }
+            } if (newForce.magnitude > m_maxVelocity)
+                newForce = Vector3.Normalize(newForce)*m_maxVelocity;
+
+            
             
             rb.AddForce(newForce);
         }
