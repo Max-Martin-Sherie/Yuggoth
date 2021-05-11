@@ -111,6 +111,10 @@ public class PickupRb : MonoBehaviour
         if(m_heldObj)
         {
             MoveObject();
+            if (Input.GetButton("Fire1"))
+            {
+                
+            }
         }
     }
 
@@ -119,50 +123,24 @@ public class PickupRb : MonoBehaviour
     /// </summary>
     private void MoveObject()
     {
-        
-        //Debug.Log(Mathf.Round(m_heldObj.transform.localRotation));
-
-        /*
-        Vector3 rotVector = m_heldObj.transform.localRotation.eulerAngles;
-        //
-        Vector3 rotVectorDividedRounded = rotVector / 90f;
-        rotVectorDividedRounded = new Vector3(Mathf.Round(rotVector.x), Mathf.Round(rotVector.y), Mathf.Round(rotVector.z))*90f;
-    
-        if(Quaternion.Angle(m_heldObj.transform.rotation,transform.rotation) > 50f)
-            m_heldObj.transform.localRotation = Quaternion.Euler(Vector3.Lerp(rotVector, rotVectorDividedRounded,0.8f));
-        else
-            m_heldObj.transform.localRotation =  Quaternion.Euler(rotVectorDividedRounded);
-
-        //float angle = Vector3.Angle(rotVector,rotVectorDividedRounded);
-        
-        /**/
-        
         m_heldObj.transform.rotation = Quaternion.Lerp(m_heldObj.transform.rotation,transform.rotation,m_rotateSpeed * Time.deltaTime);
         
-        //m_heldObj.GetComponent<MeshRenderer>().material.color = Color.green;
         if(Vector3.Distance(m_heldObj.transform.position, m_newParent.position) > 0.1f)
         {
             Vector3 moveDir = m_newParent.position - m_heldObj.transform.position;
 
             Vector3 newForce = moveDir * m_moveForce;
 
-            if (newForce.magnitude > m_maxVelocity)
+            Rigidbody rb = m_heldObj.GetComponent<Rigidbody>();
+            
+            if (newForce.magnitude > m_maxVelocity && Physics.Raycast(m_heldObj.transform.position, moveDir, 1f))
             {
                 DropObject();
                 return;
             }
             
-            m_heldObj.GetComponent<Rigidbody>().AddForce(newForce);
+            rb.AddForce(newForce);
         }
-
-        Vector3 moveDirection = Vector3.Normalize(m_newParent.position - m_camera.transform.position);
-        
-        moveDirection.y = 0;
-        Vector3 newPosition = m_newParent.position + moveDirection * (Input.mouseScrollDelta.y * m_step);
-        
-        float distance = Vector3.Distance(m_camera.transform.position, newPosition);
-        
-        if(distance > m_minRange && distance < InteractRaycast.m_range)m_newParent.position = newPosition;
     }
 
     /// <summary>
