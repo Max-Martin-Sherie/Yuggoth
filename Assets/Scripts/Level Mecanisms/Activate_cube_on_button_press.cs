@@ -2,20 +2,25 @@ using UnityEngine;
 
 public class Activate_cube_on_button_press : MonoBehaviour
 {
-    [SerializeField] private Button m_button;
+    [SerializeField][Tooltip("Drag and drop a gameobject that has button component here")] private Button m_button; //Fetching the button
 
-    private MeshRenderer m_meshRenderer;
+    private MeshRenderer m_meshRenderer; //the mesh renderer
 
     private void Start()
     {
+        //Fetching the mesh renderer
         m_meshRenderer = GetComponent<MeshRenderer>();
+
+        m_button.OnButtonPress += EnableMeshRenderer; //Adding the enable mesh renderer to the on button press delegate
+        m_button.OnButtonRelease += DisableMeshRenderer; //Adding the disable mesh renderer to the on button release of the delegate delegate
     }
 
-    /// <summary>
-    /// Update is called once per frame
-    /// </summary>
-    void Update()
+    private void EnableMeshRenderer()
     {
-        m_meshRenderer.enabled = m_button.m_triggered;
+        m_meshRenderer.enabled = true;
+    }
+    private void DisableMeshRenderer()
+    {
+        m_meshRenderer.enabled = false;
     }
 }
