@@ -24,7 +24,7 @@ public class PickupRb : MonoBehaviour
     //Définition de l'ancien parent dans lequel le gameObject sera renvoyé
     private Transform m_oldParent;
 
-    public GameObject m_heldObj = null;
+    [HideInInspector]public GameObject m_heldObj = null;
 
     private Camera m_camera;
 
@@ -46,8 +46,7 @@ public class PickupRb : MonoBehaviour
     void Update()
     {
         //Vérifie si le Raycast touche quelque chose et, si oui, si ce quelque chose a pour Layer "Pickupable"
-        bool target = false;
-        if(InteractRaycast.m_hitTarget.collider.gameObject != null)target = InteractRaycast.m_hitSomething && InteractRaycast.m_hitTarget.collider.gameObject.layer == LayerMask.NameToLayer("Pickupable");
+        bool target = InteractRaycast.m_hitSomething && InteractRaycast.m_hitTarget.collider.gameObject.layer == LayerMask.NameToLayer("Pickupable");
 
         //Actions à réaliser quand le joueur ne tiens pas d'objet et qu'il observe l'espace autour de lui
         if(!m_heldObj){

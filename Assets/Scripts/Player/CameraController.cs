@@ -26,6 +26,9 @@ public class CameraController : MonoBehaviour
         //Rend le curseur invisible et bloqué
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
+
+        m_xRotation = transform.rotation.eulerAngles.x;
+        m_yRotation = transform.rotation.eulerAngles.y;
     }
 
     private void Update()
