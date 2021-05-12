@@ -6,7 +6,7 @@ public class PlayerMove : MonoBehaviour
 {
     
     CharacterController m_cr = null;
-    public Vector3 m_velocity = Vector3.zero;
+    [HideInInspector]public Vector3 m_velocity = Vector3.zero;
     [HideInInspector]public bool m_canJump = true;
 
     [SerializeField][Tooltip("The player's movement speed")]public float m_moveSpeed = 1;
@@ -16,6 +16,9 @@ public class PlayerMove : MonoBehaviour
     [SerializeField][Tooltip("If enabled the previously set gravity value will be replaced by the in game gravity")] private bool m_useUnityPhysicsGravity;
     [SerializeField][Tooltip("The multiplier that will be affected to the acceleration every frame")][Range(0.5f,1)] private float m_drag;
 
+    [HideInInspector]
+    public bool m_grounded;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -23,8 +26,6 @@ public class PlayerMove : MonoBehaviour
 
         if (m_useUnityPhysicsGravity) m_gravity = Physics.gravity.y; //if the m_useUnityPhysicsGravity bool is enabled then replacing the in game gravity by the default unity one
     }
-
-  //  [SerializeField] private float m_castTravel = 0.2f;
 
     // Update is called once per frame
     void FixedUpdate() {
@@ -36,7 +37,7 @@ public class PlayerMove : MonoBehaviour
         Vector3 origin = transform.position + Vector3.down * (m_cr.height / 2f - radius ); 
 
         //Sending out the sphereCast to check the position of the player
-        bool grounded = Physics.SphereCast(origin,radius, Vector3.down, out RaycastHit hit, .1f);
+        m_grounded = Physics.SphereCast(origin,radius, Vector3.down, out RaycastHit hit, .1f);
         
         Vector3 hitNormal = hit.normal; //The ground hit normal
         
@@ -61,7 +62,7 @@ public class PlayerMove : MonoBehaviour
         inputMove*= (m_moveSpeed * 0.1f);
         
         //Projecting the player's movement direction onto a plane to avoid stepping
-        if(!onSlope && grounded){
+        if(!onSlope && m_grounded){
             inputMove = Vector3.ProjectOnPlane(inputMove, hitNormal);
             
             //Fetching the jump key and jumping
@@ -80,7 +81,7 @@ public class PlayerMove : MonoBehaviour
         m_velocity.z *= m_drag;
         
         //Applying drag to the vertical axis if the player is grounded and on a slope
-        if(grounded && !onSlope) m_velocity.y *= m_drag;
+        if(m_grounded && !onSlope) m_velocity.y *= m_drag;
         
     }
 }

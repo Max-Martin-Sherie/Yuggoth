@@ -11,9 +11,18 @@ public class InteractRaycast : MonoBehaviour
 
     public static float m_range;
 
-    
+    [SerializeField] private LayerMask m_layerMask;
     static public RaycastHit m_hitTarget;
 
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.magenta;
+        if(Physics.Raycast(Camera.main.transform.position, Camera.main.transform.forward,out RaycastHit hit, m_range, m_layerMask))
+            Gizmos.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * hit.distance);
+        else
+            Gizmos.DrawRay(Camera.main.transform.position, Camera.main.transform.forward * m_range);
+    }
+    
     private void Start()
     {
         m_camera = Camera.main;
