@@ -18,41 +18,35 @@ public class Button : MonoBehaviour
         m_triggered = false;
         m_startWidth = transform.localScale.y; //Fetching the original width of the button
     }
-    private void OnCollisionEnter(Collision p_other)
-    {
-        //If the button is activated by one of the activators
-        if ((m_activators.value & (1 << p_other.gameObject.layer)) > 0)
-        {
-            Debug.Log("triggered");
-            m_triggered = true;
-        }
-    }
 
-    private void OnCollisionStay(Collision p_other)
+    private void Update()
     {
-        //While the button is pressed the button will animate
-        if (m_triggered && transform.localScale.y >= m_minimumShrinkWidth)
+        Vector3 size = transform.lossyScale/2;//Getting the half extends of the button
+        if (Physics.BoxCast(transform.position, size, Vector3.up, out RaycastHit hit,transform.rotation,size.y+0.3f,m_activators))
         {
-            float y = Mathf.Lerp(transform.localScale.y, m_minimumShrinkWidth, m_shrinkSpeed * Time.deltaTime);
-            transform.localScale = new Vector3(transform.localScale.x, y,transform.localScale.z);
+            //Activating the trigger
+            if(!m_triggered)
+            {
+                m_triggered = true;
+            }
+            else
+            {
+                //animationg the button
+                if (transform.localScale.y >= m_minimumShrinkWidth)
+                {
+                    float y = Mathf.Lerp(transform.localScale.y, m_minimumShrinkWidth, m_shrinkSpeed * Time.deltaTime);
+                    transform.localScale = new Vector3(transform.localScale.x, y,transform.localScale.z);
+                }
+            }
         }
-    }
-
-    private void OnCollisionExit(Collision p_other)
-    {
-        //Resseting the button on unpress
-        m_triggered = false;
-        transform.localScale = new Vector3(transform.localScale.x, m_startWidth,transform.localScale.z);;
+        else
+        {
+            //resseting the trigger
+            m_triggered = false;
+            transform.localScale = new Vector3(transform.localScale.x, m_startWidth,transform.localScale.z);
+        }
     }
 }
-
-
-
-
-
-
-
-
 
 
 
