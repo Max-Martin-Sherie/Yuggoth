@@ -11,7 +11,7 @@ public class Button : MonoBehaviour
     [SerializeField][Tooltip("the width until which the button will be pressed")]private float m_minimumShrinkWidth = 0.5f;
     [SerializeField][Tooltip("the speed at which the button will be pressed")]private float m_shrinkSpeed = 10f;
 
-    [HideInInspector]public bool m_triggered; //the bool that will activate if the button is triggered
+    [HideInInspector]public bool m_triggered = false; //the bool that will activate if the button is triggered
     
     
     private float m_startWidth; //the original width of the button
@@ -27,7 +27,6 @@ public class Button : MonoBehaviour
     
     private void Start()
     {
-        m_triggered = false;
         m_startWidth = transform.localScale.y; //Fetching the original width of the button
     }
 

@@ -11,6 +11,8 @@ public class Activate_cube_on_button_press : MonoBehaviour
         //Fetching the mesh renderer
         m_meshRenderer = GetComponent<MeshRenderer>();
 
+        m_meshRenderer.enabled = m_button.m_triggered;
+        
         m_button.OnButtonPress += EnableMeshRenderer; //Adding the enable mesh renderer to the on button press delegate
         m_button.OnButtonRelease += DisableMeshRenderer; //Adding the disable mesh renderer to the on button release of the delegate delegate
     }
