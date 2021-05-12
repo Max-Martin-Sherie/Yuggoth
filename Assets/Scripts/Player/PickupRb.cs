@@ -17,7 +17,6 @@ public class PickupRb : MonoBehaviour
     //Définition du parent dans lequel le gameObject va être transféré 
     [SerializeField] private Transform m_newParent;
     [SerializeField][Range(-1.5f,1.5f)][Tooltip("the offset of the height at which the cube will be held")] private float m_yOffset = -0.2f;
-    [SerializeField][Range(0, 2)][Tooltip("the size of the steps at which the player will pickup the cube")] private float m_step = 0.5f;
     
     [SerializeField] bool m_mouseHold = false;
     
@@ -41,6 +40,7 @@ public class PickupRb : MonoBehaviour
         m_camera = Camera.main;
         m_oldParent = transform.parent;
 
+        m_newParent.transform.position = transform.position + transform.forward * m_pickupDistance + Vector3.up *m_yOffset;
     }
 
     void Update()
@@ -155,7 +155,6 @@ public class PickupRb : MonoBehaviour
         Rigidbody objRb = p_pickObj.GetComponent<Rigidbody>();
         
         Vector3 ogPos = p_pickObj.transform.position;
-        m_newParent.transform.position = transform.position + transform.forward * m_pickupDistance + Vector3.up *m_yOffset;
         
         
         if (Vector3.Distance(m_camera.transform.position, m_newParent.transform.position) < m_minRange)
@@ -186,7 +185,6 @@ public class PickupRb : MonoBehaviour
         objRb.transform.SetParent(m_oldParent);
         m_heldObj = null;
         objRb.velocity = Vector3.zero;
-        m_newParent.transform.position = m_camera.transform.position;
         
         
         InteractRaycast.m_interacting = false;

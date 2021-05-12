@@ -29,16 +29,15 @@ public class SpawnEditor : Editor
     void DrawDropdown(Rect position, GUIContent label)
     {
         
-        if (!EditorGUI.DropdownButton(position, label, FocusType.Passive)) {
+        if (!EditorGUI.DropdownButton(position, label, FocusType.Passive)) 
             return;
-        }
+        
  
         GenericMenu menu = new GenericMenu();
 
-        foreach (Spawn.SpawnPoint spawnPoint in m_target.m_spawnPoints) {
+        foreach (Spawn.SpawnPoint spawnPoint in m_target.m_spawnPoints) 
             menu.AddItem(new GUIContent(spawnPoint._label), false, HandleItemClicked, spawnPoint);
-        }
-   
+        
         menu.DropDown(position);
     }
     

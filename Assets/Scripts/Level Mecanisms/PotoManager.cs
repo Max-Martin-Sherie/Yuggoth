@@ -11,8 +11,6 @@ public class PotoManager : MonoBehaviour
     public List<Quaternion> m_initialRotations = new List<Quaternion>();
     //stock the current rotations of the cylinders
    public List<Quaternion> m_currentRotations = new List<Quaternion>();
-    //Create the interpolation ratio 
-    private float m_interpolationRatio = 1f;
     
     //Create the time for the lerp 
     [SerializeField]  private float m_timeToReset = 2f;

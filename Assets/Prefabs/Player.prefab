@@ -84,11 +84,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_spawnPoints:
   - _label: 
-    _position: {x: 0, y: 0, z: 0}
-    _rotation: {x: 0, y: 0, z: 0}
+    _transform: {fileID: 0}
   - _label: 
-    _position: {x: 0, y: 0, z: 0}
-    _rotation: {x: 0, y: 0, z: 0}
+    _transform: {fileID: 0}
 --- !u!114 &7023959137304098750
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -103,8 +101,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_velocity: {x: 0, y: 0, z: 0}
   m_canJump: 1
-  m_moveSpeed: 12
-  m_jumpHeight: 0.38
+  m_moveSpeed: 11
+  m_jumpHeight: 1
   m_slideAcceleration: 6
   m_gravity: -9.81
   m_useUnityPhysicsGravity: 1
@@ -137,10 +135,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16fe918cc422f1b45b1dbcba3dfdc765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_rangeSetter: 12
+  m_rangeSetter: 30
   m_layerMask:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 247
 --- !u!114 &2566867900074197638
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -153,14 +151,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 256d3a2a1d35cbc41a323db8d59f5b00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_minRange: 1
+  m_minRange: 0.75
   m_pickupDistance: 1
   m_moveForce: 30
   m_rotateSpeed: 10
-  m_maxVelocity: 50
+  m_maxVelocity: 30
   m_newParent: {fileID: 1619310513214220649}
-  m_yOffset: 0
-  m_step: 0.5
+  m_yOffset: -0.15
   m_mouseHold: 0
   m_heldObj: {fileID: 0}
 --- !u!114 &7924827883007331169
