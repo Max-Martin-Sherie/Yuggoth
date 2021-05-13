@@ -124,14 +124,12 @@ public class PickupRb : MonoBehaviour
     private void MoveObject()
     {
         m_heldObj.transform.rotation = Quaternion.Lerp(m_heldObj.transform.rotation,transform.rotation,m_rotateSpeed * Time.deltaTime);
-        
-        if(Vector3.Distance(m_heldObj.transform.position, m_newParent.position) > 0.01f)
+        Rigidbody rb = m_heldObj.GetComponent<Rigidbody>();
+        if(Vector3.Distance(m_heldObj.transform.position, m_newParent.position) > 0.1f)
         {
             Vector3 moveDir = m_newParent.position - m_heldObj.transform.position;
 
-            Vector3 newForce = moveDir * m_moveForce;
-
-            Rigidbody rb = m_heldObj.GetComponent<Rigidbody>();
+            Vector3 newForce = moveDir * m_moveForce * Time.deltaTime;
             
             if (newForce.magnitude > m_maxVelocity && Physics.Raycast(m_heldObj.transform.position, moveDir, 1f))
             {
@@ -144,6 +142,8 @@ public class PickupRb : MonoBehaviour
             
             rb.AddForce(newForce);
         }
+        else
+            rb.position = m_newParent.position;
     }
 
     /// <summary>
