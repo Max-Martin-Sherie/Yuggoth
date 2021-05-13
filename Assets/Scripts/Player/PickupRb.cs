@@ -142,8 +142,6 @@ public class PickupRb : MonoBehaviour
             
             rb.AddForce(newForce);
         }
-        else
-            rb.position = m_newParent.position;
     }
 
     /// <summary>

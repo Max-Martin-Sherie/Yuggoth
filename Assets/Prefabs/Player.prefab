@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 2566867900074197638}
   - component: {fileID: 7924827883007331169}
   - component: {fileID: 7404169398669242764}
+  - component: {fileID: 6451129586611267187}
   - component: {fileID: 1782752914463615260}
   m_Layer: 8
   m_Name: Player
@@ -190,6 +191,22 @@ MonoBehaviour:
   m_minYSpeed: -15
   m_acceleration: 0.06
   m_vibrationSpeed: 0.02
+--- !u!114 &6451129586611267187
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8862348629703936191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dd98d669bf4f12e41b762a2a6b676447, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_swaySpeed: 5
+  m_swayMagnitude: 0.15
+  m_camera: {fileID: 8862348630066012726}
+  m_swaying: 1
 --- !u!143 &1782752914463615260
 CharacterController:
   m_ObjectHideFlags: 0
