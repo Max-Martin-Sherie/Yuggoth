@@ -125,7 +125,7 @@ public class PickupRb : MonoBehaviour
     {
         m_heldObj.transform.rotation = Quaternion.Lerp(m_heldObj.transform.rotation,transform.rotation,m_rotateSpeed * Time.deltaTime);
         
-        if(Vector3.Distance(m_heldObj.transform.position, m_newParent.position) > 0.1f)
+        if(Vector3.Distance(m_heldObj.transform.position, m_newParent.position) > 0.01f)
         {
             Vector3 moveDir = m_newParent.position - m_heldObj.transform.position;
 
