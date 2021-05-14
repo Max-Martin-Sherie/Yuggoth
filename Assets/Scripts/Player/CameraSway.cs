@@ -36,14 +36,15 @@ public class CameraSway : MonoBehaviour
         if (m_swaying && m_controller.m_grounded)
         {
             Vector3 speed = m_controller.m_velocity; //Getting the player's speed
-            
-            //Making the new velocity of the timer
-            //https://www.geogebra.org/calculator/cj65ygrp
-            float newYVelocity = Mathf.Sin(m_timer * m_swaySpeed * Mathf.PI) * m_swayMagnitude * speed.magnitude / m_controller.m_moveSpeed;
-            
-            //Affecting the new y position to the camera
-            m_camera.transform.localPosition = m_cameraLocalStartPos + new Vector3(m_cameraLocalStartPos.x, newYVelocity,m_cameraLocalStartPos.z);
-            m_timer += Time.deltaTime; // adding time to the timer
+            if(m_controller.m_moveSpeed != 0){
+                //Making the new velocity of the timer
+                //https://www.geogebra.org/calculator/cj65ygrp
+                float newYVelocity = Mathf.Sin(m_timer * m_swaySpeed * Mathf.PI) * m_swayMagnitude * speed.magnitude / m_controller.m_moveSpeed;
+                
+                //Affecting the new y position to the camera
+                m_camera.transform.localPosition = m_cameraLocalStartPos + new Vector3(m_cameraLocalStartPos.x, newYVelocity,m_cameraLocalStartPos.z);
+                m_timer += Time.deltaTime; // adding time to the timer
+            }
         }
         else
         {

@@ -48,6 +48,8 @@ GameObject:
   - component: {fileID: 7404169398669242764}
   - component: {fileID: 6451129586611267187}
   - component: {fileID: 1782752914463615260}
+  - component: {fileID: 3105633149240029365}
+  - component: {fileID: 1870431670}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -84,9 +86,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_spawnPoints:
-  - _label: 
+  - _label: Tower
     _transform: {fileID: 0}
-  - _label: 
+  - _label: Ravine 1
+    _transform: {fileID: 0}
+  - _label: Ravine 2
+    _transform: {fileID: 0}
+  - _label: Ravine 3
+    _transform: {fileID: 0}
+  - _label: Ravine 3.2
+    _transform: {fileID: 0}
+  - _label: Receptacle
+    _transform: {fileID: 0}
+  - _label: Receptacle 2
     _transform: {fileID: 0}
 --- !u!114 &7023959137304098750
 MonoBehaviour:
@@ -103,10 +115,10 @@ MonoBehaviour:
   m_velocity: {x: 0, y: 0, z: 0}
   m_canJump: 1
   m_moveSpeed: 11
-  m_jumpHeight: 1
+  m_jumpHeight: 2
   m_slideAcceleration: 6
-  m_gravity: -9.81
-  m_useUnityPhysicsGravity: 1
+  m_gravity: -19
+  m_useUnityPhysicsGravity: 0
   m_drag: 0.79
   m_grounded: 0
 --- !u!114 &1971044425100267106
@@ -136,7 +148,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 16fe918cc422f1b45b1dbcba3dfdc765, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_rangeSetter: 30
+  m_rangeSetter: 10
   m_layerMask:
     serializedVersion: 2
     m_Bits: 247
@@ -154,11 +166,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_minRange: 0.75
   m_pickupDistance: 1
-  m_moveForce: 30
+  m_moveForce: 5000
   m_rotateSpeed: 10
-  m_maxVelocity: 30
+  m_maxVelocity: 100
   m_newParent: {fileID: 1619310513214220649}
-  m_yOffset: -0.15
+  m_yOffset: -0.1
   m_mouseHold: 0
   m_heldObj: {fileID: 0}
 --- !u!114 &7924827883007331169
@@ -187,8 +199,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15668a4650fa16d4db8145e8655e664f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxMagnitude: 0.3
-  m_minYSpeed: -15
+  m_maxMagnitude: 0.2
+  m_minYSpeed: -20
   m_acceleration: 0.06
   m_vibrationSpeed: 0.02
 --- !u!114 &6451129586611267187
@@ -225,6 +237,42 @@ CharacterController:
   m_SkinWidth: 0.08
   m_MinMoveDistance: 0.001
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!114 &3105633149240029365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8862348629703936191}
+  m_Enabled: 0
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b4bcf21722e6e754eb0b26a3dbf27d54, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_startPosition: {fileID: 0}
+  m_endPosition: {fileID: 0}
+  m_minstartDistance: 10
+  m_minEndDistance: 2
+  m_blackScreen: {fileID: 0}
+--- !u!114 &1870431670
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8862348629703936191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2611c67ab9d0ed64ea5bfffadf3fa005, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Text_Color: {r: 0, g: 0.8566978, b: 1, a: 1}
+  TextStyle: 0
+  Background_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
+  Custom_Inactive_Colors: 0
+  Text_Color_Inactive: {r: 0, g: 0, b: 0, a: 1}
+  TextStyle_Inactive: 0
+  Background_Color_Inactive: {r: 0.306, g: 0.396, b: 0.612, a: 1}
 --- !u!1 &8862348630066012730
 GameObject:
   m_ObjectHideFlags: 0
