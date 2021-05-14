@@ -50,6 +50,7 @@ GameObject:
   - component: {fileID: 1782752914463615260}
   - component: {fileID: 3105633149240029365}
   - component: {fileID: 1870431670}
+  - component: {fileID: 1870431681}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -133,7 +134,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ee4a324acde53f04ab5a94e5a62f6c8a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_mouseSensitivity: 782
+  m_mouseSensitivity: 290
   m_yInvertion: -1
   m_xInvertion: 1
 --- !u!114 &6025888775239353068
@@ -166,7 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_minRange: 0.75
   m_pickupDistance: 1
-  m_moveForce: 5000
+  m_moveForce: 8000
   m_rotateSpeed: 10
   m_maxVelocity: 100
   m_newParent: {fileID: 1619310513214220649}
@@ -199,7 +200,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 15668a4650fa16d4db8145e8655e664f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_maxMagnitude: 0.2
+  m_maxMagnitude: 0.3
   m_minYSpeed: -20
   m_acceleration: 0.06
   m_vibrationSpeed: 0.02
@@ -244,7 +245,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8862348629703936191}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4bcf21722e6e754eb0b26a3dbf27d54, type: 3}
   m_Name: 
@@ -252,7 +253,8 @@ MonoBehaviour:
   m_startPosition: {fileID: 0}
   m_endPosition: {fileID: 0}
   m_minstartDistance: 10
-  m_minEndDistance: 2
+  m_fadeSpeed: 2
+  m_minEndDistance: 4
   m_blackScreen: {fileID: 0}
 --- !u!114 &1870431670
 MonoBehaviour:
@@ -266,13 +268,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2611c67ab9d0ed64ea5bfffadf3fa005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text_Color: {r: 0, g: 0.8566978, b: 1, a: 1}
+  Text_Color: {r: 0, g: 0, b: 0, a: 1}
   TextStyle: 0
-  Background_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
+  Background_Color: {r: 0.76, g: 0.76, b: 0.76, a: 1}
   Custom_Inactive_Colors: 0
   Text_Color_Inactive: {r: 0, g: 0, b: 0, a: 1}
   TextStyle_Inactive: 0
   Background_Color_Inactive: {r: 0.306, g: 0.396, b: 0.612, a: 1}
+--- !u!114 &1870431681
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8862348629703936191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 64c460427a53f1547b28bea534aa629c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_targetPoint: {fileID: 0}
+  m_MinStartDistance: 2
+  m_flashSpeed: 1
+  m_text: {fileID: 0}
 --- !u!1 &8862348630066012730
 GameObject:
   m_ObjectHideFlags: 0
