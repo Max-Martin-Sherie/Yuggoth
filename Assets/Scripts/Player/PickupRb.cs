@@ -1,46 +1,50 @@
-using System;
 using UnityEngine;
 
 /// <summary>
-/// Script pour ramasser, déplacer et lacher les objets déplaçable
+/// Cette classe typiquement afféctée au joueur sert à attirer et manipuler des gameobject du tag "pickuable"
+/// Cette classe nécessite un collider et un rigidbody
 /// </summary>
 
 public class PickupRb : MonoBehaviour
 {
     //Définition de la distance minimal pour récupérer un objet
-    [SerializeField] float m_minRange = 1;
-    [SerializeField] float m_pickupDistance = 1;
+    [SerializeField][Tooltip("The minimum range at which the object has to be so that player can pick it up")] float m_minRange = 1;
+    [SerializeField][Tooltip("The distance at which the object will be held after pickup")] float m_pickupDistance = 1;
     
-    [SerializeField] private float m_moveForce = 150f;
-    [SerializeField] private float m_rotateSpeed = 10f;
-    [SerializeField][Range(0,100)] private float m_maxVelocity = 4;
+    [SerializeField][Tooltip("The force with which the item will be pulled in")] private float m_moveForce = 150f;
+    [SerializeField][Tooltip("The speed at which the item will rotate to face the player")] private float m_rotateSpeed = 10f;
+    [SerializeField][Range(0,100)][Tooltip("the maximum velocity at which the cube will go and the velocity at which it will drop when blocked")] private float m_maxVelocity = 4;
     //Définition du parent dans lequel le gameObject va être transféré 
-    [SerializeField] private Transform m_newParent;
+    [SerializeField][Tooltip("The ampty gameObject that will hold the cube")] private Transform m_newParent;
     [SerializeField][Range(-1.5f,1.5f)][Tooltip("the offset of the height at which the cube will be held")] private float m_yOffset = -0.2f;
     
-    [SerializeField] bool m_mouseHold = false;
+    [SerializeField][Tooltip("Switch the pick object command between hold and toggle")] bool m_mouseHold = false;
     
     //Définition de l'ancien parent dans lequel le gameObject sera renvoyé
     private Transform m_oldParent;
 
+    //The gameObject that will be held
     [HideInInspector]public GameObject m_heldObj = null;
 
+    //The main camera
     private Camera m_camera;
 
+    //The sceen object
     private GameObject m_seenObject;
 
     private void OnDrawGizmosSelected()
     {
+        //Coloring the gizmos
         Gizmos.color = Color.yellow;
         Gizmos.DrawWireSphere(transform.position+transform.forward * m_pickupDistance + transform.up * m_yOffset,0.2f);
     }
 
     private void Start()
     {
-        m_camera = Camera.main;
-        m_oldParent = transform.parent;
+        m_camera = Camera.main; //Getting the main camera
+        m_oldParent = transform.parent; //Getting the old parent
 
-        m_newParent.transform.position = transform.position + transform.forward * m_pickupDistance + Vector3.up *m_yOffset;
+        m_newParent.transform.position = transform.position + transform.forward * m_pickupDistance + Vector3.up *m_yOffset; //Setting the position of the new parent
     }
 
     void Update()
@@ -53,12 +57,10 @@ public class PickupRb : MonoBehaviour
             //Actions à réaliser quand le joueur ne tiens pas d'objet et qu'il observe un objet "Pickupable"
             if (target)
             {
-                if (m_seenObject != InteractRaycast.m_hitTarget.collider.gameObject)
+                GameObject obj = InteractRaycast.m_hitTarget.collider.gameObject;
+                if (m_seenObject != obj)
                 {
-                    //Changing the metallic instead of the color material because i can't get the initial color of a pickable obj (Nono) 
-                    if(m_seenObject) m_seenObject.GetComponent<MeshRenderer>().material.SetFloat("_Metallic", 0f);
-                    m_seenObject = InteractRaycast.m_hitTarget.collider.gameObject;
-                    m_seenObject.GetComponent<MeshRenderer>().material.SetFloat("_Metallic", 1f);
+                    m_seenObject = obj;
                 }
             }
             //Actions à réaliser quand le joueur ne tiens pas d'objet et qu'il n'observe plus un objet "Pickupable"
@@ -66,7 +68,6 @@ public class PickupRb : MonoBehaviour
             {
                 if (m_seenObject)
                 {
-                    m_seenObject.GetComponent<MeshRenderer>().material.SetFloat("_Metallic", 0f);
                     m_seenObject = null;
                 }
             }
@@ -125,11 +126,14 @@ public class PickupRb : MonoBehaviour
     {
         m_heldObj.transform.rotation = Quaternion.Lerp(m_heldObj.transform.rotation,transform.rotation,m_rotateSpeed * Time.deltaTime);
         Rigidbody rb = m_heldObj.GetComponent<Rigidbody>();
-        if(Vector3.Distance(m_heldObj.transform.position, m_newParent.position) > 0.1f)
-        {
-            Vector3 moveDir = m_newParent.position - m_heldObj.transform.position;
 
-            Vector3 newForce = moveDir * m_moveForce * Time.deltaTime;
+        Vector3 targetPosition = m_newParent.position;
+        
+        if(Vector3.Distance(m_heldObj.transform.position, targetPosition) > 0.1f)
+        {
+            Vector3 moveDir = targetPosition - m_heldObj.transform.position;
+
+            Vector3 newForce = moveDir * (m_moveForce * Time.deltaTime);
             
             if (newForce.magnitude > m_maxVelocity && Physics.Raycast(m_heldObj.transform.position, moveDir, 1f))
             {
@@ -140,7 +144,7 @@ public class PickupRb : MonoBehaviour
 
             
             
-            rb.AddForce(newForce);
+            rb.AddForce(newForce, ForceMode.Impulse);
         }
     }
 
