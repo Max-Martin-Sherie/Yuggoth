@@ -1,5 +1,5 @@
+using System;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 /// <summary>
 /// Script pour ramasser, déplacer et lacher les objets déplaçable
@@ -9,32 +9,38 @@ public class PickupRb : MonoBehaviour
 {
     //Définition de la distance minimal pour récupérer un objet
     [SerializeField] float m_minRange = 1;
+    [SerializeField] float m_pickupDistance = 1;
     
     [SerializeField] private float m_moveForce = 150f;
+    [SerializeField] private float m_rotateSpeed = 10f;
     [SerializeField][Range(0,100)] private float m_maxVelocity = 4;
     //Définition du parent dans lequel le gameObject va être transféré 
     [SerializeField] private Transform m_newParent;
     [SerializeField][Range(-1.5f,1.5f)][Tooltip("the offset of the height at which the cube will be held")] private float m_yOffset = -0.2f;
-    [SerializeField][Range(0, 2)][Tooltip("the size of the steps at which the player will pickup the cube")] private float m_step = 0.5f;
     
     [SerializeField] bool m_mouseHold = false;
     
     //Définition de l'ancien parent dans lequel le gameObject sera renvoyé
     private Transform m_oldParent;
 
-    public GameObject m_heldObj = null;
+    [HideInInspector]public GameObject m_heldObj = null;
 
     private Camera m_camera;
 
     private GameObject m_seenObject;
-    
-    
-    
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position+transform.forward * m_pickupDistance + transform.up * m_yOffset,0.2f);
+    }
+
     private void Start()
     {
         m_camera = Camera.main;
         m_oldParent = transform.parent;
 
+        m_newParent.transform.position = transform.position + transform.forward * m_pickupDistance + Vector3.up *m_yOffset;
     }
 
     void Update()
@@ -105,6 +111,10 @@ public class PickupRb : MonoBehaviour
         if(m_heldObj)
         {
             MoveObject();
+            if (Input.GetButton("Fire1"))
+            {
+                
+            }
         }
     }
 
@@ -113,30 +123,25 @@ public class PickupRb : MonoBehaviour
     /// </summary>
     private void MoveObject()
     {
-        //m_heldObj.GetComponent<MeshRenderer>().material.color = Color.green;
+        m_heldObj.transform.rotation = Quaternion.Lerp(m_heldObj.transform.rotation,transform.rotation,m_rotateSpeed * Time.deltaTime);
+        Rigidbody rb = m_heldObj.GetComponent<Rigidbody>();
         if(Vector3.Distance(m_heldObj.transform.position, m_newParent.position) > 0.1f)
         {
             Vector3 moveDir = m_newParent.position - m_heldObj.transform.position;
 
-            Vector3 newForce = moveDir * m_moveForce;
-
-            if (newForce.magnitude > m_maxVelocity)
+            Vector3 newForce = moveDir * m_moveForce * Time.deltaTime;
+            
+            if (newForce.magnitude > m_maxVelocity && Physics.Raycast(m_heldObj.transform.position, moveDir, 1f))
             {
                 DropObject();
                 return;
-            }
-            
-            m_heldObj.GetComponent<Rigidbody>().AddForce(newForce);
-        }
+            } if (newForce.magnitude > m_maxVelocity)
+                newForce = Vector3.Normalize(newForce)*m_maxVelocity;
 
-        Vector3 moveDirection = Vector3.Normalize(m_newParent.position - m_camera.transform.position);
-        
-        moveDirection.y = 0;
-        Vector3 newPosition = m_newParent.position + moveDirection * (Input.mouseScrollDelta.y * m_step);
-        
-        float distance = Vector3.Distance(m_camera.transform.position, newPosition);
-        
-        if(distance > m_minRange && distance < InteractRaycast.m_range)m_newParent.position = newPosition;
+            
+            
+            rb.AddForce(newForce);
+        }
     }
 
     /// <summary>
@@ -147,15 +152,15 @@ public class PickupRb : MonoBehaviour
     {
         Rigidbody objRb = p_pickObj.GetComponent<Rigidbody>();
         
-        //Debug.Log("PickUp");
         Vector3 ogPos = p_pickObj.transform.position;
-        m_newParent.transform.position = new Vector3(ogPos.x, m_camera.transform.position.y + m_yOffset,ogPos.z);
-
+        
+        
         if (Vector3.Distance(m_camera.transform.position, m_newParent.transform.position) < m_minRange)
             m_newParent.transform.position = new Vector3(ogPos.x+m_minRange,m_newParent.transform.position.y,ogPos.z+m_minRange);
         
         objRb.useGravity = false;
         objRb.drag = 10;
+        objRb.freezeRotation = true;
         
         objRb.transform.SetParent(m_newParent);
         m_heldObj = p_pickObj;
@@ -170,14 +175,14 @@ public class PickupRb : MonoBehaviour
     {
        
         m_heldObj.GetComponent<MeshRenderer>().material.SetFloat("_Metallic", 0f);
-        Rigidbody heldRb = m_heldObj.GetComponent<Rigidbody>();
-        heldRb.useGravity = true;
-        heldRb.drag = 1;
+        Rigidbody objRb = m_heldObj.GetComponent<Rigidbody>();
+        objRb.useGravity = true;
+        objRb.drag = 1;
+        objRb.freezeRotation = false;
 
-        heldRb.transform.SetParent(m_oldParent);
+        objRb.transform.SetParent(m_oldParent);
         m_heldObj = null;
-        heldRb.velocity = Vector3.zero;
-        m_newParent.transform.position = m_camera.transform.position;
+        objRb.velocity = Vector3.zero;
         
         
         InteractRaycast.m_interacting = false;

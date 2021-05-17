@@ -41,7 +41,6 @@ public class Pull_Player_To_Point : MonoBehaviour
         {
             m_targeted = true; //setting targeted to true
             m_playerMoveScript.m_canJump = false; //stopping the player from jumping
-            Destroy(gameObject.GetComponent<Collider>()); //removing the collider that wont be useful anymore
         }
     }
     
@@ -78,6 +77,6 @@ public class Pull_Player_To_Point : MonoBehaviour
     {
         m_playerMoveScript.m_moveSpeed = m_speed; //reset speed
         m_playerMoveScript.m_canJump = true; //reset speed
-        Destroy(this.gameObject); //reset speed
+        m_targeted = false; //reset speed
     }
 }

@@ -16,6 +16,9 @@ public class ShakeCameraOnHighVSpeed : MonoBehaviour
     private Camera m_mainCam;
     
     private PlayerMove m_moveScript;
+
+    private bool m_shaking;
+    private Vector3 m_cameraLocalStartPos;
     
     // Start is called before the first frame update
     void Start()
@@ -26,6 +29,7 @@ public class ShakeCameraOnHighVSpeed : MonoBehaviour
         
         //Starting the corountine
         StartCoroutine(ShakeOnYVelocity());
+        m_cameraLocalStartPos = m_mainCam.transform.localPosition;
     }
 
     IEnumerator ShakeOnYVelocity()
@@ -39,6 +43,7 @@ public class ShakeCameraOnHighVSpeed : MonoBehaviour
             //If the minimum speed of the player underpasses the minimum required speed for vibration
             if(m_minYSpeed > ySpeed)
             {
+                m_shaking = true;
                 //Fetching the original position of the camera
                 Vector3 localPosition = m_mainCam.transform.localPosition;
 
@@ -51,6 +56,11 @@ public class ShakeCameraOnHighVSpeed : MonoBehaviour
 
                 //Affecting the new position of the camera with the shake
                 m_mainCam.transform.localPosition = new Vector3(x, y, localPosition.z);
+            }
+            else if(m_shaking)
+            {
+                m_shaking = false;
+                m_mainCam.transform.localPosition = m_cameraLocalStartPos;
             }
             
             //repeat the function in m_vibrationSpeed seconds 
