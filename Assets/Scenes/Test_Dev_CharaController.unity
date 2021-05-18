@@ -7234,6 +7234,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2566867900074197638, guid: bc03fcdb560185d4fb4aed49d8f250fb, type: 3}
+      propertyPath: m_mouseHold
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2566867900074197638, guid: bc03fcdb560185d4fb4aed49d8f250fb, type: 3}
       propertyPath: m_moveForce
       value: 150
       objectReference: {fileID: 0}
@@ -7242,8 +7246,16 @@ PrefabInstance:
       value: 100
       objectReference: {fileID: 0}
     - target: {fileID: 2566867900074197638, guid: bc03fcdb560185d4fb4aed49d8f250fb, type: 3}
+      propertyPath: m_holdLockDistance
+      value: 0.16
+      objectReference: {fileID: 0}
+    - target: {fileID: 2566867900074197638, guid: bc03fcdb560185d4fb4aed49d8f250fb, type: 3}
       propertyPath: m_minSwitchDistance
       value: 0.221
+      objectReference: {fileID: 0}
+    - target: {fileID: 2566867900074197638, guid: bc03fcdb560185d4fb4aed49d8f250fb, type: 3}
+      propertyPath: m_switchHoldModeDelay
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3105633149240029365, guid: bc03fcdb560185d4fb4aed49d8f250fb, type: 3}
       propertyPath: m_Enabled
