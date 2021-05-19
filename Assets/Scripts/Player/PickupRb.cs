@@ -1,7 +1,7 @@
 using System.Collections;
 using UnityEngine;
 /// <summary>
-/// Cette classe typiquement afféctée au joueur sert à attirer et manipuler des gameobject du tag "pickuable"
+/// Cette classe typiquement afféctée au joueur sert à attirer et manipuler des gameobject du tag "pickupable"
 /// Cette classe nécessite un collider et un rigidbody
 /// </summary>
 public class PickupRb : MonoBehaviour
@@ -15,7 +15,7 @@ public class PickupRb : MonoBehaviour
     [SerializeField][Tooltip("The force with which the item will be pulled in")] private float m_moveForce = 150f;
     [SerializeField][Tooltip("The speed at which the item will rotate to face the player")] private float m_rotateSpeed = 10f;
     [SerializeField][Range(0,100)][Tooltip("the maximum velocity at which the cube will go and the velocity at which it will drop when blocked")] private float m_maxVelocity = 4;
-    [SerializeField][Tooltip("The ampty gameObject that will hold the cube")] private Transform m_newParent;
+    [SerializeField][Tooltip("The empty gameObject that will hold the cube")] private Transform m_newParent;
     [SerializeField][Range(-1.5f,1.5f)][Tooltip("the offset of the height at which the cube will be held")] private float m_yOffset = -0.2f;
     [SerializeField] bool m_mouseHold; //Switch the pick object command between hold and toggle
 
