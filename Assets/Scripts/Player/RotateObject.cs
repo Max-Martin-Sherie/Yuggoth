@@ -6,9 +6,7 @@ using UnityEngine;
 
 public class RotateObject : MonoBehaviour
 {
-    
-    [SerializeField][Tooltip("Range at which an object can be rotated")] private float m_range;
-    [SerializeField][Tooltip("Speed at which an object can be rotated")] private float m_rotateSpeed;
+    [SerializeField][Range(0,1000)][Tooltip("Speed at which an object can be rotated")] private float m_rotateSpeed;
 
     // Fetching the scripts that output the player's info to modify
     private PlayerMove m_controllerScript;
