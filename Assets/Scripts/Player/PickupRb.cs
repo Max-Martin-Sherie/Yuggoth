@@ -9,8 +9,10 @@ public class PickupRb : MonoBehaviour
     [SerializeField][Tooltip("The minimum range at which the object has to be so that player can pick it up")] float m_minRange = 1;
     [SerializeField][Tooltip("The distance at which the object will be held after pickup")] float m_pickupDistance = 1;
     [SerializeField][Tooltip("The distance at which the object hold will be locked")][Range(0,1)] float m_holdLockDistance = 0.1f;
-    [SerializeField][Tooltip("The bias in which the object will be held by in lock")][Range(0,1)] float m_holdLockBias = 0.1f;
+    [SerializeField][Tooltip("The distance at which the object hold will be locked")][Range(0,1)] float m_setParentDistance = 0.1f;
+    
     private float m_holdLockSave;
+    
     [SerializeField][Tooltip("The time the pickup mode will take to change between toggle and hold")][Range(0,5)] float m_switchHoldModeDelay = 1f;
     [SerializeField][Tooltip("The force with which the item will be pulled in")] private float m_moveForce = 150f;
     [SerializeField][Tooltip("The speed at which the item will rotate to face the player")] private float m_rotateSpeed = 10f;
@@ -22,13 +24,20 @@ public class PickupRb : MonoBehaviour
     [HideInInspector]public GameObject m_heldObj; //The gameObject that will be held
 
     private Camera m_camera; //The main camera
-    private GameObject m_seenObject; //The sceen object
+    private GameObject m_seenObject; //The seen object
+    
+    private GameObject m_oldparent; //The seen object
 
     private void OnDrawGizmosSelected()
     {
+        Vector3 position = transform.position + transform.forward * m_pickupDistance + transform.up * m_yOffset;
+        
         //Coloring the gizmos
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position+transform.forward * m_pickupDistance + transform.up * m_yOffset,0.2f);
+        Gizmos.DrawWireSphere(position,m_setParentDistance);
+        
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(position,m_holdLockDistance);
     }
 
     private void Start()
@@ -138,10 +147,9 @@ public class PickupRb : MonoBehaviour
             }
             rb.AddForce(newForce * Time.deltaTime, ForceMode.Impulse);
         }
-        else
+        if(Vector3.Distance(m_heldObj.transform.position, targetPosition) < m_setParentDistance)
         {
-            m_holdLockDistance = m_holdLockSave + m_holdLockBias;
-            rb.position = targetPosition;
+            m_heldObj.transform.SetParent(m_newParent.transform);
         }
     }
 
@@ -163,6 +171,8 @@ public class PickupRb : MonoBehaviour
         objRb.freezeRotation = true;
         
         m_heldObj = p_pickObj;
+        m_oldparent = m_heldObj.transform.parent.gameObject;
+        
 
         InteractRaycast.m_interacting = true;
     }
@@ -177,9 +187,12 @@ public class PickupRb : MonoBehaviour
         objRb.useGravity = true;
         objRb.drag = 1;
         objRb.freezeRotation = false;
-
+        
+        m_heldObj.transform.SetParent(m_oldparent.transform);
+        
         m_heldObj = null;
         objRb.velocity = Vector3.zero;
+        
         
         InteractRaycast.m_interacting = false;
     }
