@@ -19,7 +19,7 @@ public class PickupRb : MonoBehaviour
     [SerializeField][Range(0,100)][Tooltip("the maximum velocity at which the cube will go and the velocity at which it will drop when blocked")] private float m_maxVelocity = 4;
     [SerializeField][Tooltip("The empty gameObject that will hold the cube")] private Transform m_newParent;
     [SerializeField][Range(-1.5f,1.5f)][Tooltip("the offset of the height at which the cube will be held")] private float m_yOffset = -0.2f;
-    [SerializeField] bool m_mouseHold; //Switch the pick object command between hold and toggle
+    bool m_mouseHold = false; //Switch the pick object command between hold and toggle
 
     [HideInInspector]public GameObject m_heldObj; //The gameObject that will be held
 
@@ -47,6 +47,8 @@ public class PickupRb : MonoBehaviour
         m_camera = Camera.main; //Getting the main camera
 
         m_newParent.transform.position = transform.position + transform.forward * m_pickupDistance + Vector3.up *m_yOffset; //Setting the position of the new parent
+        
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"),LayerMask.NameToLayer("HeldCube"));
     }
 
     void Update()
@@ -62,7 +64,6 @@ public class PickupRb : MonoBehaviour
             if (availableTarget)
             {
                 GameObject obj = InteractRaycast.m_hitTarget.transform.gameObject; //Fetching the targeted gameobject
-                
                 //Checking if the player's targeted object is the same as the pickuable object
                 if (m_seenObject && m_seenObject != obj)
                 {
@@ -70,19 +71,10 @@ public class PickupRb : MonoBehaviour
                     m_seenObject = obj;
                 }
             }
-            
             //Actions à réaliser quand le joueur ne tiens pas d'objet et qu'il n'observe plus un objet "Pickupable"
-            else
-            {
-                //Reseting the seen object
-                if (m_seenObject)
-                {
-                    m_seenObject = null;
-                }
-            }
+            else if (m_seenObject)
+                m_seenObject = null;
         }
-        
-        
         //Reacting to the fire 1 input
         if (Input.GetButtonDown("Fire1"))
         {
@@ -102,7 +94,6 @@ public class PickupRb : MonoBehaviour
             } else 
                 DropObject(); //Dropping the object on second click if the player is in toggle
         }
-        
         //If the player is holding an object...
         if(m_heldObj)
         {
@@ -121,7 +112,6 @@ public class PickupRb : MonoBehaviour
     IEnumerator ChangePickupControl()
     {
         yield return new WaitForSeconds(m_switchHoldModeDelay);
-        
         if(Input.GetButton("Fire1"))m_mouseHold = true;
     }
     
@@ -140,7 +130,10 @@ public class PickupRb : MonoBehaviour
             Vector3 moveDir = targetPosition - m_heldObj.transform.position;
             Vector3 newForce = moveDir * m_moveForce;
             
-            if (newForce.magnitude > m_maxVelocity && Physics.Raycast(m_heldObj.transform.position, moveDir, 1f))
+            int layerMask =~ LayerMask.NameToLayer("Player");
+
+            
+            if (newForce.magnitude > m_maxVelocity && Physics.Raycast(m_heldObj.transform.position, moveDir,1f,layerMask))
             {
                 DropObject();
                 return;
@@ -148,9 +141,7 @@ public class PickupRb : MonoBehaviour
             rb.AddForce(newForce * Time.deltaTime, ForceMode.Impulse);
         }
         if(Vector3.Distance(m_heldObj.transform.position, targetPosition) < m_setParentDistance)
-        {
             m_heldObj.transform.SetParent(m_newParent.transform);
-        }
     }
 
     /// <summary>
@@ -171,9 +162,9 @@ public class PickupRb : MonoBehaviour
         objRb.freezeRotation = true;
         
         m_heldObj = p_pickObj;
-        m_oldparent = m_heldObj.transform.parent.gameObject;
+        m_oldparent = p_pickObj.transform.parent.gameObject;
+        m_heldObj.layer = LayerMask.NameToLayer("HeldCube");
         
-
         InteractRaycast.m_interacting = true;
     }
 
@@ -189,10 +180,10 @@ public class PickupRb : MonoBehaviour
         objRb.freezeRotation = false;
         
         m_heldObj.transform.SetParent(m_oldparent.transform);
+        m_heldObj.layer = LayerMask.NameToLayer("Pickupable");
         
         m_heldObj = null;
         objRb.velocity = Vector3.zero;
-        
         
         InteractRaycast.m_interacting = false;
     }
