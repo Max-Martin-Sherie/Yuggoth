@@ -1,12 +1,10 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
-public class LaserActivateCube : MonoBehaviour
+public class ActivateCubeOnActivate : MonoBehaviour
 {
        
     //Creating the variable that will contain the LaserReceptor script of the gameObject
-    private LaserReceptor m_receptorScript;
+    private ActivatorParent m_activatorScript;
 
     //Creating the variable that will contain the Material of the gameObject
     [SerializeField]private GameObject[] m_gameObjectsToActivate;
@@ -20,7 +18,7 @@ public class LaserActivateCube : MonoBehaviour
     void Start()
     {
         //Checking if the player has a LaserReceptor script
-        bool lrIsPresent = TryGetComponent<LaserReceptor>(out m_receptorScript);
+        bool lrIsPresent = TryGetComponent<ActivatorParent>(out m_activatorScript);
         
         //warning the level designer if he doesn't have a LaserReceptor script
         if (!lrIsPresent)
@@ -36,7 +34,7 @@ public class LaserActivateCube : MonoBehaviour
     /// </summary>
     void Update()
     {
-        if (m_receptorScript.m_laserHit)
+        if (m_activatorScript.m_enabled)
             foreach (GameObject obj in m_gameObjectsToActivate)
                 obj.SetActive(true);
         else

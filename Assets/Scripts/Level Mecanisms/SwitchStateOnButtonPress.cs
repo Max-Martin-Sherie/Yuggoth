@@ -2,32 +2,31 @@ using UnityEngine;
 
 public class SwitchStateOnButtonPress : MonoBehaviour
 {
-    [SerializeField][Tooltip("Drag and drop a gameobject that has button component here")] private Button[] m_button; //Fetching the button
+    [SerializeField][Tooltip("Drag and drop a gameobject that has button component here")] private ActivatorParent[] m_activators; //Fetching the button
     [SerializeField] private bool m_setActive = true;
     
     private void Start()
     {
         gameObject.SetActive(!m_setActive);
 
-        foreach (Button btn in m_button)
+        foreach (ActivatorParent btn in m_activators)
         {
-            btn.OnButtonPress += EnableGameobject; //Adding the enable mesh renderer to the on button press delegate
-            btn.OnButtonRelease += DisableGameobject; 
+            btn.OnActivate += EnableGameobject; //Adding the enable mesh renderer to the on button press delegate
+            btn.OnRelease += DisableGameobject; 
         }
     }
 
     private void EnableGameobject()
     {
-        
         gameObject.SetActive(m_setActive);
     }
     private void DisableGameobject()
     {
         bool noneActive = true;
 
-        foreach (Button btn in m_button)
+        foreach (ActivatorParent activator in m_activators)
         {
-            if (btn.m_triggered)
+            if ( activator.m_enabled)
             {
                 noneActive = false;
                 break;

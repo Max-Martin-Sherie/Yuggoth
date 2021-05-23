@@ -5,7 +5,7 @@ using UnityEngine;
 /// It is NECESARY to have a LaserReceptor Script on this GameObject
 /// </summary>
 
-public class LaserChangeColor : MonoBehaviour
+public class ChangeColorOnActivate : MonoBehaviour
 {
     
     //Creating the variable that will contain the LaserReceptor script of the gameObject
@@ -46,9 +46,9 @@ public class LaserChangeColor : MonoBehaviour
     /// </summary>
     void Update()
     {
-        // Using the public boolean m_laserHit of the LaserReceptor class
+        // Using the public boolean m_enabled of the LaserReceptor class
         //if it is true change the color to black 
-        if (m_receptorScript.m_laserHit) m_meshMaterial.color = Color.black; 
+        if (m_receptorScript.m_enabled) m_meshMaterial.color = Color.black; 
         //if it is false change the color to the original color of the object 
         else m_meshMaterial.color = m_initialColor;
     }

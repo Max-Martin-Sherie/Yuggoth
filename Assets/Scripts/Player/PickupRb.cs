@@ -16,7 +16,7 @@ public class PickupRb : MonoBehaviour
     [SerializeField][Tooltip("The time the pickup mode will take to change between toggle and hold")][Range(0,5)] float m_switchHoldModeDelay = 1f;
     [SerializeField][Tooltip("The force with which the item will be pulled in")] private float m_moveForce = 150f;
     [SerializeField][Tooltip("The speed at which the item will rotate to face the player")] private float m_rotateSpeed = 10f;
-    [SerializeField][Range(0,100)][Tooltip("the maximum velocity at which the cube will go and the velocity at which it will drop when blocked")] private float m_maxVelocity = 4;
+    [SerializeField][Range(0,1000)][Tooltip("the maximum velocity at which the cube will go and the velocity at which it will drop when blocked")] private float m_maxVelocity = 4;
     [SerializeField][Tooltip("The empty gameObject that will hold the cube")] private Transform m_newParent;
     [SerializeField][Range(-1.5f,1.5f)][Tooltip("the offset of the height at which the cube will be held")] private float m_yOffset = -0.2f;
     bool m_mouseHold = false; //Switch the pick object command between hold and toggle
@@ -133,13 +133,20 @@ public class PickupRb : MonoBehaviour
             int layerMask =~ LayerMask.NameToLayer("Player");
 
             
-            if (newForce.magnitude > m_maxVelocity && Physics.Raycast(m_heldObj.transform.position, moveDir,1f,layerMask))
+            if (newForce.magnitude > m_maxVelocity && Physics.Raycast(m_heldObj.transform.position, moveDir,0.6f,layerMask))
             {
                 DropObject();
                 return;
             }
             rb.AddForce(newForce * Time.deltaTime, ForceMode.Impulse);
+            
+            Color rayColor = Color.green;
+            if(newForce.magnitude > m_maxVelocity)rayColor = Color.red;
+            
+            Debug.DrawRay(m_heldObj.transform.position,moveDir,rayColor);
         }
+        
+        
         if(Vector3.Distance(m_heldObj.transform.position, targetPosition) < m_setParentDistance)
             m_heldObj.transform.SetParent(m_newParent.transform);
     }
@@ -162,7 +169,7 @@ public class PickupRb : MonoBehaviour
         objRb.freezeRotation = true;
         
         m_heldObj = p_pickObj;
-        m_oldparent = p_pickObj.transform.parent.gameObject;
+        if(p_pickObj.transform.parent)m_oldparent = p_pickObj.transform.parent.gameObject;
         m_heldObj.layer = LayerMask.NameToLayer("HeldCube");
         
         InteractRaycast.m_interacting = true;
@@ -179,7 +186,11 @@ public class PickupRb : MonoBehaviour
         objRb.drag = 1;
         objRb.freezeRotation = false;
         
-        m_heldObj.transform.SetParent(m_oldparent.transform);
+        if(m_oldparent)
+            m_heldObj.transform.SetParent(m_oldparent.transform);
+        else
+            m_heldObj.transform.parent = null;
+        
         m_heldObj.layer = LayerMask.NameToLayer("Pickupable");
         
         m_heldObj = null;

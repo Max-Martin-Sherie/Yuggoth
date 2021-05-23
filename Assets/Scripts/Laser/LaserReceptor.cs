@@ -5,19 +5,16 @@ using UnityEngine;
 /// It detects when the GameObject is hit by a laser and collects useful data from it
 /// </summary>
 
-public class LaserReceptor : MonoBehaviour
+public class LaserReceptor : ActivatorParent
 {
-    //[HideInInspector]
-    public bool m_laserHit = false;
-    
     //Declaration of the variable that will hold all the info about the incoming laser
     private LaserProperties m_receivedLaser;
 
     //Initiating the delagate that will be called everytime the GameObject gets hit
-    public delegate void OnReceiveLaser(LaserProperties receivedLaser);
+    public delegate void OnAction(LaserProperties receivedLaser);
 
-    //Creating a delacate call
-    public OnReceiveLaser onReceiveLaser;
+    //Creating a delegate call
+    public OnAction onReceiveLaser;
     
     /// <summary>
     /// This function will be called by laser sources when they hit the GameObject
