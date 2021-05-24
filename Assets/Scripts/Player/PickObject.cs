@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class PickObject : MonoBehaviour
 {
-    [SerializeField] private string m_selectableObject = "Selectable";
-
-    [SerializeField] private GameObject m_newParent;
     [SerializeField] private GameObject m_parent;
 
     [SerializeField] private Material m_nonSelectedMat;

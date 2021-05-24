@@ -11,7 +11,7 @@ public class LaserReceptor : ActivatorParent
     private LaserProperties m_receivedLaser;
 
     //Initiating the delagate that will be called everytime the GameObject gets hit
-    public delegate void OnAction(LaserProperties receivedLaser);
+    public new delegate void OnAction(LaserProperties receivedLaser);
 
     //Creating a delegate call
     public OnAction onReceiveLaser;

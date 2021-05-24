@@ -7,9 +7,9 @@ public class OxygeneTimer : MonoBehaviour
 {
     public Slider m_timerSlider;
 
-    //m_oxygeneTimer correspond a la durée que le joueur peut parcourir en minutes.
+    //m_oxygeneTimer correspond a la durÃ©e que le joueur peut parcourir en minutes.
     public float m_oxygeneTimer;
-    //m_timer correspond au moment où le joueur n'aura plus d'oxygène.
+    //m_timer correspond au moment oÃ¹ le joueur n'aura plus d'oxygÃ¨ne.
     private float m_timer;
 
     [HideInInspector]
@@ -19,7 +19,7 @@ public class OxygeneTimer : MonoBehaviour
     private CameraController m_cameraController;
 
 
-    //m_onO2 est un boolléen qui vérifie si le joueur est dans une zone, ou fais une action, où il peut récupérer l'oxygène.
+    //m_onO2 est un boollÃ©en qui vÃ©rifie si le joueur est dans une zone, ou fais une action, oÃ¹ il peut rÃ©cupÃ©rer l'oxygÃ¨ne.
     private bool m_onO2;
 
     private void Start()

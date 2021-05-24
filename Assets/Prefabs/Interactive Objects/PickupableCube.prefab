@@ -13,8 +13,10 @@ GameObject:
   - component: {fileID: 5492495418603967693}
   - component: {fileID: 1187941880089456135}
   - component: {fileID: 4695754409190118502}
+  - component: {fileID: 778296120}
+  - component: {fileID: 3192340751764017380}
   m_Layer: 7
-  m_Name: Cube (2)
+  m_Name: PickupableCube
   m_TagString: Selectable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -114,3 +116,29 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
+--- !u!114 &778296120
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6285264811671827736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1f2ee80c9e74d754cbc1044f030ff83d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_respawnPoint: {fileID: 0}
+--- !u!114 &3192340751764017380
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6285264811671827736}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dc1a45585d3219943b30c42984487526, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_yDistance: -10

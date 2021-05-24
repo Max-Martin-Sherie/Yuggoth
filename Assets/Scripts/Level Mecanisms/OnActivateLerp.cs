@@ -19,24 +19,26 @@ public class OnActivateLerp : MonoBehaviour
 
     public List<Vector3> m_positions;
 
-    private int lol = 69;
-    
-     private void OnDrawGizmos()
+    private void OnDrawGizmos()
      {
          
          Gizmos.color = Color.yellow;
          foreach (MovingPlatform obj in m_gameObjectsToLerp)
          {
-             BoxCollider bc;
-             if (obj._obj.TryGetComponent(out bc))
+             if(obj._obj)
              {
-                 Gizmos.DrawWireCube(obj._targetPos + bc.center,obj._obj.transform.rotation * bc.size );
-             }
-             else
-             {
-                 Gizmos.DrawLine(obj._targetPos - 0.1f * Vector3.up,obj._targetPos + 0.1f * Vector3.up);
-                 Gizmos.DrawLine(obj._targetPos - 0.1f * Vector3.up,obj._targetPos + 0.1f * Vector3.left);
-                 Gizmos.DrawLine(obj._targetPos - 0.1f * Vector3.up,obj._targetPos + 0.1f * Vector3.forward);
+                 BoxCollider bc;
+                 if (obj._obj.TryGetComponent(out bc))
+                 {
+                     Gizmos.DrawWireCube(obj._targetPos + obj._obj.transform.rotation * bc.center,
+                         obj._obj.transform.rotation * bc.size);
+                 }
+                 else
+                 {
+                     Gizmos.DrawLine(obj._targetPos - 0.1f * Vector3.up, obj._targetPos + 0.1f * Vector3.up);
+                     Gizmos.DrawLine(obj._targetPos - 0.1f * Vector3.up, obj._targetPos + 0.1f * Vector3.left);
+                     Gizmos.DrawLine(obj._targetPos - 0.1f * Vector3.up, obj._targetPos + 0.1f * Vector3.forward);
+                 }
              }
          }
     
@@ -44,7 +46,13 @@ public class OnActivateLerp : MonoBehaviour
          
          for (int i = 0; i < m_gameObjectsToLerp.Length; i++)
          {
-             m_positions.Insert(i,m_gameObjectsToLerp[i]._obj.transform.position);
+             if(m_gameObjectsToLerp[i]._obj != null)m_positions.Insert(i,m_gameObjectsToLerp[i]._obj.transform.position);
+             else
+             {
+                 Debug.LogWarning($"there is a movable platform that is null on : {gameObject.name} on index {i}");
+                 Gizmos.color = Color.red;
+                 Gizmos.DrawRay(transform.position,Vector3.up * 10000f);
+             }
          }
      }
 
@@ -53,17 +61,18 @@ public class OnActivateLerp : MonoBehaviour
     /// </summary>
     void Start()
     {
-        //Checking if the player has a LaserReceptor script
-        bool activatorScript = TryGetComponent(out m_activatorScript);
-        
-        //warning the level designer if he doesn't have a LaserReceptor script
-        if (!activatorScript)
-        {
-            Debug.LogWarning($"Hey There is no Activator on {gameObject.name} please add one!");
-            gameObject.SetActive(false);
-            //return;
-        }
+        if(!m_multipleParents){
+            //Checking if the player has a LaserReceptor script
+            bool activatorScript = TryGetComponent(out m_activatorScript);
 
+            //warning the level designer if he doesn't have a LaserReceptor script
+            if (!activatorScript)
+            {
+                Debug.LogWarning($"Hey There is no Activator on {gameObject.name} please add one!");
+                gameObject.SetActive(false);
+                //return;
+            }
+        }
         foreach (MovingPlatform obj in m_gameObjectsToLerp)
         {
             obj.SetOgPos();
@@ -107,7 +116,7 @@ public class OnActivateLerp : MonoBehaviour
     [Serializable]
     public class MovingPlatform
     {
-        private Vector3 _originalPosition;
+        private Vector3 _originalPosition = Vector3.zero;
         public GameObject _obj;
         public Vector3 _targetPos;
         public float _moveSpeed;

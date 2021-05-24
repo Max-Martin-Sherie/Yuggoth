@@ -178,7 +178,7 @@ public class PickupRb : MonoBehaviour
     /// <summary>
     /// Fonction pour lacher un objet
     /// </summary>
-    private void DropObject()
+    public void DropObject()
     {
         m_heldObj.GetComponent<MeshRenderer>().material.SetFloat("_Metallic", 0f);
         Rigidbody objRb = m_heldObj.GetComponent<Rigidbody>();

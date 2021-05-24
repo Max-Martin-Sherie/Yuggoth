@@ -15,8 +15,8 @@ public class CameraController : MonoBehaviour
     private GameObject m_cam;
 
     //Force de rotation appliqué par rapport à un axe
-    private float m_xRotation;
-    private float m_yRotation;
+    public float m_xRotation;
+    public float m_yRotation;
 
     private void Start()
     {
