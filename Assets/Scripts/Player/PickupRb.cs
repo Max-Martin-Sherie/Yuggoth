@@ -19,6 +19,8 @@ public class PickupRb : MonoBehaviour
     [SerializeField][Range(0,1000)][Tooltip("the maximum velocity at which the cube will go and the velocity at which it will drop when blocked")] private float m_maxVelocity = 4;
     [SerializeField][Tooltip("The empty gameObject that will hold the cube")] private Transform m_newParent;
     [SerializeField][Range(-1.5f,1.5f)][Tooltip("the offset of the height at which the cube will be held")] private float m_yOffset = -0.2f;
+    [SerializeField][Range(-2,0)] private float m_minY = -1;
+    [SerializeField][Range(0,2)] private float m_maxY = 1;
     bool m_mouseHold = false; //Switch the pick object command between hold and toggle
 
     [HideInInspector]public GameObject m_heldObj; //The gameObject that will be held
@@ -34,10 +36,10 @@ public class PickupRb : MonoBehaviour
         
         //Coloring the gizmos
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(position,m_setParentDistance);
+        Gizmos.DrawWireSphere(m_newParent.position,m_setParentDistance);
         
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(position,m_holdLockDistance);
+        Gizmos.DrawWireSphere(m_newParent.position,m_holdLockDistance);
     }
 
     private void Start()
@@ -122,6 +124,9 @@ public class PickupRb : MonoBehaviour
     {
         m_heldObj.transform.rotation = Quaternion.Lerp(m_heldObj.transform.rotation,transform.rotation,m_rotateSpeed * Time.deltaTime);
         Rigidbody rb = m_heldObj.GetComponent<Rigidbody>();
+        
+        
+        
         Vector3 targetPosition = m_newParent.position;
         
         if(Vector3.Distance(m_heldObj.transform.position, targetPosition) > m_holdLockDistance)
@@ -148,7 +153,16 @@ public class PickupRb : MonoBehaviour
         
         
         if(Vector3.Distance(m_heldObj.transform.position, targetPosition) < m_setParentDistance)
+        {
             m_heldObj.transform.SetParent(m_newParent.transform);
+        }
+        
+        float y = (m_camera.transform.forward * m_pickupDistance).y + m_yOffset;
+        y = Mathf.Clamp(y, m_minY, m_maxY);
+        
+        float x = m_newParent.localPosition.x;
+        float z = m_newParent.localPosition.z;
+        m_newParent.localPosition = Vector3.Lerp(m_newParent.localPosition,new Vector3(x,y,z),100f * Time.deltaTime);
     }
 
     /// <summary>
@@ -186,6 +200,7 @@ public class PickupRb : MonoBehaviour
         objRb.drag = 1;
         objRb.freezeRotation = false;
         
+        
         if(m_oldparent)
             m_heldObj.transform.SetParent(m_oldparent.transform);
         else
@@ -195,6 +210,11 @@ public class PickupRb : MonoBehaviour
         
         m_heldObj = null;
         objRb.velocity = Vector3.zero;
+        
+        float y = m_yOffset;
+        float x = m_newParent.localPosition.x;
+        float z = m_newParent.localPosition.z;
+        m_newParent.localPosition = new Vector3(x,y,z);
         
         InteractRaycast.m_interacting = false;
     }

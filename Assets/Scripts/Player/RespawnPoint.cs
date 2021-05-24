@@ -1,11 +1,11 @@
+using System;
 using UnityEngine;
 
 public class RespawnPoint : MonoBehaviour
 {
     [SerializeField] private Transform m_respawnPoint;
     [SerializeField] private GameObject m_player;
-
-    
+    [SerializeField] private float m_newRespawnHeight = -5f;
     
     private Respawn m_playerRespawn;
     private PlayerMove m_playerMove;
@@ -13,7 +13,14 @@ public class RespawnPoint : MonoBehaviour
     private bool m_set = false;
     
     public Respawn.OnRespawnRun OnRespawnCall;
-    
+
+    private void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.blue;
+        
+        Gizmos.DrawLine(transform.position, transform.position + Vector3.up * m_newRespawnHeight);
+    }
+
     private void Start()
     {
         m_playerRespawn = m_player.GetComponent<Respawn>();
@@ -26,8 +33,9 @@ public class RespawnPoint : MonoBehaviour
         if(!m_set && p_other.transform.gameObject.layer == LayerMask.NameToLayer("Player")){
             m_playerRespawn.m_respawnTransform = m_respawnPoint;
             m_playerRespawn.OnRespawn += OnRespawnCall;
+            m_playerRespawn.m_respawnHeight = m_newRespawnHeight;
+            
             m_set = true;
-
         }
     }
 
