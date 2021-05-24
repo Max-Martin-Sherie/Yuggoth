@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
+  m_IndirectSpecularColor: {r: 0.0054187737, g: 0.002861858, b: 0.004582418, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -6052,7 +6052,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6661509562828746658, guid: 8eb21bcfaf1df2544847e23770c8c0fb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 442.8723
+      value: 442.618
       objectReference: {fileID: 0}
     - target: {fileID: 6661509562828746658, guid: 8eb21bcfaf1df2544847e23770c8c0fb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -6060,7 +6060,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6661509562828746658, guid: 8eb21bcfaf1df2544847e23770c8c0fb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 800.53455
+      value: 800.09
       objectReference: {fileID: 0}
     - target: {fileID: 6661509562828746658, guid: 8eb21bcfaf1df2544847e23770c8c0fb, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7892,7 +7892,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5101737732720810203, guid: 757d90747c8a6bb42891109faf309cb8, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 3.33
+      value: 2.37
       objectReference: {fileID: 0}
     - target: {fileID: 5101737732720810203, guid: 757d90747c8a6bb42891109faf309cb8, type: 3}
       propertyPath: m_LocalPosition.y
@@ -7900,7 +7900,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 5101737732720810203, guid: 757d90747c8a6bb42891109faf309cb8, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -41.96
+      value: -30.76
       objectReference: {fileID: 0}
     - target: {fileID: 5101737732720810203, guid: 757d90747c8a6bb42891109faf309cb8, type: 3}
       propertyPath: m_LocalRotation.w
@@ -15458,7 +15458,7 @@ Light:
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10
   m_Shadows:
-    m_Type: 2
+    m_Type: 0
     m_Resolution: -1
     m_CustomResolution: -1
     m_Strength: 1
@@ -15486,7 +15486,7 @@ Light:
   m_Cookie: {fileID: 0}
   m_DrawHalo: 0
   m_Flare: {fileID: 0}
-  m_RenderMode: 0
+  m_RenderMode: 2
   m_CullingMask:
     serializedVersion: 2
     m_Bits: 4294967295

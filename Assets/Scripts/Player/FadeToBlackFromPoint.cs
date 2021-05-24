@@ -21,7 +21,6 @@ public class FadeToBlackFromPoint : MonoBehaviour
     {
         m_distanceBetweenNodes = Vector3.Distance(m_startPosition.position, m_endPosition.position);
         
-        SceneManager.LoadScene(1);
     }
 
     // Update is called once per frame
@@ -56,8 +55,9 @@ public class FadeToBlackFromPoint : MonoBehaviour
         Color bsClr = m_blackScreen.color;
         m_blackScreen.color = new Color(bsClr.r,bsClr.g,bsClr.b,Mathf.Lerp(bsClr.a,1f, Time.deltaTime));
         
-        if(m_blackScreen.color.a >= 0.999f)
+        if(m_blackScreen.color.a >= 0.998f)
         {
+            SceneManager.LoadScene(1);
         }
     }
 }
