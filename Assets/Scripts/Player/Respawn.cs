@@ -8,7 +8,7 @@ public class Respawn : MonoBehaviour
     [HideInInspector]public float m_respawnHeight = -5f;
 
     [SerializeField] private RawImage m_blackscreen;
-    [SerializeField][Range(.001f,0.05f)] private float m_respawnSpeed = 0.02f;
+    [SerializeField][Range(2f,15f)] private float m_respawnSpeed = 0.02f;
 
     private CameraController m_cameraController;
     private PlayerMove m_pm;
@@ -48,7 +48,7 @@ public class Respawn : MonoBehaviour
         m_respawning = true;
         while (m_blackscreen.color.a < .958f)
         {
-            m_blackscreen.color = Color.Lerp(m_blackscreen.color, Color.black,m_respawnSpeed );
+            m_blackscreen.color = Color.Lerp(m_blackscreen.color, Color.black,m_respawnSpeed * Time.deltaTime );
             yield return new WaitForSeconds(Time.deltaTime);
         }
 
@@ -66,7 +66,7 @@ public class Respawn : MonoBehaviour
         
         while (m_blackscreen.color.a > .002f)
         {
-            m_blackscreen.color = Color.Lerp(m_blackscreen.color, targetcolor,m_respawnSpeed );
+            m_blackscreen.color = Color.Lerp(m_blackscreen.color, targetcolor,m_respawnSpeed  * Time.deltaTime);
             yield return new WaitForSeconds(Time.deltaTime);
         }
         

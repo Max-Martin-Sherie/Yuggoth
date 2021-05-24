@@ -18,7 +18,7 @@ public class RespawnPoint : MonoBehaviour
     {
         Gizmos.color = Color.blue;
         
-        Gizmos.DrawLine(transform.position, transform.position + Vector3.up * m_newRespawnHeight);
+        Gizmos.DrawLine(transform.position, transform.position + Vector3.up * (m_newRespawnHeight + 2f));
     }
 
     private void Start()
