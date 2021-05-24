@@ -14,7 +14,6 @@ public class FadeToBlackFromPoint : MonoBehaviour
 
     private float m_highestAlpha;
     
-    private bool m_fading = true;
     private float m_distanceBetweenNodes;
     
     // Start is called before the first frame update

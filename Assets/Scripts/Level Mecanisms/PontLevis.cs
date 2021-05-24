@@ -18,7 +18,7 @@ public class PontLevis : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(m_button.m_triggered)transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(m_targetRotation),m_loweringSpeed * Time.deltaTime );
+        if(((ActivatorParent) m_button).m_enabled)transform.rotation = Quaternion.Lerp(transform.rotation,Quaternion.Euler(m_targetRotation),m_loweringSpeed * Time.deltaTime );
         else transform.rotation = Quaternion.Lerp(transform.rotation,m_ogRotation,m_loweringSpeed * Time.deltaTime );
     }
 }

@@ -6,16 +6,11 @@ using UnityEngine;
 
 public class RotateObject : MonoBehaviour
 {
-    
-    [SerializeField][Tooltip("Range at which an object can be rotated")] private float m_range;
-    [SerializeField][Tooltip("Speed at which an object can be rotated")] private float m_rotateSpeed;
+    [SerializeField][Range(0,1000)][Tooltip("Speed at which an object can be rotated")] private float m_rotateSpeed;
 
     // Fetching the scripts that output the player's info to modify
     private PlayerMove m_controllerScript;
     private CameraController m_cameraController;
-    
-    //creating a camera for the raycast
-    private Camera m_camera;
 
     //getting the original movement speed and sensitivity of the player
     private float m_speed;
@@ -30,9 +25,6 @@ public class RotateObject : MonoBehaviour
         //Getting the original movement speed and sensitivity of the player
         m_speed = m_controllerScript.m_moveSpeed;
         m_sensitivity = m_cameraController.m_mouseSensitivity;
-        
-        //Fetching the main camera for the raycast
-        m_camera = Camera.main;
     }
 
     void Update()

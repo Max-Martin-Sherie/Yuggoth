@@ -58,13 +58,13 @@ public class LaserReflector : MonoBehaviour
             //Fetching the hit object
             GameObject hitObject = hit.collider.gameObject;
             
-            //Making sure that the m_laserHit boolean stays loyal yo the simulation
+            //Making sure that the m_enabled boolean stays loyal yo the simulation
             if (m_hitObject != hitObject)
             {
                 if(m_hitObject)
                 {
                     if(m_hitObject.TryGetComponent<LaserReceptor>(out LaserReceptor secondHitObjectReceptor))
-                        secondHitObjectReceptor.m_laserHit = false;
+                        secondHitObjectReceptor.m_enabled = false;
                 }
             }
             
@@ -73,7 +73,7 @@ public class LaserReflector : MonoBehaviour
             {
 
                 hitObjectReceptor.ReceiveLaser(p_laserProperties._range,reflectionDirection,p_laserProperties._lineRenderer,hit,p_laserProperties._pointCount+1);
-                hitObjectReceptor.m_laserHit = true;
+                hitObjectReceptor.m_enabled = true;
             }
 
             m_hitObject = hitObject;
@@ -85,7 +85,7 @@ public class LaserReflector : MonoBehaviour
             if (m_hitObject)
             {
                 if(m_hitObject.TryGetComponent<LaserReceptor>(out LaserReceptor secondHitObjectReceptor))
-                    secondHitObjectReceptor.m_laserHit = false;
+                    secondHitObjectReceptor.m_enabled = false;
                 m_hitObject = null;
             }
         }
@@ -93,9 +93,9 @@ public class LaserReflector : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if (m_hitObject && !m_receptorScript.m_laserHit)
+        if (m_hitObject && !m_receptorScript.m_enabled)
         {
-            if(m_hitObject.TryGetComponent<LaserReceptor>(out LaserReceptor laserHit))laserHit.m_laserHit = false;
+            if(m_hitObject.TryGetComponent<LaserReceptor>(out LaserReceptor laserHit))laserHit.m_enabled = false;
             m_hitObject = null;
         }
     }
