@@ -32,6 +32,8 @@ public class OnActivateLerp : MonoBehaviour
                  {
                      Gizmos.DrawWireCube(obj._targetPos + obj._obj.transform.rotation * bc.center,
                          obj._obj.transform.rotation * bc.size);
+                     
+                     Gizmos.DrawLine(obj._targetPos,obj._obj.transform.position);
                  }
                  else
                  {
