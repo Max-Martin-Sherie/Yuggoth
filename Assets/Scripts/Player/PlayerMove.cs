@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
+
 /// <summary>
 /// This class allows the player to control a gameObject using the horizontal and vertical axis
 /// </summary>
@@ -21,14 +23,11 @@ public class PlayerMove : MonoBehaviour
 
     [HideInInspector]
     public bool m_grounded;
-    
-    [SerializeField] [Tooltip("AudioSource in charge of footsteps")] private AudioSource m_footStepAudioSource;
-    [SerializeField] [Tooltip("List of audio clips of footsteps")] private List<AudioClip> m_footstepsList = new List<AudioClip>();
-    private bool m_canPlayFootstep;
 
-    [SerializeField][Tooltip("Interval time between each footstep sound")] [Range(0f, 1f)] private float m_inBetween;
+    [FormerlySerializedAs("inputMove")] [HideInInspector] public Vector3 m_inputMove;
 
-    
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -36,7 +35,7 @@ public class PlayerMove : MonoBehaviour
 
         if (m_useUnityPhysicsGravity) m_gravity = Physics.gravity.y; //if the m_useUnityPhysicsGravity bool is enabled then replacing the in game gravity by the default unity one
 
-        m_canPlayFootstep = false;
+        
     }
 
     // Update is called once per frame
@@ -67,11 +66,11 @@ public class PlayerMove : MonoBehaviour
         }
         
         //Fetching the player's input 
-        Vector3 inputMove = transform.forward * Input.GetAxis("Vertical");
-        inputMove += transform.right * Input.GetAxis("Horizontal");
+        m_inputMove = transform.forward * Input.GetAxis("Vertical");
+        m_inputMove += transform.right * Input.GetAxis("Horizontal");
 
         //Adding the speed plus a small multiplier to it
-        inputMove*= (m_moveSpeed * 0.1f);
+        m_inputMove*= (m_moveSpeed * 0.1f);
 
         if (m_grounded && !Input.GetButton("Jump"))
         {
@@ -80,7 +79,7 @@ public class PlayerMove : MonoBehaviour
         
         //Projecting the player's movement direction onto a plane to avoid stepping
         if(!onSlope && m_grounded){
-            inputMove = Vector3.ProjectOnPlane(inputMove, hitNormal);
+            m_inputMove = Vector3.ProjectOnPlane(m_inputMove, hitNormal);
             
             //Fetching the jump key and jumping
             if(Input.GetButton("Jump") && m_canJump)
@@ -91,7 +90,7 @@ public class PlayerMove : MonoBehaviour
         }else m_velocity.y += m_gravity * Time.deltaTime; //Adding gravity
         
         //Adding the player's input to the global velocity
-        m_velocity += inputMove;
+        m_velocity += m_inputMove;
 
         //Applying the global velocity
         m_cr.Move( m_velocity * Time.deltaTime);
@@ -104,20 +103,8 @@ public class PlayerMove : MonoBehaviour
         //Applying drag to the vertical axis if the player is grounded and on a slope
         if(m_grounded && !onSlope) m_velocity.y *= m_drag;
         
-        //Plays footsteps at regular intervals if the player is moving and if he is on the ground
-        if (m_canPlayFootstep == false && inputMove.magnitude > 0 && m_grounded)
-        {
-            m_canPlayFootstep = true;
-            m_footStepAudioSource.clip = m_footstepsList[Random.Range(0, m_footstepsList.Count)];
-            StartCoroutine(FootstepSound());
-        }
+        
     }
     
-    // FootstepSound is call for playing footsteps
-    IEnumerator FootstepSound()
-    {
-        m_footStepAudioSource.Play();
-        yield return new WaitForSeconds(m_inBetween);
-        m_canPlayFootstep = false;
-    }
+    
 }
