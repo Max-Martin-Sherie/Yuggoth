@@ -35,7 +35,7 @@ public class PickupRb : MonoBehaviour
 
     [SerializeField] [Tooltip("AudioSource used when the player grabs an object")] private AudioSource m_grabAudioSource;
     //List containing the sound when the cube is held and when i'is dropped
-    [SerializeField] [Tooltip("")] private List<AudioClip> m_soundCubeList = new List<AudioClip>();
+    [SerializeField] [Tooltip("List containing a constant sound and a drop sound")] private List<AudioClip> m_soundCubeList = new List<AudioClip>();
 
     private void OnDrawGizmosSelected()
     {
