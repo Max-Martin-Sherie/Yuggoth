@@ -17,12 +17,13 @@ public class RespawnCubeOnDelegate : MonoBehaviour
         m_respawnPosition = transform.position;
         m_respawnRotation = transform.rotation;
 
-        m_respawnPoint.OnRespawnCall += RespawnCube;
+        if(m_respawnPoint.OnRespawnCall != null)m_respawnPoint.OnRespawnCall += RespawnCube;
     }
 
     public void RespawnCube()
     {
         m_rb.velocity = Vector3.zero;
+        m_rb.angularVelocity = Vector3.zero;
         transform.position = m_respawnPosition;
         transform.rotation = m_respawnRotation;
     }
