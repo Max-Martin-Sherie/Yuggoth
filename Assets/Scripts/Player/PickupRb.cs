@@ -1,5 +1,8 @@
 using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Serialization;
+
 /// <summary>
 /// Cette classe typiquement afféctée au joueur sert à attirer et manipuler des gameobject du tag "pickupable"
 /// Cette classe nécessite un collider et un rigidbody
@@ -30,6 +33,10 @@ public class PickupRb : MonoBehaviour
     
     private GameObject m_oldparent; //The seen object
 
+    [SerializeField] [Tooltip("AudioSource used when the player grabs an object")] private AudioSource m_grabAudioSource;
+    //List containing the sound when the cube is held and when i'is dropped
+    [SerializeField] [Tooltip("")] private List<AudioClip> m_soundCubeList = new List<AudioClip>();
+
     private void OnDrawGizmosSelected()
     {
         Vector3 position = transform.position + transform.forward * m_pickupDistance + transform.up * m_yOffset;
@@ -51,6 +58,8 @@ public class PickupRb : MonoBehaviour
         m_newParent.transform.position = transform.position + transform.forward * m_pickupDistance + Vector3.up *m_yOffset; //Setting the position of the new parent
         
         Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"),LayerMask.NameToLayer("HeldCube"));
+        
+        
     }
 
     void Update()
@@ -126,9 +135,10 @@ public class PickupRb : MonoBehaviour
         Rigidbody rb = m_heldObj.GetComponent<Rigidbody>();
         
         
-        
+        //D&finition de la position à atteindre
         Vector3 targetPosition = m_newParent.position;
         
+        //D
         if(Vector3.Distance(m_heldObj.transform.position, targetPosition) > m_holdLockDistance)
         {
             m_holdLockDistance = m_holdLockSave;
@@ -171,9 +181,26 @@ public class PickupRb : MonoBehaviour
     /// <param name="p_pickObj"> object à rammasser </param>
     private void PickUpObject(GameObject p_pickObj)
     {
+
         Rigidbody objRb = p_pickObj.GetComponent<Rigidbody>();
+
+        p_pickObj.GetComponent<AudioSource>().Play();
         
         Vector3 ogPos = p_pickObj.transform.position;
+        
+        
+        //Pitch randomization
+        m_grabAudioSource.pitch = Random.Range(1f, 1.3f);
+
+        //Setting the AudioSource of the cube during the grabb
+        p_pickObj.GetComponent<AudioSource>().loop = true;
+        p_pickObj.GetComponent<AudioSource>().clip = m_soundCubeList[0];
+        //Calculation of the distance between the cube and the player
+        p_pickObj.GetComponent<AudioSource>().maxDistance = Mathf.Sqrt(((transform.position.x - ogPos.x) +
+                                                                        (transform.position.y - ogPos.y) +
+                                                                        (transform.position.z - ogPos.z)) * 2);
+        p_pickObj.GetComponent<AudioSource>().Play();
+        m_grabAudioSource.Play();
 
         if (Vector3.Distance(m_camera.transform.position, m_newParent.transform.position) < m_minRange)
             m_newParent.transform.position = new Vector3(ogPos.x+m_minRange,m_newParent.transform.position.y,ogPos.z+m_minRange);
@@ -199,10 +226,17 @@ public class PickupRb : MonoBehaviour
         objRb.useGravity = true;
         objRb.drag = 1;
         objRb.freezeRotation = false;
-        
-        
-        if(m_oldparent)
+
+
+        if (m_oldparent)
+        {
+            //Setting the AudioSource of the cube after the grabb
+            objRb.GetComponent<AudioSource>().clip = m_soundCubeList[1];
+            objRb.GetComponent<AudioSource>().loop = false;
+            objRb.GetComponent<AudioSource>().Play();
+            
             m_heldObj.transform.SetParent(m_oldparent.transform);
+        }
         else
             m_heldObj.transform.parent = null;
         

@@ -1,3 +1,5 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 /// <summary>
 /// This class allows the player to control a gameObject using the horizontal and vertical axis
@@ -20,12 +22,21 @@ public class PlayerMove : MonoBehaviour
     [HideInInspector]
     public bool m_grounded;
     
+    [SerializeField] [Tooltip("AudioSource in charge of footsteps")] private AudioSource m_footStepAudioSource;
+    [SerializeField] [Tooltip("List of audio clips of footsteps")] private List<AudioClip> m_footstepsList = new List<AudioClip>();
+    private bool m_canPlayFootstep;
+
+    [SerializeField][Tooltip("Interval time between each footstep sound")] [Range(0f, 1f)] private float m_inBetween;
+
+    
     // Start is called before the first frame update
     void Start()
     {
         m_cr = GetComponent<CharacterController>();//Fetching the character controller
 
         if (m_useUnityPhysicsGravity) m_gravity = Physics.gravity.y; //if the m_useUnityPhysicsGravity bool is enabled then replacing the in game gravity by the default unity one
+
+        m_canPlayFootstep = false;
     }
 
     // Update is called once per frame
@@ -93,5 +104,20 @@ public class PlayerMove : MonoBehaviour
         //Applying drag to the vertical axis if the player is grounded and on a slope
         if(m_grounded && !onSlope) m_velocity.y *= m_drag;
         
+        //Plays footsteps at regular intervals if the player is moving and if he is on the ground
+        if (m_canPlayFootstep == false && inputMove.magnitude > 0 && m_grounded)
+        {
+            m_canPlayFootstep = true;
+            m_footStepAudioSource.clip = m_footstepsList[Random.Range(0, m_footstepsList.Count)];
+            StartCoroutine(FootstepSound());
+        }
+    }
+    
+    // FootstepSound is call for playing footsteps
+    IEnumerator FootstepSound()
+    {
+        m_footStepAudioSource.Play();
+        yield return new WaitForSeconds(m_inBetween);
+        m_canPlayFootstep = false;
     }
 }
