@@ -17,7 +17,7 @@ public class RespawnCubeOnDelegate : MonoBehaviour
         m_respawnPosition = transform.position;
         m_respawnRotation = transform.rotation;
 
-        if(m_respawnPoint.OnRespawnCall != null)m_respawnPoint.OnRespawnCall += RespawnCube;
+        m_respawnPoint.OnRespawnCall += RespawnCube;
     }
 
     public void RespawnCube()

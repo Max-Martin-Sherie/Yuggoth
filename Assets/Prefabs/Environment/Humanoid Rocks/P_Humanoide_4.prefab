@@ -90,6 +90,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3962393437866116211}
+  - component: {fileID: 3656530923288397259}
+  - component: {fileID: 2287839366388093427}
   m_Layer: 0
   m_Name: P_Humanoide_4
   m_TagString: Untagged
@@ -104,11 +106,37 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4447004989724368585}
-  m_LocalRotation: {x: -0, y: 0.4649358, z: -0, w: 0.8853444}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 441.6989, y: 58.76715, z: 881.1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 1688987994821612384}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 55.412, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &3656530923288397259
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4447004989724368585}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.8146667, y: 1.1394463, z: 1.5725098}
+  m_Center: {x: 0.02571106, y: 0.5981655, z: -1.0788574}
+--- !u!65 &2287839366388093427
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4447004989724368585}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1.0954285, y: 1.2788963, z: 2.3651733}
+  m_Center: {x: 0.15046692, y: 0.67523, z: 0.68258667}
