@@ -1,6 +1,6 @@
 Using pre-set license
 Built from '2020.3/release' branch; Version is '2020.3.2f1 (8fd9074bf66c) revision 9427207'; Using compiler version '192528614'; Build Type 'Release'
-OS: 'Windows 10 Home; OS build 19042.985; Version 2009; 64bit' Language: 'fr' Physical Memory: 16145 MB
+OS: 'Windows 10 Pro; OS build 19042.985; Version 2009; 64bit' Language: 'fr' Physical Memory: 16292 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1, IsPro: 0
 
  COMMAND LINE ARGUMENTS:
@@ -11,163 +11,75 @@ C:\Program Files\Unity\Hub\Editor\2020.3.2f1\Editor\Unity.exe
 -name
 AssetImportWorker0
 -projectPath
-C:/Users/marie/Documents/MAIN_YUGGOTH/Yuggoth
+C:/Users/marie/OneDrive/Documents/GD2/cthulhu/Main_YUGGOTH/Yuggoth
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-63722
-Successfully changed project path to: C:/Users/marie/Documents/MAIN_YUGGOTH/Yuggoth
-C:/Users/marie/Documents/MAIN_YUGGOTH/Yuggoth
+54744
+Successfully changed project path to: C:/Users/marie/OneDrive/Documents/GD2/cthulhu/Main_YUGGOTH/Yuggoth
+C:/Users/marie/OneDrive/Documents/GD2/cthulhu/Main_YUGGOTH/Yuggoth
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 93.47 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 66.22 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.2f1 (8fd9074bf66c)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.2f1/Editor/Data/Resources/UnitySubsystems
-[Subsystems] Discovering subsystems at path C:/Users/marie/Documents/MAIN_YUGGOTH/Yuggoth/Assets
+[Subsystems] Discovering subsystems at path C:/Users/marie/OneDrive/Documents/GD2/cthulhu/Main_YUGGOTH/Yuggoth/Assets
 GfxDevice: creating device client; threaded=0
 Direct3D:
     Version:  Direct3D 11.0 [level 11.1]
-    Renderer: NVIDIA GeForce RTX 2060 (ID=0x1f15)
+    Renderer: NVIDIA GeForce GTX 1080 (ID=0x1b80)
     Vendor:   
-    VRAM:     5980 MB
-    Driver:   27.21.14.6192
+    VRAM:     8079 MB
+    Driver:   27.21.14.5671
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.2f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.2f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.2f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56412
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56632
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.2f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.005671 seconds.
+Registered in 0.002835 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 95.68 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 74.74 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  4.118 seconds
+- Completed reload, in  2.227 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.004186 seconds.
+Registered in 0.001941 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 144.48 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 75.68 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  2.744 seconds
+- Completed reload, in  1.379 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Launched and connected shader compiler UnityShaderCompiler.exe after 0.13 seconds
-Refreshing native plugins compatible for Editor in 1.45 ms, found 0 plugins.
+Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
+Refreshing native plugins compatible for Editor in 1.05 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
-Unloading 3017 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 150.5 MB.
-System memory in use after: 150.6 MB.
+Unloading 3014 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 147.8 MB.
+System memory in use after: 147.9 MB.
 
-Unloading 96 unused Assets to reduce memory usage. Loaded Objects now: 3463.
-Total: 6.451700 ms (FindLiveObjects: 0.451800 ms CreateObjectMapping: 0.334900 ms MarkObjects: 5.162000 ms  DeleteObjects: 0.501100 ms)
-
-========================================================================
-Received Import Request.
-  path: Assets/Test_Glitchs_Shaders/Noise_Tv_Shader_2 1.shadergraph
-  artifactKey: Guid(bc64d94de46148346bfb25eda70628ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Test_Glitchs_Shaders/Noise_Tv_Shader_2 1.shadergraph using Guid(bc64d94de46148346bfb25eda70628ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'fbcd52847c88a8ae9790bc0db2f590f7') in 0.077692 seconds
-  Import took 0.088090 seconds .
+Unloading 96 unused Assets to reduce memory usage. Loaded Objects now: 3451.
+Total: 3.783300 ms (FindLiveObjects: 0.537300 ms CreateObjectMapping: 0.100500 ms MarkObjects: 2.899400 ms  DeleteObjects: 0.244300 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 1.568997 seconds.
-  path: Assets/Test_Glitchs_Shaders/Noise_Tv_Shader_3.shadergraph
-  artifactKey: Guid(bc64d94de46148346bfb25eda70628ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Test_Glitchs_Shaders/Noise_Tv_Shader_3.shadergraph using Guid(bc64d94de46148346bfb25eda70628ea) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'ebdec16de3054b0bc327dd1945568edf') in 0.010374 seconds
-  Import took 0.019885 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 10.010768 seconds.
-  path: Assets/Test_Glitchs_Shaders/Noise_Tv_Shader_1.shadergraph
-  artifactKey: Guid(64833b63fcb791c4d81ab92ae19bfb35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Test_Glitchs_Shaders/Noise_Tv_Shader_1.shadergraph using Guid(64833b63fcb791c4d81ab92ae19bfb35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'aaded0e9fd49c8304721b24797c4f39b') in 0.006079 seconds
-  Import took 0.013844 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 9.793563 seconds.
-  path: Assets/Test_Glitchs_Shaders/Noise_Tv_Shader_1 1.shadergraph
-  artifactKey: Guid(126fdd25e4e90cd4ca665a6a4ef8e17f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Test_Glitchs_Shaders/Noise_Tv_Shader_1 1.shadergraph using Guid(126fdd25e4e90cd4ca665a6a4ef8e17f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '36c4ba0f8fd405f16910356b6f375cf2') in 0.006690 seconds
-  Import took 0.013641 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 4.441978 seconds.
-  path: Assets/Test_Glitchs_Shaders/Noise_Tv_Shader_3.shadergraph
-  artifactKey: Guid(126fdd25e4e90cd4ca665a6a4ef8e17f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Test_Glitchs_Shaders/Noise_Tv_Shader_3.shadergraph using Guid(126fdd25e4e90cd4ca665a6a4ef8e17f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a3e095c7783abffee3d0b20cbb58438e') in 0.007342 seconds
-  Import took 0.014670 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 248.383887 seconds.
-  path: Assets/Test_Glitchs_Shaders/Noise_Tv_Shader_1.shadergraph
-  artifactKey: Guid(64833b63fcb791c4d81ab92ae19bfb35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Test_Glitchs_Shaders/Noise_Tv_Shader_1.shadergraph using Guid(64833b63fcb791c4d81ab92ae19bfb35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '555a811f023156180489ed3880770bba') in 0.005495 seconds
-  Import took 0.012791 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 27.408758 seconds.
-  path: Assets/Test_Glitchs_Shaders/Noise_Tv_Shader_1.shadergraph
-  artifactKey: Guid(64833b63fcb791c4d81ab92ae19bfb35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Test_Glitchs_Shaders/Noise_Tv_Shader_1.shadergraph using Guid(64833b63fcb791c4d81ab92ae19bfb35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '0e139263db64394fe9686a25f3ab7e78') in 0.005252 seconds
-  Import took 0.011748 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 17.215088 seconds.
-  path: Assets/Test_Glitchs_Shaders/Noise_Tv_Shader_1.shadergraph
-  artifactKey: Guid(64833b63fcb791c4d81ab92ae19bfb35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Test_Glitchs_Shaders/Noise_Tv_Shader_1.shadergraph using Guid(64833b63fcb791c4d81ab92ae19bfb35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'f5654aaa12b3c5a8cda9b1089fe252b8') in 0.005755 seconds
-  Import took 0.013896 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 98.262550 seconds.
-  path: Assets/Test_Glitchs_Shaders/Noise_Tv_Shader_1.shadergraph
-  artifactKey: Guid(64833b63fcb791c4d81ab92ae19bfb35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Test_Glitchs_Shaders/Noise_Tv_Shader_1.shadergraph using Guid(64833b63fcb791c4d81ab92ae19bfb35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '28d70966a5bea6ed32e01e2a7444858f') in 0.006237 seconds
-  Import took 0.014914 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 215.281076 seconds.
-  path: Assets/Test_Glitchs_Shaders/test.png
-  artifactKey: Guid(2f9db1f9a107d014fa7dd2d4be360f16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Test_Glitchs_Shaders/test.png using Guid(2f9db1f9a107d014fa7dd2d4be360f16) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '4a41e3ad793457a7d48b10913dc9441d') in 0.119378 seconds
-  Import took 0.128466 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 512.422708 seconds.
-  path: Assets/Test_Glitchs_Shaders/Noise_Tv_Shader_1.shadergraph
-  artifactKey: Guid(64833b63fcb791c4d81ab92ae19bfb35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Test_Glitchs_Shaders/Noise_Tv_Shader_1.shadergraph using Guid(64833b63fcb791c4d81ab92ae19bfb35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '594ba21bc35caf91ec2091000be5aa71') in 0.006154 seconds
-  Import took 0.014965 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.277994 seconds.
-  path: Assets/Test_Glitchs_Shaders/Noise_Tv_Shader_1.shadergraph
-  artifactKey: Guid(64833b63fcb791c4d81ab92ae19bfb35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Test_Glitchs_Shaders/Noise_Tv_Shader_1.shadergraph using Guid(64833b63fcb791c4d81ab92ae19bfb35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '594ba21bc35caf91ec2091000be5aa71') in 0.006408 seconds
-  Import took 0.015603 seconds .
+  path: Assets/Test_Glitchs_Shaders/Noise_Tv_Mat.mat
+  artifactKey: Guid(9c3630d959903364d907b02d6fa5f314) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Test_Glitchs_Shaders/Noise_Tv_Mat.mat using Guid(9c3630d959903364d907b02d6fa5f314) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '7a49d4eb760c8613e158c925bb772d8a') in 0.294953 seconds
+  Import took 0.301760 seconds .
 
 AssetImportWorkerClient::OnTransportError - code=2 error=End of file
