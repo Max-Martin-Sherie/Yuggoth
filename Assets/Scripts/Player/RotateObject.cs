@@ -24,11 +24,14 @@ public class RotateObject : MonoBehaviour
 
         //Getting the original movement speed and sensitivity of the player
         m_speed = m_controllerScript.m_moveSpeed;
-        m_sensitivity = m_cameraController.m_mouseSensitivity;
     }
 
     void Update()
     {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            m_sensitivity = m_cameraController.m_mouseSensitivity;
+        }
         //Checking if the player has clicked the lmb
         if (Input.GetButton("Fire1"))
         {
@@ -51,7 +54,7 @@ public class RotateObject : MonoBehaviour
                     
                     //Making the player loose all velocity except on the y axis
                     float y = m_controllerScript.m_velocity.y;
-                    m_controllerScript.m_velocity = new Vector3(Vector3.zero.x,y,Vector3.zero.z);
+                    m_controllerScript.m_velocity = new Vector3(0,y,0);
                     
                     //Using his mouse laser input to rotate  the object
                     float horizontal = Input.GetAxis("Mouse X");
@@ -60,7 +63,8 @@ public class RotateObject : MonoBehaviour
                 }
             }
         }
-        else
+        
+        if(Input.GetButtonUp("Fire1"))
         {
             //If the player isn't pressing the button reseting his speed and sensitivity
             if(m_controllerScript.m_moveSpeed != m_speed)
