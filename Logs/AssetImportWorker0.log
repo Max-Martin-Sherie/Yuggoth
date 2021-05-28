@@ -15,11 +15,11 @@ C:/Users/Xel/Documents/Git Hub/Yuggoth
 -logFile
 Logs/AssetImportWorker0.log
 -srvPort
-49221
+49532
 Successfully changed project path to: C:/Users/Xel/Documents/Git Hub/Yuggoth
 C:/Users/Xel/Documents/Git Hub/Yuggoth
 Using Asset Import Pipeline V2.
-Refreshing native plugins compatible for Editor in 76.34 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 69.08 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 2020.3.2f1 (8fd9074bf66c)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/2020.3.2f1/Editor/Data/Resources/UnitySubsystems
@@ -36,59 +36,59 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/2020.3.2f1/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/2020.3.2f1/Editor/Data/MonoBleedingEdge/lib/mono/unityjit'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/2020.3.2f1/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56324
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56528
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/2020.3.2f1/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.002753 seconds.
+Registered in 0.002099 seconds.
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 82.51 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 60.17 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.340 seconds
+- Completed reload, in  1.296 seconds
 Platform modules already initialized, skipping
 Registering precompiled user dll's ...
-Registered in 0.001967 seconds.
+Registered in 0.001942 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 82.12 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 56.04 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.422 seconds
+- Completed reload, in  1.241 seconds
 Platform modules already initialized, skipping
 ========================================================================
 Worker process is ready to serve import requests
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.06 seconds
-Refreshing native plugins compatible for Editor in 0.46 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.44 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2977 Unused Serialized files (Serialized files now loaded: 0)
 System memory in use before: 157.9 MB.
 System memory in use after: 158.1 MB.
 
 Unloading 95 unused Assets to reduce memory usage. Loaded Objects now: 3427.
-Total: 3.705200 ms (FindLiveObjects: 0.555400 ms CreateObjectMapping: 0.235000 ms MarkObjects: 2.682500 ms  DeleteObjects: 0.230900 ms)
+Total: 3.359400 ms (FindLiveObjects: 0.286600 ms CreateObjectMapping: 0.251600 ms MarkObjects: 2.642600 ms  DeleteObjects: 0.177000 ms)
 
 ========================================================================
 Received Import Request.
-  path: Assets/Prefabs/Walls And Floors Prefabs/P_Sol_UNIQUE_OBJ.prefab
-  artifactKey: Guid(a95ce41694c032e46a91bbbf5b058527) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Walls And Floors Prefabs/P_Sol_UNIQUE_OBJ.prefab using Guid(a95ce41694c032e46a91bbbf5b058527) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e2afd66aedd2fe94f6d0a2ddefa51852') in 0.256690 seconds
-  Import took 0.263176 seconds .
+  path: Assets/Prefabs/Walls And Floors Prefabs/Bouche trous/Grand_hexa.obj
+  artifactKey: Guid(f3b245c4ab2dbe443857ad029e7d4d8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Walls And Floors Prefabs/Bouche trous/Grand_hexa.obj using Guid(f3b245c4ab2dbe443857ad029e7d4d8b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '449ece5f464aefd777a28d19ff7299cf') in 0.749844 seconds
+  Import took 0.757367 seconds .
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.001932 seconds.
+Registered in 0.002163 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.49 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.63 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Warning: Annotation not found!
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
@@ -103,57 +103,25 @@ Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  1.188 seconds
+- Completed reload, in  1.144 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.75 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.43 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2803 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 149.7 MB.
-System memory in use after: 149.9 MB.
+System memory in use before: 150.1 MB.
+System memory in use after: 150.3 MB.
 
-Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 3475.
-Total: 3.148300 ms (FindLiveObjects: 0.259200 ms CreateObjectMapping: 0.155700 ms MarkObjects: 2.707100 ms  DeleteObjects: 0.025000 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 92.789587 seconds.
-  path: Assets/Prefabs/Walls And Floors Prefabs/Bouche trous
-  artifactKey: Guid(43f00787a5662924e82185942d491aee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Prefabs/Walls And Floors Prefabs/Bouche trous using Guid(43f00787a5662924e82185942d491aee) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c69797d85eb1c92185c14771bc0b712a') in 0.014481 seconds
-  Import took 0.020511 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 452.088172 seconds.
-  path: Assets/Graphics/Materials/Normal Maps/cube_rock.jpg
-  artifactKey: Guid(53a24fce3b6fa7941be5a6fc657f445c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/Materials/Normal Maps/cube_rock.jpg using Guid(53a24fce3b6fa7941be5a6fc657f445c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '018e323627bee3a970c6eb017aa966db') in 0.085347 seconds
-  Import took 0.092316 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 29.645288 seconds.
-  path: Assets/Graphics/Materials/Normal Maps/59691e0fb7189_hexNORMALS2.png.dae826bedf99d2b7988725da3bcfecd1 1.png
-  artifactKey: Guid(ac831ebff91a5644c9b24df944795b87) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/Materials/Normal Maps/59691e0fb7189_hexNORMALS2.png.dae826bedf99d2b7988725da3bcfecd1 1.png using Guid(ac831ebff91a5644c9b24df944795b87) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a84de209f7d1527fe835f52353a5ab0') in 0.015989 seconds
-  Import took 0.020847 seconds .
-
-========================================================================
-Received Import Request.
-  Time since last request: 0.001149 seconds.
-  path: Assets/Graphics/Materials/Normal Maps/59691e0fb7189_hexNORMALS2.png.dae826bedf99d2b7988725da3bcfecd1 1.png
-  artifactKey: Guid(ac831ebff91a5644c9b24df944795b87) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/Materials/Normal Maps/59691e0fb7189_hexNORMALS2.png.dae826bedf99d2b7988725da3bcfecd1 1.png using Guid(ac831ebff91a5644c9b24df944795b87) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '8a84de209f7d1527fe835f52353a5ab0') in 0.013576 seconds
-  Import took 0.019369 seconds .
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 3511.
+Total: 2.400200 ms (FindLiveObjects: 0.376500 ms CreateObjectMapping: 0.188200 ms MarkObjects: 1.819700 ms  DeleteObjects: 0.014800 ms)
 
 ========================================================================
 Received Prepare
 Registering precompiled user dll's ...
-Registered in 0.001669 seconds.
+Registered in 0.001812 seconds.
 Begin MonoManager ReloadAssembly
 Native extension for WindowsStandalone target not found
-Refreshing native plugins compatible for Editor in 0.42 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.81 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Warning: Annotation not found!
 UnityEngine.StackTraceUtility:ExtractStackTrace ()
@@ -168,39 +136,72 @@ Invoked RoslynAnalysisRunner static constructor.
 RoslynAnalysisRunner will not be running.
 RoslynAnalysisRunner has terminated.
 Mono: successfully reloaded assembly
-- Completed reload, in  0.898 seconds
+- Completed reload, in  1.560 seconds
 Platform modules already initialized, skipping
 Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
-Refreshing native plugins compatible for Editor in 0.50 ms, found 0 plugins.
+Refreshing native plugins compatible for Editor in 0.91 ms, found 0 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 2803 Unused Serialized files (Serialized files now loaded: 0)
-System memory in use before: 149.8 MB.
-System memory in use after: 150.0 MB.
+System memory in use before: 150.2 MB.
+System memory in use after: 150.4 MB.
 
-Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 3480.
-Total: 2.404100 ms (FindLiveObjects: 0.421100 ms CreateObjectMapping: 0.159700 ms MarkObjects: 1.807600 ms  DeleteObjects: 0.014500 ms)
-
-========================================================================
-Received Import Request.
-  Time since last request: 11.238945 seconds.
-  path: Assets/Graphics/Materials/Normal Maps/BestaGone.png
-  artifactKey: Guid(ac831ebff91a5644c9b24df944795b87) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/Materials/Normal Maps/BestaGone.png using Guid(ac831ebff91a5644c9b24df944795b87) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '6868e11c637706302006cf95f17eaee9') in 0.030749 seconds
-  Import took 0.034673 seconds .
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 3514.
+Total: 3.844000 ms (FindLiveObjects: 0.374200 ms CreateObjectMapping: 0.207000 ms MarkObjects: 3.244800 ms  DeleteObjects: 0.015600 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 9.485862 seconds.
-  path: Assets/Graphics/Materials/Normal Maps/2066bcec2dda47acc7061c3da2175657 1.jpg
-  artifactKey: Guid(bd21283eb89381f498c7c8769453ef90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/Materials/Normal Maps/2066bcec2dda47acc7061c3da2175657 1.jpg using Guid(bd21283eb89381f498c7c8769453ef90) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'dac7bee0ceaae16455eea529a347a051') in 0.013773 seconds
-  Import took 0.018852 seconds .
+  Time since last request: 843.929339 seconds.
+  path: Assets/Prefabs/Walls And Floors Prefabs/p_sol_V2.prefab
+  artifactKey: Guid(11424d7ef77b54546bf0eb4539279d8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Walls And Floors Prefabs/p_sol_V2.prefab using Guid(11424d7ef77b54546bf0eb4539279d8f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'e08ab007bfa1f7a43bfc7a229156aea4') in 0.206718 seconds
+  Import took 0.211350 seconds .
+
+========================================================================
+Received Prepare
+Registering precompiled user dll's ...
+Registered in 0.001862 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.44 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Warning: Annotation not found!
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs:593)
+UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/HierarchyListener.cs:21)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs line 593]
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.255 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.67 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2803 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 150.3 MB.
+System memory in use after: 150.6 MB.
+
+Unloading 8 unused Assets to reduce memory usage. Loaded Objects now: 3553.
+Total: 3.287400 ms (FindLiveObjects: 0.395500 ms CreateObjectMapping: 0.199500 ms MarkObjects: 2.675600 ms  DeleteObjects: 0.015700 ms)
 
 ========================================================================
 Received Import Request.
-  Time since last request: 65.959464 seconds.
-  path: Assets/Graphics/Materials/Normal Maps/Crystal_normal.png
-  artifactKey: Guid(1fc149e173a8525438552218544fb8af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
-Start importing Assets/Graphics/Materials/Normal Maps/Crystal_normal.png using Guid(1fc149e173a8525438552218544fb8af) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: '78f7cf389fb0e1c4b1475144d0300770') in 0.016554 seconds
-  Import took 0.020716 seconds .
+  Time since last request: 418.874043 seconds.
+  path: Assets/Prefabs/Walls And Floors Prefabs/Floor 3x
+  artifactKey: Guid(aa367d9ffadcfa64a9d7e72dcf92319f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Walls And Floors Prefabs/Floor 3x using Guid(aa367d9ffadcfa64a9d7e72dcf92319f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'c4e886cb077b9c1c72fbf95298b92265') in 0.014630 seconds
+  Import took 0.020191 seconds .
+
+========================================================================
+Received Import Request.
+  Time since last request: 221.452385 seconds.
+  path: Assets/Prefabs/Walls And Floors Prefabs/Floor 3x/Floor V2 x3.prefab
+  artifactKey: Guid(5515acd259a56184c83e3dfab790271e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Prefabs/Walls And Floors Prefabs/Floor 3x/Floor V2 x3.prefab using Guid(5515acd259a56184c83e3dfab790271e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)  -> (artifact id: 'a6f6b80ef870570f493f3dbebb305a4b') in 0.203638 seconds
+  Import took 0.209541 seconds .
 
