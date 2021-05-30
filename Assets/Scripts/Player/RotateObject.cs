@@ -6,16 +6,11 @@ using UnityEngine;
 
 public class RotateObject : MonoBehaviour
 {
-    
-    [SerializeField][Tooltip("Range at which an object can be rotated")] private float m_range;
-    [SerializeField][Tooltip("Speed at which an object can be rotated")] private float m_rotateSpeed;
+    [SerializeField][Range(0,1000)][Tooltip("Speed at which an object can be rotated")] private float m_rotateSpeed;
 
     // Fetching the scripts that output the player's info to modify
     private PlayerMove m_controllerScript;
     private CameraController m_cameraController;
-    
-    //creating a camera for the raycast
-    private Camera m_camera;
 
     //getting the original movement speed and sensitivity of the player
     private float m_speed;
@@ -29,14 +24,14 @@ public class RotateObject : MonoBehaviour
 
         //Getting the original movement speed and sensitivity of the player
         m_speed = m_controllerScript.m_moveSpeed;
-        m_sensitivity = m_cameraController.m_mouseSensitivity;
-        
-        //Fetching the main camera for the raycast
-        m_camera = Camera.main;
     }
 
     void Update()
     {
+        if (Input.GetButtonDown("Fire1"))
+        {
+            m_sensitivity = m_cameraController.m_mouseSensitivity;
+        }
         //Checking if the player has clicked the lmb
         if (Input.GetButton("Fire1"))
         {
@@ -59,7 +54,7 @@ public class RotateObject : MonoBehaviour
                     
                     //Making the player loose all velocity except on the y axis
                     float y = m_controllerScript.m_velocity.y;
-                    m_controllerScript.m_velocity = new Vector3(Vector3.zero.x,y,Vector3.zero.z);
+                    m_controllerScript.m_velocity = new Vector3(0,y,0);
                     
                     //Using his mouse laser input to rotate  the object
                     float horizontal = Input.GetAxis("Mouse X");
@@ -68,7 +63,8 @@ public class RotateObject : MonoBehaviour
                 }
             }
         }
-        else
+        
+        if(Input.GetButtonUp("Fire1"))
         {
             //If the player isn't pressing the button reseting his speed and sensitivity
             if(m_controllerScript.m_moveSpeed != m_speed)

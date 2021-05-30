@@ -15,6 +15,7 @@ public class PlayerMove : MonoBehaviour
     [SerializeField][Tooltip("The acceleration of the gravity applied top the player")] float m_gravity = 9.81f;
     [SerializeField][Tooltip("If enabled the previously set gravity value will be replaced by the in game gravity")] private bool m_useUnityPhysicsGravity;
     [SerializeField][Tooltip("The multiplier that will be affected to the acceleration every frame")][Range(0.5f,1)] private float m_drag;
+    [SerializeField][Tooltip("The range at which the player will cast a sphere to check if he is grounded")][Range(.1f,.5f)] private float m_groundCheckRange = .3f;
 
     [HideInInspector]
     public bool m_grounded;
@@ -37,7 +38,7 @@ public class PlayerMove : MonoBehaviour
         Vector3 origin = transform.position + Vector3.down * (m_cr.height / 2f - radius ); 
 
         //Sending out the sphereCast to check the position of the player
-        m_grounded = Physics.SphereCast(origin,radius, Vector3.down, out RaycastHit hit, .1f);
+        m_grounded = Physics.SphereCast(origin,radius, Vector3.down, out RaycastHit hit, m_groundCheckRange);
         
         Vector3 hitNormal = hit.normal; //The ground hit normal
         
@@ -60,13 +61,22 @@ public class PlayerMove : MonoBehaviour
 
         //Adding the speed plus a small multiplier to it
         inputMove*= (m_moveSpeed * 0.1f);
+
+        if (m_grounded && !Input.GetButton("Jump"))
+        {
+            m_canJump = true;
+        }
         
         //Projecting the player's movement direction onto a plane to avoid stepping
         if(!onSlope && m_grounded){
             inputMove = Vector3.ProjectOnPlane(inputMove, hitNormal);
             
             //Fetching the jump key and jumping
-            if(Input.GetButton("Jump") && m_canJump) m_velocity.y = Mathf.Sqrt(m_jumpHeight * -2f * m_gravity); //Jump height is accurate
+            if(Input.GetButton("Jump") && m_canJump)
+            {
+                m_velocity.y = Mathf.Sqrt(m_jumpHeight * -2f * m_gravity); //Jump height is accurate
+                m_canJump = false;
+            }
         }else m_velocity.y += m_gravity * Time.deltaTime; //Adding gravity
         
         //Adding the player's input to the global velocity

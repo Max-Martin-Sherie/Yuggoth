@@ -15,7 +15,7 @@ public class DoorManager : MonoBehaviour
             bool allEnabled = true;
             foreach (LaserReceptor receptor in system._receptors)
             {
-                if (!receptor.m_laserHit)
+                if (!receptor.m_enabled)
                 {
                     allEnabled = false;
                     break;

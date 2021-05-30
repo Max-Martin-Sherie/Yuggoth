@@ -1,123 +1,122 @@
-using System;
+using System.Collections;
 using UnityEngine;
-
 /// <summary>
-/// Script pour ramasser, déplacer et lacher les objets déplaçable
+/// Cette classe typiquement afféctée au joueur sert à attirer et manipuler des gameobject du tag "pickupable"
+/// Cette classe nécessite un collider et un rigidbody
 /// </summary>
-
 public class PickupRb : MonoBehaviour
 {
-    //Définition de la distance minimal pour récupérer un objet
-    [SerializeField] float m_minRange = 1;
-    [SerializeField] float m_pickupDistance = 1;
+    [SerializeField][Tooltip("The minimum range at which the object has to be so that player can pick it up")] float m_minRange = 1;
+    [SerializeField][Tooltip("The distance at which the object will be held after pickup")] float m_pickupDistance = 1;
+    [SerializeField][Tooltip("The distance at which the object hold will be locked")][Range(0,1)] float m_holdLockDistance = 0.1f;
+    [SerializeField][Tooltip("The distance at which the object hold will be locked")][Range(0,1)] float m_setParentDistance = 0.1f;
     
-    [SerializeField] private float m_moveForce = 150f;
-    [SerializeField] private float m_rotateSpeed = 10f;
-    [SerializeField][Range(0,100)] private float m_maxVelocity = 4;
-    //Définition du parent dans lequel le gameObject va être transféré 
-    [SerializeField] private Transform m_newParent;
+    private float m_holdLockSave;
+    
+    [SerializeField][Tooltip("The time the pickup mode will take to change between toggle and hold")][Range(0,5)] float m_switchHoldModeDelay = 1f;
+    [SerializeField][Tooltip("The force with which the item will be pulled in")] private float m_moveForce = 150f;
+    [SerializeField][Tooltip("The speed at which the item will rotate to face the player")] private float m_rotateSpeed = 10f;
+    [SerializeField][Range(0,1000)][Tooltip("the maximum velocity at which the cube will go and the velocity at which it will drop when blocked")] private float m_maxVelocity = 4;
+    [SerializeField][Tooltip("The empty gameObject that will hold the cube")] private Transform m_newParent;
     [SerializeField][Range(-1.5f,1.5f)][Tooltip("the offset of the height at which the cube will be held")] private float m_yOffset = -0.2f;
+    [SerializeField][Range(-2,0)] private float m_minY = -1;
+    [SerializeField][Range(0,2)] private float m_maxY = 1;
+    bool m_mouseHold = false; //Switch the pick object command between hold and toggle
+
+    [HideInInspector]public GameObject m_heldObj; //The gameObject that will be held
+
+    private Camera m_camera; //The main camera
+    private GameObject m_seenObject; //The seen object
     
-    [SerializeField] bool m_mouseHold = false;
-    
-    //Définition de l'ancien parent dans lequel le gameObject sera renvoyé
-    private Transform m_oldParent;
-
-    [HideInInspector]public GameObject m_heldObj = null;
-
-    private Camera m_camera;
-
-    private GameObject m_seenObject;
+    private GameObject m_oldparent; //The seen object
 
     private void OnDrawGizmosSelected()
     {
+        Vector3 position = transform.position + transform.forward * m_pickupDistance + transform.up * m_yOffset;
+        
+        //Coloring the gizmos
         Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position+transform.forward * m_pickupDistance + transform.up * m_yOffset,0.2f);
+        Gizmos.DrawWireSphere(m_newParent.position,m_setParentDistance);
+        
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(m_newParent.position,m_holdLockDistance);
     }
 
     private void Start()
     {
-        m_camera = Camera.main;
-        m_oldParent = transform.parent;
+        m_holdLockSave = m_holdLockDistance; //Setting the hold lock save
+        
+        m_camera = Camera.main; //Getting the main camera
 
-        m_newParent.transform.position = transform.position + transform.forward * m_pickupDistance + Vector3.up *m_yOffset;
+        m_newParent.transform.position = transform.position + transform.forward * m_pickupDistance + Vector3.up *m_yOffset; //Setting the position of the new parent
+        
+        Physics.IgnoreLayerCollision(LayerMask.NameToLayer("Player"),LayerMask.NameToLayer("HeldCube"));
     }
 
     void Update()
     {
-        //Vérifie si le Raycast touche quelque chose et, si oui, si ce quelque chose a pour Layer "Pickupable"
-        bool target = InteractRaycast.m_hitSomething && InteractRaycast.m_hitTarget.collider.gameObject.layer == LayerMask.NameToLayer("Pickupable");
+        bool availableTarget = false; //Bool determining if the player is aiming at a movable object
+
+        //Checking if the player is aiming at an available object
+        if(!m_heldObj)availableTarget = InteractRaycast.m_hitSomething && InteractRaycast.m_hitTarget.collider.gameObject.layer == LayerMask.NameToLayer("Pickupable");
 
         //Actions à réaliser quand le joueur ne tiens pas d'objet et qu'il observe l'espace autour de lui
         if(!m_heldObj){
             //Actions à réaliser quand le joueur ne tiens pas d'objet et qu'il observe un objet "Pickupable"
-            if (target)
+            if (availableTarget)
             {
-                if (m_seenObject != InteractRaycast.m_hitTarget.collider.gameObject)
+                GameObject obj = InteractRaycast.m_hitTarget.transform.gameObject; //Fetching the targeted gameobject
+                //Checking if the player's targeted object is the same as the pickuable object
+                if (m_seenObject && m_seenObject != obj)
                 {
-                    //Changing the metallic instead of the color material because i can't get the initial color of a pickable obj (Nono) 
-                    if(m_seenObject) m_seenObject.GetComponent<MeshRenderer>().material.SetFloat("_Metallic", 0f);
-                    m_seenObject = InteractRaycast.m_hitTarget.collider.gameObject;
-                    m_seenObject.GetComponent<MeshRenderer>().material.SetFloat("_Metallic", 1f);
+                    //If it isn't switching the targeted objects value
+                    m_seenObject = obj;
                 }
             }
             //Actions à réaliser quand le joueur ne tiens pas d'objet et qu'il n'observe plus un objet "Pickupable"
-            else
-            {
-                if (m_seenObject)
-                {
-                    m_seenObject.GetComponent<MeshRenderer>().material.SetFloat("_Metallic", 0f);
-                    m_seenObject = null;
-                }
-            }
+            else if (m_seenObject)
+                m_seenObject = null;
         }
-
-        //Conditions en fonction de si le joueur doit garder Fire1 enfoncé ou non
-        if (m_mouseHold && Input.GetButton("Fire1"))
+        //Reacting to the fire 1 input
+        if (Input.GetButtonDown("Fire1"))
         {
+            m_mouseHold = false; //Reseting the mouse hold
+            
+            StartCoroutine(ChangePickupControl()); //Starting the change pickup control coroutine
+            
+            //If the player isn't holding an object..
             if (!m_heldObj)
             {
-                if (target)
+                // ...and he's looking at an available target..
+                if (availableTarget)
                 {
-                    GameObject hitObject = InteractRaycast.m_hitTarget.collider.gameObject;
-                    if (hitObject != gameObject) PickUpObject(hitObject);
+                    GameObject obj = InteractRaycast.m_hitTarget.transform.gameObject; //...Fetch the gameObject
+                    if (obj != gameObject) PickUpObject(InteractRaycast.m_hitTarget.collider.gameObject); //...and pick it up
                 }
-            }
-        }else if(m_mouseHold && !Input.GetButton("Fire1"))
-        {
-            if(m_heldObj)
-            {
-                DropObject();
-            }
+            } else 
+                DropObject(); //Dropping the object on second click if the player is in toggle
         }
-        
-        if (!m_mouseHold && Input.GetButtonDown("Fire1"))
-        {
-            if (!m_heldObj)
-            {
-                
-                if (target)
-                {
-                    GameObject hitObject = InteractRaycast.m_hitTarget.collider.gameObject;
-                    if (hitObject != gameObject) PickUpObject(InteractRaycast.m_hitTarget.collider.gameObject);
-                }
-            }
-            else if(m_heldObj)
-            {
-                DropObject();
-            }
-        }
-
+        //If the player is holding an object...
         if(m_heldObj)
         {
-            MoveObject();
-            if (Input.GetButton("Fire1"))
-            {
-                
-            }
+            MoveObject();//...Move the object
+            
+            //... If the player isn't holding the button anymore and is in hold mode : drop the object
+            if (m_mouseHold && !Input.GetButton("Fire1"))
+                DropObject();
         }
     }
 
+    /// <summary>
+    /// A Coroutine to change the pickup method from hold to toggle based off of what the player is doing
+    /// </summary>
+    /// <returns></returns>
+    IEnumerator ChangePickupControl()
+    {
+        yield return new WaitForSeconds(m_switchHoldModeDelay);
+        if(Input.GetButton("Fire1"))m_mouseHold = true;
+    }
+    
     /// <summary>
     /// Fonction permettant le déplacement d'objet dans l'espace par rapport au parent dans la hiérarchie
     /// </summary>
@@ -125,65 +124,97 @@ public class PickupRb : MonoBehaviour
     {
         m_heldObj.transform.rotation = Quaternion.Lerp(m_heldObj.transform.rotation,transform.rotation,m_rotateSpeed * Time.deltaTime);
         Rigidbody rb = m_heldObj.GetComponent<Rigidbody>();
-        if(Vector3.Distance(m_heldObj.transform.position, m_newParent.position) > 0.1f)
+        
+        
+        
+        Vector3 targetPosition = m_newParent.position;
+        
+        if(Vector3.Distance(m_heldObj.transform.position, targetPosition) > m_holdLockDistance)
         {
-            Vector3 moveDir = m_newParent.position - m_heldObj.transform.position;
-
-            Vector3 newForce = moveDir * m_moveForce * Time.deltaTime;
+            m_holdLockDistance = m_holdLockSave;
+            Vector3 moveDir = targetPosition - m_heldObj.transform.position;
+            Vector3 newForce = moveDir * m_moveForce;
             
-            if (newForce.magnitude > m_maxVelocity && Physics.Raycast(m_heldObj.transform.position, moveDir, 1f))
+            int layerMask =~ LayerMask.NameToLayer("Player");
+
+            
+            if (newForce.magnitude > m_maxVelocity && Physics.Raycast(m_heldObj.transform.position, moveDir,0.6f,layerMask))
             {
                 DropObject();
                 return;
-            } if (newForce.magnitude > m_maxVelocity)
-                newForce = Vector3.Normalize(newForce)*m_maxVelocity;
-
+            }
+            rb.AddForce(newForce * Time.deltaTime, ForceMode.Impulse);
             
+            Color rayColor = Color.green;
+            if(newForce.magnitude > m_maxVelocity)rayColor = Color.red;
             
-            rb.AddForce(newForce);
+            Debug.DrawRay(m_heldObj.transform.position,moveDir,rayColor);
         }
+        
+        
+        if(Vector3.Distance(m_heldObj.transform.position, targetPosition) < m_setParentDistance)
+        {
+            m_heldObj.transform.SetParent(m_newParent.transform);
+        }
+        
+        float y = (m_camera.transform.forward * m_pickupDistance).y + m_yOffset;
+        y = Mathf.Clamp(y, m_minY, m_maxY);
+        
+        float x = m_newParent.localPosition.x;
+        float z = m_newParent.localPosition.z;
+        m_newParent.localPosition = Vector3.Lerp(m_newParent.localPosition,new Vector3(x,y,z),100f * Time.deltaTime);
     }
 
     /// <summary>
     /// Récupération de données et définition du nouveau parent de l'objet déplaçable
     /// </summary>
-    /// <param name="p_pickObj"></param>
+    /// <param name="p_pickObj"> object à rammasser </param>
     private void PickUpObject(GameObject p_pickObj)
     {
         Rigidbody objRb = p_pickObj.GetComponent<Rigidbody>();
         
         Vector3 ogPos = p_pickObj.transform.position;
-        
-        
+
         if (Vector3.Distance(m_camera.transform.position, m_newParent.transform.position) < m_minRange)
             m_newParent.transform.position = new Vector3(ogPos.x+m_minRange,m_newParent.transform.position.y,ogPos.z+m_minRange);
         
         objRb.useGravity = false;
-        objRb.drag = 10;
+        objRb.drag = 10f;
         objRb.freezeRotation = true;
         
-        objRb.transform.SetParent(m_newParent);
         m_heldObj = p_pickObj;
-
+        if(p_pickObj.transform.parent)m_oldparent = p_pickObj.transform.parent.gameObject;
+        m_heldObj.layer = LayerMask.NameToLayer("HeldCube");
+        
         InteractRaycast.m_interacting = true;
     }
 
     /// <summary>
     /// Fonction pour lacher un objet
     /// </summary>
-    private void DropObject()
+    public void DropObject()
     {
-       
         m_heldObj.GetComponent<MeshRenderer>().material.SetFloat("_Metallic", 0f);
         Rigidbody objRb = m_heldObj.GetComponent<Rigidbody>();
         objRb.useGravity = true;
         objRb.drag = 1;
         objRb.freezeRotation = false;
-
-        objRb.transform.SetParent(m_oldParent);
+        
+        
+        if(m_oldparent)
+            m_heldObj.transform.SetParent(m_oldparent.transform);
+        else
+            m_heldObj.transform.parent = null;
+        
+        m_heldObj.layer = LayerMask.NameToLayer("Pickupable");
+        
         m_heldObj = null;
         objRb.velocity = Vector3.zero;
         
+        float y = m_yOffset;
+        float x = m_newParent.localPosition.x;
+        float z = m_newParent.localPosition.z;
+        m_newParent.localPosition = new Vector3(x,y,z);
         
         InteractRaycast.m_interacting = false;
     }

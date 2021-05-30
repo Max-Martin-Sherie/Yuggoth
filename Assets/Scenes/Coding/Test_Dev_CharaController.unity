@@ -2061,6 +2061,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 20568356401094057, guid: ec6265f34a071c14cb5b1a1aac201d6d, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5421522381932270232, guid: ec6265f34a071c14cb5b1a1aac201d6d, type: 3}
       propertyPath: m_RootOrder
       value: 16
@@ -7225,13 +7229,37 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1870431681, guid: bc03fcdb560185d4fb4aed49d8f250fb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2566867900074197638, guid: bc03fcdb560185d4fb4aed49d8f250fb, type: 3}
+      propertyPath: m_mouseHold
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 2566867900074197638, guid: bc03fcdb560185d4fb4aed49d8f250fb, type: 3}
       propertyPath: m_moveForce
-      value: 5000
+      value: 150
       objectReference: {fileID: 0}
     - target: {fileID: 2566867900074197638, guid: bc03fcdb560185d4fb4aed49d8f250fb, type: 3}
       propertyPath: m_maxVelocity
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 2566867900074197638, guid: bc03fcdb560185d4fb4aed49d8f250fb, type: 3}
+      propertyPath: m_holdLockDistance
+      value: 0.199
+      objectReference: {fileID: 0}
+    - target: {fileID: 2566867900074197638, guid: bc03fcdb560185d4fb4aed49d8f250fb, type: 3}
+      propertyPath: m_minSwitchDistance
+      value: 0.221
+      objectReference: {fileID: 0}
+    - target: {fileID: 2566867900074197638, guid: bc03fcdb560185d4fb4aed49d8f250fb, type: 3}
+      propertyPath: m_switchHoldModeDelay
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3105633149240029365, guid: bc03fcdb560185d4fb4aed49d8f250fb, type: 3}
+      propertyPath: m_Enabled
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6451129586611267187, guid: bc03fcdb560185d4fb4aed49d8f250fb, type: 3}
       propertyPath: m_swaySpeed

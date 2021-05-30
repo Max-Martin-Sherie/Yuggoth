@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1619310513214220649}
   m_Layer: 8
-  m_Name: GameObject
+  m_Name: Hold Parent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -51,6 +51,7 @@ GameObject:
   - component: {fileID: 3105633149240029365}
   - component: {fileID: 1870431681}
   - component: {fileID: 1870431670}
+  - component: {fileID: 1024247894}
   m_Layer: 8
   m_Name: Player
   m_TagString: Untagged
@@ -87,19 +88,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_spawnPoints:
-  - _label: Tower
+  - _label: Start
     _transform: {fileID: 0}
-  - _label: Ravine 1
+  - _label: P2
     _transform: {fileID: 0}
-  - _label: Ravine 2
+  - _label: P3
     _transform: {fileID: 0}
-  - _label: Ravine 3
+  - _label: P4
     _transform: {fileID: 0}
-  - _label: Ravine 3.2
+  - _label: P5
     _transform: {fileID: 0}
-  - _label: Receptacle
+  - _label: P6
     _transform: {fileID: 0}
-  - _label: Receptacle 2
+  - _label: P7
     _transform: {fileID: 0}
 --- !u!114 &7023959137304098750
 MonoBehaviour:
@@ -121,6 +122,7 @@ MonoBehaviour:
   m_gravity: -19
   m_useUnityPhysicsGravity: 0
   m_drag: 0.79
+  m_groundCheckRange: 0.3
   m_grounded: 0
 --- !u!114 &1971044425100267106
 MonoBehaviour:
@@ -137,6 +139,8 @@ MonoBehaviour:
   m_mouseSensitivity: 290
   m_yInvertion: -1
   m_xInvertion: 1
+  m_xRotation: 0
+  m_yRotation: 0
 --- !u!114 &6025888775239353068
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -150,6 +154,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_rangeSetter: 10
+  m_sphereRadius: 0.2
   m_layerMask:
     serializedVersion: 2
     m_Bits: 247
@@ -167,12 +172,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_minRange: 0.75
   m_pickupDistance: 1
-  m_moveForce: 8000
+  m_holdLockDistance: 0.068
+  m_setParentDistance: 0.761
+  m_switchHoldModeDelay: 1
+  m_moveForce: 150
   m_rotateSpeed: 10
-  m_maxVelocity: 100
+  m_maxVelocity: 700
   m_newParent: {fileID: 1619310513214220649}
-  m_yOffset: -0.1
-  m_mouseHold: 0
+  m_yOffset: 0.35
+  m_minY: -0.3
+  m_maxY: 1.5
   m_heldObj: {fileID: 0}
 --- !u!114 &7924827883007331169
 MonoBehaviour:
@@ -186,8 +195,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4338720339019de49b1af273d4eba0ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_range: 30
-  m_rotateSpeed: 1000
+  m_rotateSpeed: 500
 --- !u!114 &7404169398669242764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -245,7 +253,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8862348629703936191}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b4bcf21722e6e754eb0b26a3dbf27d54, type: 3}
   m_Name: 
@@ -263,7 +271,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8862348629703936191}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 64c460427a53f1547b28bea534aa629c, type: 3}
   m_Name: 
@@ -284,13 +292,29 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2611c67ab9d0ed64ea5bfffadf3fa005, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Text_Color: {r: 0, g: 0, b: 0, a: 1}
+  Text_Color: {r: 0, g: 0.87452483, b: 1, a: 1}
   TextStyle: 0
-  Background_Color: {r: 0.76, g: 0.76, b: 0.76, a: 1}
+  Background_Color: {r: 0.21960786, g: 0.21960786, b: 0.21960786, a: 1}
   Custom_Inactive_Colors: 0
   Text_Color_Inactive: {r: 0, g: 0, b: 0, a: 1}
   TextStyle_Inactive: 0
   Background_Color_Inactive: {r: 0.306, g: 0.396, b: 0.612, a: 1}
+--- !u!114 &1024247894
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8862348629703936191}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1000320d443085843a4db3b9932d9841, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_respawnTransform: {fileID: 0}
+  m_respawnHeight: 0
+  m_blackscreen: {fileID: 0}
+  m_respawnSpeed: 0.02
 --- !u!1 &8862348630066012730
 GameObject:
   m_ObjectHideFlags: 0
@@ -318,7 +342,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8862348630066012730}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.7499999, z: 0}
+  m_LocalPosition: {x: 0, y: 0.63, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 8862348629703936180}

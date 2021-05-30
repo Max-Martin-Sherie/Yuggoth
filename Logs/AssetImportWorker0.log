@@ -956,3 +956,49 @@ System memory in use after: 141.4 MB.
 Unloading 9 unused Assets to reduce memory usage. Loaded Objects now: 3621.
 Total: 6.129600 ms (FindLiveObjects: 0.600000 ms CreateObjectMapping: 0.379500 ms MarkObjects: 4.929200 ms  DeleteObjects: 0.219000 ms)
 
+========================================================================
+Received Prepare
+The file 'ProjectSettings/EditorBuildSettings.asset' seems to have merge conflicts. Please open it in a text editor and fix the merge.
+
+Trying to reload asset but can't find object on disk
+
+The file 'ProjectSettings/GraphicsSettings.asset' seems to have merge conflicts. Please open it in a text editor and fix the merge.
+
+Trying to reload asset but can't find object on disk
+
+The file 'UserSettings/EditorUserSettings.asset' seems to have merge conflicts. Please open it in a text editor and fix the merge.
+
+Trying to reload asset but can't find object on disk
+
+Registering precompiled user dll's ...
+Registered in 0.004520 seconds.
+Begin MonoManager ReloadAssembly
+Native extension for WindowsStandalone target not found
+Refreshing native plugins compatible for Editor in 0.84 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Warning: Annotation not found!
+UnityEngine.StackTraceUtility:ExtractStackTrace ()
+UnityEditor.ProBuilder.EditorUtility:SetGizmoIconEnabled (System.Type,bool) (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs:593)
+UnityEditor.ProBuilder.HierarchyListener:.cctor () (at Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/HierarchyListener.cs:21)
+System.Runtime.CompilerServices.RuntimeHelpers:RunClassConstructor (System.RuntimeTypeHandle)
+UnityEditor.EditorAssemblies:ProcessInitializeOnLoadAttributes (System.Type[])
+
+[Library/PackageCache/com.unity.probuilder@4.5.0/Editor/EditorCore/EditorUtility.cs line 593]
+
+Invoked RoslynAnalysisRunner static constructor.
+RoslynAnalysisRunner will not be running.
+RoslynAnalysisRunner has terminated.
+Mono: successfully reloaded assembly
+- Completed reload, in  1.412 seconds
+Platform modules already initialized, skipping
+Shader 'Universal Render Pipeline/Particles/Lit': fallback shader 'Universal Render Pipeline/Particles/SimpleLit' not found
+Refreshing native plugins compatible for Editor in 0.60 ms, found 0 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 2840 Unused Serialized files (Serialized files now loaded: 0)
+System memory in use before: 141.6 MB.
+System memory in use after: 141.8 MB.
+
+Unloading 12 unused Assets to reduce memory usage. Loaded Objects now: 3636.
+Total: 4.862500 ms (FindLiveObjects: 0.685400 ms CreateObjectMapping: 0.440000 ms MarkObjects: 3.588400 ms  DeleteObjects: 0.146300 ms)
+
+AssetImportWorkerClient::OnTransportError - code=2 error=End of file
