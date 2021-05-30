@@ -39,6 +39,10 @@ public class Teleport_to_start_on_no_look : MonoBehaviour
     /// </summary>
     void Update()
     {
+        Ray ray = new Ray(transform.position, m_playerTrs.position-transform.position);
+        RaycastHit hit;
+        
+        Physics.Raycast(ray, out hit);
         if (m_visible && Vector3.Distance(m_playerTrs.position, transform.position)>m_minDistance)
         {
             if (!m_renderer.isVisible)
@@ -50,10 +54,9 @@ public class Teleport_to_start_on_no_look : MonoBehaviour
                 return;
             }
             
-            RaycastHit hit;
-            Ray ray = new Ray(transform.position, m_playerTrs.position-transform.position);
             
-            Physics.Raycast(ray, out hit);
+            
+            
             if (hit.transform.gameObject.layer != LayerMask.NameToLayer("Player"))
             {
                 
@@ -62,7 +65,7 @@ public class Teleport_to_start_on_no_look : MonoBehaviour
                 transform.rotation = m_startRotation;
                 m_visible = false;
             }
-        }else if(!m_visible && m_renderer.isVisible)
+        }else if(!m_visible && m_renderer.isVisible && hit.transform.gameObject.layer == LayerMask.NameToLayer("Player"))
         {
             m_visible = true;
         }
