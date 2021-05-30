@@ -6,7 +6,7 @@ using TMPro;
 public class DrawTMPLetterByLetter : MonoBehaviour
 {
     private TextMeshProUGUI m_text;
-
+  
     [SerializeField] private float m_secondsBewtweenLetters = 0.2f;
 
     // Start is called before the first frame update
