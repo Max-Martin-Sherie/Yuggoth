@@ -7,12 +7,26 @@ using UnityEngine.SceneManagement;
 public class MainMenu : MonoBehaviour
 {
     public static bool m_GameIsPaused = false;
+    private bool m_SubMenuIsActive = false;
+    public GameObject m_SubMenu; 
     public GameObject m_pauseMenuUI;
+  
     
-    private void Update()
+    
+        private void Update()
     {
+        //Disable escape key when the submenu is open
+        if (m_SubMenu.active)
+        {
+            m_SubMenuIsActive = true;
+        }
+        else if (!m_SubMenu.active)
+        {
+            m_SubMenuIsActive = false;
+        }
+        
         //Use escape key for pause menu
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (Input.GetKeyDown(KeyCode.Escape) && !m_SubMenuIsActive)
         {
             if (m_GameIsPaused)
             {
@@ -23,6 +37,8 @@ public class MainMenu : MonoBehaviour
                 Pause();
             }
         }
+        
+        
     }
 
     //Lauch Game
@@ -65,7 +81,7 @@ public class MainMenu : MonoBehaviour
    //Open the Main Menu
    public void LoadMenu()
    {
-		m_GameIsPaused = false;
+       m_GameIsPaused = false;
        Time.timeScale = 1f;
        SceneManager.LoadScene("Main_Menu");
    }

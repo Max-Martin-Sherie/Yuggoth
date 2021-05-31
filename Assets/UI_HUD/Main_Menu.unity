@@ -784,7 +784,7 @@ GameObject:
   - component: {fileID: 141749805}
   - component: {fileID: 141749804}
   m_Layer: 5
-  m_Name: VideoMenu
+  m_Name: VideoMenu_panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1269,12 +1269,12 @@ GameObject:
   - component: {fileID: 238678033}
   - component: {fileID: 238678032}
   m_Layer: 5
-  m_Name: OptionMenu
+  m_Name: OptionMenu_panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &238678031
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2209,7 +2209,7 @@ GameObject:
   - component: {fileID: 558528496}
   - component: {fileID: 558528495}
   m_Layer: 5
-  m_Name: OptionMenu
+  m_Name: OptionMenu_Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2311,7 +2311,7 @@ GameObject:
   - component: {fileID: 592099697}
   - component: {fileID: 592099696}
   m_Layer: 5
-  m_Name: MainMenu
+  m_Name: MainMenu_panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3677,12 +3677,12 @@ GameObject:
   - component: {fileID: 850995067}
   - component: {fileID: 850995066}
   m_Layer: 5
-  m_Name: ControlsMenu
+  m_Name: ControlsMenu_panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &850995065
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5830,10 +5830,22 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1737071142}
-        m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
-        m_MethodName: PlayGame
-        m_Mode: 1
+      - m_Target: {fileID: 0}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 1737071137}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -6807,7 +6819,7 @@ GameObject:
   - component: {fileID: 1737071138}
   - component: {fileID: 1737071142}
   m_Layer: 5
-  m_Name: Menu
+  m_Name: Menu_Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6906,6 +6918,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a009e711508919346aaf043db92be45d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  m_SubMenu: {fileID: 558528494}
   m_pauseMenuUI: {fileID: 0}
 --- !u!1 &1754320906
 GameObject:
@@ -7601,7 +7614,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1737071142}
         m_TargetAssemblyTypeName: MainMenu, Assembly-CSharp
         m_MethodName: QuitGame
         m_Mode: 1
@@ -8254,7 +8267,7 @@ GameObject:
   - component: {fileID: 1988151037}
   - component: {fileID: 1988151036}
   m_Layer: 5
-  m_Name: AudioMenu
+  m_Name: AudioMenu_panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
