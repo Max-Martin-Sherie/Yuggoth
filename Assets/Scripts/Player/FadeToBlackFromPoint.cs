@@ -12,6 +12,8 @@ public class FadeToBlackFromPoint : MonoBehaviour
     [FormerlySerializedAs("m_minEndDistane")] [SerializeField]private float m_minEndDistance = 2f;
     [SerializeField]private RawImage m_blackScreen;
 
+    [SerializeField] private int m_nextSceneIndex = 1;
+    
     private float m_highestAlpha;
     
     private float m_distanceBetweenNodes;
@@ -55,9 +57,6 @@ public class FadeToBlackFromPoint : MonoBehaviour
         Color bsClr = m_blackScreen.color;
         m_blackScreen.color = new Color(bsClr.r,bsClr.g,bsClr.b,Mathf.Lerp(bsClr.a,1f, Time.deltaTime));
         
-        if(m_blackScreen.color.a >= 0.998f)
-        {
-            SceneManager.LoadScene(1);
-        }
+        SceneManager.LoadScene(m_nextSceneIndex);
     }
 }
