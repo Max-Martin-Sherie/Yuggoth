@@ -24,6 +24,7 @@ public class MainMenu : MonoBehaviour
             }
         }
     }
+
     //Lauch Game
    public void PlayGame()
    {
@@ -42,23 +43,29 @@ public class MainMenu : MonoBehaviour
    //Play Game
    public void Resume()
    {
-       m_pauseMenuUI.SetActive(false);
-       Time.timeScale = 1f;
-       m_GameIsPaused = false; 
-       
+       	m_pauseMenuUI.SetActive(false);
+       	Time.timeScale = 1f;
+       	m_GameIsPaused = false; 
+		Cursor.lockState = CursorLockMode.Locked;
+        Cursor.visible = false;
+		
+		Debug.Log("hey");
    }
 
    //Open the pause Menu
    public void Pause()
    {
-       m_pauseMenuUI.SetActive(true);
-       Time.timeScale = 0f;
-       m_GameIsPaused = true;
+      	m_pauseMenuUI.SetActive(true);
+      	Time.timeScale = 0f;
+       	m_GameIsPaused = true;
+		Cursor.lockState = CursorLockMode.None;
+        Cursor.visible = true;
    }
 
    //Open the Main Menu
    public void LoadMenu()
    {
+		m_GameIsPaused = false;
        Time.timeScale = 1f;
        SceneManager.LoadScene("Main_Menu");
    }
