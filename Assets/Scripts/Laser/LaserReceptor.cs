@@ -18,7 +18,6 @@ public class LaserReceptor : ActivatorParent
     public OnAction onReceiveLaser;
 
     private Animator m_animator;
-    private static readonly int Activated = Animator.StringToHash("Activated");
 
     private bool m_hasAnimator;
     
@@ -46,7 +45,7 @@ public class LaserReceptor : ActivatorParent
 
     private void Update()
     {
-        if(!m_hasAnimator) m_animator.SetBool(Activated, m_enabled);
+        if(m_hasAnimator) m_animator.SetBool("Activated", m_enabled);
     }
 
     //The laser properties structure

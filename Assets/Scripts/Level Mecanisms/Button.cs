@@ -31,7 +31,7 @@ public class Button : ActivatorParent
             }
             else
             {
-                transform.position = Vector3.MoveTowards(transform.position,transform.parent.position + Vector3.down * (m_bcSize.y - 0.001f),Time.deltaTime * m_shrinkSpeed);
+                transform.position = Vector3.MoveTowards(transform.position,transform.parent.position + Vector3.down * (m_bcSize.y/1.5f),Time.deltaTime * m_shrinkSpeed);
             }
         }
         else
