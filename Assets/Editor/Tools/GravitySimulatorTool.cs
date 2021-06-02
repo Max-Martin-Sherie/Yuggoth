@@ -16,6 +16,9 @@ public class GravitySimulatorTool : EditorWindow
     private List<Vector3> m_positions;
     private List<Quaternion> m_rotation;
     private List<Vector3> m_scale;
+    
+    private List<bool> m_hadMeshCollider;
+    private List<bool> m_hadRigidBody;
 
 
     [MenuItem("Gucci/CashMoney/Gravity Simulator Tool")]
@@ -39,6 +42,9 @@ public class GravitySimulatorTool : EditorWindow
                 m_rotation = new List<Quaternion>();
                 m_scale = new List<Vector3>();
                 
+                m_hadMeshCollider = new List<bool>();
+                m_hadRigidBody = new List<bool>();
+                
                 m_rbs = null;
                 m_selectedObjects = null;
                 m_rbs = new List<Rigidbody>();
@@ -47,16 +53,21 @@ public class GravitySimulatorTool : EditorWindow
                 
                 foreach (GameObject go in m_selectedObjects)
                 {
-                    if (!go.TryGetComponent(out MeshCollider _))
+                    bool hadMeshCollider = go.TryGetComponent(out MeshCollider _);
+                    if (!hadMeshCollider)
                     {
                         go.AddComponent<MeshCollider>();
                         go.GetComponent<MeshCollider>().convex = true;
                     }
-
-                    if (!go.TryGetComponent(out Rigidbody _))
+                    m_hadMeshCollider.Add(hadMeshCollider);
+                    
+                    bool hadRigidbody = go.TryGetComponent(out Rigidbody _);
+                    if (!hadRigidbody)
                     {
                         go.AddComponent<Rigidbody>();
                     }
+                    
+                    m_hadRigidBody.Add(hadRigidbody);
 
                     m_positions.Add(go.transform.position);
                     m_rotation.Add(go.transform.rotation);
@@ -87,20 +98,25 @@ public class GravitySimulatorTool : EditorWindow
                 {
                     rb.isKinematic = false;
                 }
-                foreach (GameObject go in m_selectedObjects)
+
+                for (int i = 0; i < m_selectedObjects.Count; i++)
                 {
-                    if(go.TryGetComponent(out MeshCollider _))
-                    {
-                        DestroyImmediate(go.GetComponent<MeshCollider>());
-                    }
-                    if (go.TryGetComponent(out Rigidbody _))
-                    {
-                        DestroyImmediate(go.GetComponent<Rigidbody>());
-                    }
+                    if(!m_hadMeshCollider[i])
+                        DestroyImmediate(m_selectedObjects[i].GetComponent<MeshCollider>());
+                    
+                    if (!m_hadRigidBody[i])
+                        DestroyImmediate(m_selectedObjects[i].GetComponent<Rigidbody>());
+                    
                 }
+                
             }
         }
 
+        GUILayout.Label(" ", EditorStyles.boldLabel);
+        GUILayout.Label(" ", EditorStyles.boldLabel);
+        GUILayout.Label(" ", EditorStyles.boldLabel);
+        GUILayout.Label(" ", EditorStyles.boldLabel);
+        
         if (GUILayout.Button("Reset"))
         {
             for (int i = 0; i < m_selectedObjects.Count; i++)
@@ -110,6 +126,8 @@ public class GravitySimulatorTool : EditorWindow
                 m_selectedObjects[i].transform.localScale = m_scale[i];
             }
         }
+        
+        GUILayout.Label("Everything is Gucci", EditorStyles.boldLabel);
     }
     
     void Update()
