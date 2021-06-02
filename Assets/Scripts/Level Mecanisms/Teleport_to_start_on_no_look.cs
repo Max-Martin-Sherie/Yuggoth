@@ -12,9 +12,11 @@ public class Teleport_to_start_on_no_look : MonoBehaviour
     [SerializeField][Tooltip("The vertical offset at which the block will respawn")]private float m_yOffset = 0.2f;
     [SerializeField][Tooltip("The distance within which the object won't TP")]private float m_minDistance = 2f;
     [SerializeField]private Transform m_playerTrs;
+
+    [SerializeField]private AudioSource m_as;
     
     //Switch bool
-    bool m_visible;
+    private bool m_visible = false;
 
     //The renderer to check if the item is visible
     private Renderer m_renderer;
@@ -24,7 +26,6 @@ public class Teleport_to_start_on_no_look : MonoBehaviour
     /// </summary>
     void Start()
     {
-        m_visible = true;
         //Fetching the original position and rotation
         m_startPosition = transform.position;
         m_startRotation = transform.rotation;
@@ -47,19 +48,17 @@ public class Teleport_to_start_on_no_look : MonoBehaviour
         {
             if (!m_renderer.isVisible)
             {
+                if(transform.rotation != m_startRotation)m_as.Play();
                 //If it isn't, teleport the block back to it's position and rotation
                 transform.position = m_startPosition;
                 transform.rotation = m_startRotation;
                 m_visible = false;
                 return;
             }
-            
-            
-            
-            
+
             if (hit.transform.gameObject.layer != LayerMask.NameToLayer("Player"))
             {
-                
+                if(transform.rotation != m_startRotation)m_as.Play();
                 //If it isn't, teleport the block back to it's position and rotation
                 transform.position = m_startPosition;
                 transform.rotation = m_startRotation;

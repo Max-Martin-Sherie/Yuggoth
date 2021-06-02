@@ -10,6 +10,8 @@ public class Respawn : MonoBehaviour
     [SerializeField] private RawImage m_blackscreen;
     [SerializeField][Range(2f,15f)] private float m_respawnSpeed = 0.02f;
 
+    [SerializeField] private AudioSource m_as;
+
     private CameraController m_cameraController;
     private PlayerMove m_pm;
 
@@ -58,6 +60,8 @@ public class Respawn : MonoBehaviour
         m_cameraController.m_xRotation = m_respawnTransform.rotation.eulerAngles.x;
         m_cameraController.m_yRotation = m_respawnTransform.rotation.eulerAngles.y;
 
+        m_as.Play();
+        
         if (OnRespawn != null) OnRespawn();
             
         m_pm.m_velocity = Vector3.zero;
@@ -67,6 +71,7 @@ public class Respawn : MonoBehaviour
         while (m_blackscreen.color.a > .002f)
         {
             m_blackscreen.color = Color.Lerp(m_blackscreen.color, targetcolor,m_respawnSpeed  * Time.deltaTime);
+            
             yield return new WaitForSeconds(Time.deltaTime);
         }
         

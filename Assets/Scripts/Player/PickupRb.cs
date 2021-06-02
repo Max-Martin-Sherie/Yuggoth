@@ -21,6 +21,8 @@ public class PickupRb : MonoBehaviour
     [SerializeField][Range(-1.5f,1.5f)][Tooltip("the offset of the height at which the cube will be held")] private float m_yOffset = -0.2f;
     [SerializeField][Range(-2,0)] private float m_minY = -1;
     [SerializeField][Range(0,2)] private float m_maxY = 1;
+
+    [SerializeField] [Range(0, 3)] private float m_musicFadeOutSpeed = 3f;
     bool m_mouseHold = false; //Switch the pick object command between hold and toggle
 
     [HideInInspector]public GameObject m_heldObj; //The gameObject that will be held
@@ -171,6 +173,7 @@ public class PickupRb : MonoBehaviour
     /// <param name="p_pickObj"> object à rammasser </param>
     private void PickUpObject(GameObject p_pickObj)
     {
+        p_pickObj.GetComponent<AudioSource>().Play();
         Rigidbody objRb = p_pickObj.GetComponent<Rigidbody>();
         
         Vector3 ogPos = p_pickObj.transform.position;
@@ -194,6 +197,7 @@ public class PickupRb : MonoBehaviour
     /// </summary>
     public void DropObject()
     {
+        StartCoroutine(FadeOut(m_heldObj.GetComponent<AudioSource>()));
         m_heldObj.GetComponent<MeshRenderer>().material.SetFloat("_Metallic", 0f);
         Rigidbody objRb = m_heldObj.GetComponent<Rigidbody>();
         objRb.useGravity = true;
@@ -217,5 +221,16 @@ public class PickupRb : MonoBehaviour
         m_newParent.localPosition = new Vector3(x,y,z);
         
         InteractRaycast.m_interacting = false;
+    }
+
+    IEnumerator FadeOut(AudioSource p_as)
+    {
+        while (p_as.volume > 0.01f)
+        {
+            p_as.volume -= Time.deltaTime * m_musicFadeOutSpeed;
+            yield return new WaitForSeconds(Time.deltaTime);
+        }
+        p_as.Stop();
+        p_as.volume = 1;
     }
 }
