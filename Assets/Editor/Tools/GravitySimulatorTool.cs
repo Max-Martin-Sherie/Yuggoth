@@ -33,24 +33,23 @@ public class GravitySimulatorTool : EditorWindow
         GUILayout.Label(" ", EditorStyles.boldLabel);
 
         m_simulationSpeed = EditorGUILayout.Slider(m_simulationSpeed, 0, 3);
-        
-        if (GUILayout.Button("Toggle simulation"))
+
+        if (GUILayout.Button("Start simulation"))
         {
-            if(!m_simulating)
-            {
+            if(!m_simulating){
                 m_positions = new List<Vector3>();
                 m_rotation = new List<Quaternion>();
                 m_scale = new List<Vector3>();
-                
+
                 m_hadMeshCollider = new List<bool>();
                 m_hadRigidBody = new List<bool>();
-                
+
                 m_rbs = null;
                 m_selectedObjects = null;
                 m_rbs = new List<Rigidbody>();
 
                 m_selectedObjects = Selection.gameObjects.ToList();
-                
+
                 foreach (GameObject go in m_selectedObjects)
                 {
                     bool hadMeshCollider = go.TryGetComponent(out MeshCollider _);
@@ -59,14 +58,19 @@ public class GravitySimulatorTool : EditorWindow
                         go.AddComponent<MeshCollider>();
                         go.GetComponent<MeshCollider>().convex = true;
                     }
+                    else
+                    {
+                        go.GetComponent<MeshCollider>().convex = true;
+                    }
+
                     m_hadMeshCollider.Add(hadMeshCollider);
-                    
+
                     bool hadRigidbody = go.TryGetComponent(out Rigidbody _);
                     if (!hadRigidbody)
                     {
                         go.AddComponent<Rigidbody>();
                     }
-                    
+
                     m_hadRigidBody.Add(hadRigidbody);
 
                     m_positions.Add(go.transform.position);
@@ -74,8 +78,6 @@ public class GravitySimulatorTool : EditorWindow
                     m_scale.Add(go.transform.localScale);
                 }
 
-                m_simulating = true;
-                Physics.autoSimulation = false;
                 m_rbs = FindObjectsOfType<Rigidbody>().ToList();
 
                 foreach (Rigidbody rb in m_rbs)
@@ -88,12 +90,16 @@ public class GravitySimulatorTool : EditorWindow
                 {
                     go.GetComponent<Rigidbody>().isKinematic = false;
                 }
-            }
-            else
-            {
-                m_simulating = false;
-                Physics.autoSimulation = true;
 
+                Physics.autoSimulation = false;
+                m_simulating = true;
+            }
+        }
+
+        if (GUILayout.Button("Stop simulation"))
+        {
+            if(m_simulating)
+            {
                 foreach (Rigidbody rb in m_rbs)
                 {
                     rb.isKinematic = false;
@@ -101,14 +107,18 @@ public class GravitySimulatorTool : EditorWindow
 
                 for (int i = 0; i < m_selectedObjects.Count; i++)
                 {
-                    if(!m_hadMeshCollider[i])
+                    if (!m_hadMeshCollider[i])
                         DestroyImmediate(m_selectedObjects[i].GetComponent<MeshCollider>());
-                    
+                    else
+                        m_selectedObjects[i].GetComponent<MeshCollider>().convex = false;
+
                     if (!m_hadRigidBody[i])
                         DestroyImmediate(m_selectedObjects[i].GetComponent<Rigidbody>());
-                    
+
                 }
-                
+
+                Physics.autoSimulation = true;
+                m_simulating = false;
             }
         }
 

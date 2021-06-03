@@ -9,6 +9,7 @@ public class DrawTMPLetterByLetter : MonoBehaviour
 {
     private TextMeshProUGUI m_text;
     [SerializeField] private float m_secondsBewtweenLetters = 0.2f;
+    [SerializeField] private float m_acceleratedSpeed = 0.1f;
     private float m_offset = 0;
     
     [SerializeField] private GameObject m_HUDIsActive;
@@ -29,6 +30,8 @@ public class DrawTMPLetterByLetter : MonoBehaviour
 
     [SerializeField] private AudioSource m_as;
     [SerializeField] private AudioSource m_asAmbient;
+
+    private bool m_clicked = false;
     
     // Start is called before the first frame update
     void Start()
@@ -61,16 +64,39 @@ public class DrawTMPLetterByLetter : MonoBehaviour
         }
 
         int i=0;
+
+        m_clicked = false;
         while (text.Length > m_text.text.Length)
         {
-            m_text.text += text[i];
+            
 
             m_offset = Random.Range(0,m_secondsBewtweenLetters / 2);
-            
+
+            if (m_clicked)
+            {
+                String word = " ";
+
+                int j = i;
+                
+                while (j<text.Length &&  text[j] != ' ')
+                {
+                    word += text[j];
+                    j++;
+                }
+
+                m_text.text += word;
+                
+                i += word.Length;
+            }
+            else
+            {
+                m_text.text += text[i];
+                
+                i++;
+            }
             
             m_as.Play();
 
-            i++;
             yield return new WaitForSeconds(m_secondsBewtweenLetters + m_offset);
         }
 
@@ -92,6 +118,12 @@ public class DrawTMPLetterByLetter : MonoBehaviour
             m_cc.m_mouseSensitivity = m_sensitivity;
             m_asAmbient.Play();
             Destroy(this);
+        }
+
+        if (!m_finished && !m_clicked && Input.GetButtonDown("Fire1"))
+        {
+            m_clicked = true;
+            m_secondsBewtweenLetters = m_acceleratedSpeed;
         }
     }
 }
