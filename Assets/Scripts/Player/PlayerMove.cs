@@ -16,9 +16,14 @@ public class PlayerMove : MonoBehaviour
     [SerializeField][Tooltip("If enabled the previously set gravity value will be replaced by the in game gravity")] private bool m_useUnityPhysicsGravity;
     [SerializeField][Tooltip("The multiplier that will be affected to the acceleration every frame")][Range(0.5f,1)] private float m_drag;
     [SerializeField][Tooltip("The range at which the player will cast a sphere to check if he is grounded")][Range(.1f,.5f)] private float m_groundCheckRange = .3f;
+    
+    
+    [SerializeField] private bool m_joMode = false;
 
     [HideInInspector]
     public bool m_grounded;
+    
+    private Vector3 m_inputMove =Vector3.zero;
     
     // Start is called before the first frame update
     void Start()
@@ -55,21 +60,28 @@ public class PlayerMove : MonoBehaviour
             m_velocity.z += (yOpposite * hitNormal.z) * m_slideAcceleration;
         }
         
-        //Fetching the player's input 
-        Vector3 inputMove = transform.forward * Input.GetAxis("Vertical");
-        inputMove += transform.right * Input.GetAxis("Horizontal");
+        
+        bool aircontrol = (m_joMode && m_grounded) || !m_joMode;
 
-        //Adding the speed plus a small multiplier to it
-        inputMove*= (m_moveSpeed * 0.1f);
+        if(aircontrol)
+        {
+            //Fetching the player's input 
+            m_inputMove = transform.forward * Input.GetAxis("Vertical");
+            m_inputMove += transform.right * Input.GetAxis("Horizontal");
+
+            //Adding the speed plus a small multiplier to it
+            m_inputMove *= (m_moveSpeed * 0.1f);
+        }
 
         if (m_grounded && !Input.GetButton("Jump"))
         {
             m_canJump = true;
         }
-        
+
+
         //Projecting the player's movement direction onto a plane to avoid stepping
         if(!onSlope && m_grounded){
-            inputMove = Vector3.ProjectOnPlane(inputMove, hitNormal);
+            m_inputMove = Vector3.ProjectOnPlane(m_inputMove, hitNormal);
             
             //Fetching the jump key and jumping
             if(Input.GetButton("Jump") && m_canJump)
@@ -80,7 +92,7 @@ public class PlayerMove : MonoBehaviour
         }else m_velocity.y += m_gravity * Time.deltaTime; //Adding gravity
         
         //Adding the player's input to the global velocity
-        m_velocity += inputMove;
+        m_velocity += m_inputMove;
 
         //Applying the global velocity
         m_cr.Move( m_velocity * Time.deltaTime);
