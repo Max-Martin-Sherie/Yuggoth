@@ -21,7 +21,7 @@ public class Button : ActivatorParent
     
     private void Update()
     {
-        if (Physics.BoxCast(transform.position + Vector3.down * m_bcSize.y / 2, m_bcSize/2, Vector3.up, out RaycastHit hit,transform.rotation,m_bcSize.y*2+0.35f,m_activators))
+        if (Physics.BoxCast(transform.position + Vector3.down * m_bcSize.y / 2, m_bcSize/2, Vector3.up, out RaycastHit hit,transform.rotation,m_bcSize.y*6+0.35f,m_activators))
         {
             //Activating the trigger
             if(!m_enabled)
