@@ -1,0 +1,29 @@
+# 3ds Max Wavefront OBJ Exporter v0.97b - (c)2007 guruware
+# File Created: 30.05.2021 11:30:21
+
+#
+# object Plane_Wall_Dungeon
+#
+
+v  0.0000 0.0000 -2.0000
+v  -0.0000 0.0000 2.0000
+v  -0.0000 4.0000 2.0000
+v  0.0000 4.0000 -2.0000
+# 4 vertices
+
+vn -1.0000 -0.0000 -0.0000
+# 1 vertex normals
+
+vt 0.0005 0.0005 0.0000
+vt 0.9995 0.0005 0.0000
+vt 0.9995 0.9995 0.0000
+vt 0.0005 0.9995 0.0000
+# 4 texture coords
+
+o Plane_Wall_Dungeon
+g Plane_Wall_Dungeon
+s 1
+f 1/1/1 2/2/1 3/3/1 
+f 3/3/1 4/4/1 1/1/1 
+# 2 faces
+

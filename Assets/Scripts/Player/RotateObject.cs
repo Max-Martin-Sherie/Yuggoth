@@ -16,6 +16,7 @@ public class RotateObject : MonoBehaviour
     private float m_speed;
     private float m_sensitivity;
 
+    
     private void Start()
     {
         //Fetching the component scripts that output the player's info to modify

@@ -8,7 +8,13 @@ public class RespawnCubeOnDelegate : MonoBehaviour
     private Quaternion m_respawnRotation;
 
     private Rigidbody m_rb;
-    
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        if (m_respawnPoint == null) Gizmos.DrawRay(transform.position,Vector3.up * 10000f);;
+    }
+
     private void Start()
     {
         if(m_respawnPoint == null) Debug.LogWarning($"Please affect a respawn point to {gameObject.name}");

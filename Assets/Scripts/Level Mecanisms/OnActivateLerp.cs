@@ -19,7 +19,7 @@ public class OnActivateLerp : MonoBehaviour
 
     public List<Vector3> m_positions;
 
-    private void OnDrawGizmos()
+    private void OnDrawGizmosSelected()
      {
          
          Gizmos.color = Color.yellow;
@@ -32,8 +32,6 @@ public class OnActivateLerp : MonoBehaviour
                  {
                      Gizmos.DrawWireCube(obj._targetPos + obj._obj.transform.rotation * bc.center,
                          obj._obj.transform.rotation * bc.size);
-                     
-                     Gizmos.DrawLine(obj._targetPos,obj._obj.transform.position);
                  }
                  else
                  {
@@ -41,6 +39,8 @@ public class OnActivateLerp : MonoBehaviour
                      Gizmos.DrawLine(obj._targetPos - 0.1f * Vector3.up, obj._targetPos + 0.1f * Vector3.left);
                      Gizmos.DrawLine(obj._targetPos - 0.1f * Vector3.up, obj._targetPos + 0.1f * Vector3.forward);
                  }
+                 
+                 Gizmos.DrawLine(obj._targetPos,obj._obj.transform.position);
              }
          }
     

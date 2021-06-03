@@ -21,7 +21,7 @@ public class RespawnPoint : MonoBehaviour
         Gizmos.DrawLine(transform.position, transform.position + Vector3.up * (m_newRespawnHeight + 2f));
     }
 
-    private void Start()
+    private void Awake()
     {
         m_playerRespawn = m_player.GetComponent<Respawn>();
         OnRespawnCall += DropHeldObject;

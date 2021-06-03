@@ -1,6 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.Build.Content;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -45,7 +42,6 @@ public class MainMenu : MonoBehaviour
    public void PlayGame()
    {
        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
-       
    }
    
    //Exit Game
@@ -85,7 +81,12 @@ public class MainMenu : MonoBehaviour
        Time.timeScale = 1f;
        SceneManager.LoadScene("Main_Menu");
    }
-   
- 
+
+   public void LoadSubMenu()
+   {
+       m_pauseMenuUI.SetActive(false);
+       m_SubMenu.SetActive(true);
+       
+   }
 }
 

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 
 /// <summary>
@@ -15,7 +16,16 @@ public class LaserReceptor : ActivatorParent
 
     //Creating a delegate call
     public OnAction onReceiveLaser;
+
+    private Animator m_animator;
+
+    private bool m_hasAnimator;
     
+    private void Start()
+    {
+        m_hasAnimator = TryGetComponent<Animator>(out m_animator);
+    }
+
     /// <summary>
     /// This function will be called by laser sources when they hit the GameObject
     /// </summary>
@@ -31,6 +41,11 @@ public class LaserReceptor : ActivatorParent
 
         //Calling the delegate
         if(onReceiveLaser != null)onReceiveLaser(m_receivedLaser);
+    }
+
+    private void Update()
+    {
+        if(m_hasAnimator) m_animator.SetBool("Activated", m_enabled);
     }
 
     //The laser properties structure

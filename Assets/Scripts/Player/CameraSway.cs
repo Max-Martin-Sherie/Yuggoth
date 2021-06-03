@@ -12,10 +12,17 @@ public class CameraSway : MonoBehaviour
     [SerializeField][Tooltip("The maximum value of an oscillation")][Range(0,5)] private float m_swayMagnitude = 1f;
     [SerializeField][Tooltip("The player's camera")] private Camera m_camera;
     [SerializeField][Tooltip("The player sway")]private bool m_swaying;
+
+    [SerializeField] private float m_soundHeightOffset = 0.1f;
+    [SerializeField] private AudioSource m_as;
+    
+    [SerializeField] private AudioClip[] m_stepClips;
     
     private PlayerMove m_controller; //Player controller
     
     private Vector3 m_cameraLocalStartPos; //the camera's start position
+
+    private bool m_playedSound = false;
     
     /// <summary>
     /// Start is called before the first frame update
@@ -43,6 +50,22 @@ public class CameraSway : MonoBehaviour
                 
                 //Affecting the new y position to the camera
                 m_camera.transform.localPosition = m_cameraLocalStartPos + new Vector3(m_cameraLocalStartPos.x, newYVelocity,m_cameraLocalStartPos.z);
+
+                if (m_cameraLocalStartPos.y - m_soundHeightOffset > m_camera.transform.localPosition.y)
+                {
+                    if (!m_playedSound)
+                    {
+                        m_as.Stop();
+                        m_as.clip = m_stepClips[Random.Range(0, m_stepClips.Length)];
+                        m_as.Play();
+                        m_playedSound = true;
+                    }
+                }
+                else
+                {
+                    m_playedSound = false;
+                }
+                
                 m_timer += Time.deltaTime; // adding time to the timer
             }
         }
