@@ -49,58 +49,37 @@ public class DrawTMPLetterByLetter : MonoBehaviour
     {
         m_speed = m_pm.m_moveSpeed;
         m_pm.m_moveSpeed = 0;
-
         m_pm.m_canJump = false;
-
         m_sensitivity = m_cc.m_mouseSensitivity;
         m_cc.m_mouseSensitivity = 0;
         String text = m_text.text;
-
         m_text.text = "";
-        
-        if (Input.GetKeyDown(KeyCode.Escape))
-        {
-            m_HUDIsActive.SetActive(true);
-        }
-
+        if (Input.GetKeyDown(KeyCode.Escape)) m_HUDIsActive.SetActive(true);
         int i=0;
-
         m_clicked = false;
         while (text.Length > m_text.text.Length)
         {
-            
-
             m_offset = Random.Range(0,m_secondsBewtweenLetters / 2);
-
             if (m_clicked)
             {
                 String word = " ";
-
                 int j = i;
-                
                 while (j<text.Length &&  text[j] != ' ')
                 {
                     word += text[j];
                     j++;
                 }
-
                 m_text.text += word;
-                
                 i += word.Length;
             }
             else
             {
                 m_text.text += text[i];
-                
                 i++;
             }
-            
-            m_as.Play();
-
+            if(m_text.text[m_text.text.Length-1] != ' ') m_as.Play();
             yield return new WaitForSeconds(m_secondsBewtweenLetters + m_offset);
         }
-
-
         m_finished = true;
     }
     

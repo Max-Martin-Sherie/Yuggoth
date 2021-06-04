@@ -12,6 +12,8 @@ public class Button : ActivatorParent
     private float m_startWidth; //the original width of the button
     private Vector3 m_bcSize;
 
+    private GameObject m_hitObject;
+    private int m_maxParticules;
     private void Start()
     {
         m_startWidth = transform.localScale.y; //Fetching the original width of the button
@@ -28,6 +30,11 @@ public class Button : ActivatorParent
             {
                 m_enabled = true;
                 if(OnActivate !=null) OnActivate();
+                if (hit.transform.gameObject.layer == LayerMask.NameToLayer("Pickupable"))
+                {
+                    m_hitObject = hit.transform.gameObject;
+                    m_hitObject.GetComponent<ParticleSystem>().Stop(true, ParticleSystemStopBehavior.StopEmittingAndClear);
+                }
             }
             else
             {
@@ -41,6 +48,13 @@ public class Button : ActivatorParent
             if(m_enabled)
             {
                 m_enabled = false;
+                if (m_hitObject)
+                {
+                    m_hitObject.GetComponent<ParticleSystem>().Play(true);
+                    Debug.Log("play!");
+                }
+
+                m_hitObject = null;
                 if (OnRelease != null)
                 {
                     OnRelease();

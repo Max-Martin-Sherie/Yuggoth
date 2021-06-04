@@ -19,6 +19,9 @@
           </e>
         </e>
         <e p="Graphics" t="Include">
+          <e p="Particles" t="Include">
+            <e p="FollowTargetedPlatform.cs" t="Include" />
+          </e>
           <e p="Test_Environment" t="Include">
             <e p="Assets_from_asset_store" t="Include">
               <e p="Starfield Skybox" t="Include">
@@ -29,6 +32,10 @@
                 </e>
               </e>
             </e>
+          </e>
+          <e p="UI_HUD" t="Include">
+            <e p="DrawTMPLetterByLetter.cs" t="Include" />
+            <e p="MainMenu.cs" t="Include" />
           </e>
         </e>
         <e p="Scenes" t="Include">
@@ -61,7 +68,7 @@
             <e p="SetLazerReceptorActiveOnActivate.cs" t="Include" />
             <e p="SwitchStateOnButtonPress.cs" t="Include" />
             <e p="Teleport_to_start_on_no_look.cs" t="Include" />
-            <e p="TelepotBlockBackWhenTooLow.cs" t="Include" />
+            <e p="TeleportBlockBackWhenTooLow.cs" t="Include" />
           </e>
           <e p="Level_Shaped_Box" t="Include">
             <e p="CubeHolder.cs" t="Include" />
@@ -131,10 +138,6 @@
           <e p="Sprites" t="Include">
             <e p="EmojiOne Attribution.txt" t="Include" />
           </e>
-        </e>
-        <e p="UI_HUD" t="Include">
-          <e p="DrawTMPLetterByLetter.cs" t="Include" />
-          <e p="MainMenu.cs" t="Include" />
         </e>
       </e>
       <e p="obj" t="ExcludeRecursive" />

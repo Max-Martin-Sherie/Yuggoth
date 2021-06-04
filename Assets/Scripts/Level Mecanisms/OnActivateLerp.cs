@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.Serialization;
 
 public class OnActivateLerp : MonoBehaviour
 {
@@ -17,6 +16,10 @@ public class OnActivateLerp : MonoBehaviour
     //Creating the variable that will contain the Material of the gameObject
     [SerializeField]private MovingPlatform[] m_gameObjectsToLerp;
 
+    [SerializeField] private GameObject m_particuleSystemPrefab;
+
+    private bool m_onTarget = true;
+    
     public List<Vector3> m_positions;
 
     private void OnDrawGizmosSelected()
@@ -108,11 +111,30 @@ public class OnActivateLerp : MonoBehaviour
             return;
         }
         if (m_activatorScript.m_enabled)
+        {
+            if (m_onTarget)
+            {
+                Debug.Log("yay?");
+                foreach (MovingPlatform platform in m_gameObjectsToLerp)
+                {
+                    GameObject obj = Instantiate(m_particuleSystemPrefab);
+                    obj.transform.position = transform.position;
+                    obj.GetComponent<FollowTargetedPlatform>().m_target = platform._obj.transform;
+                    obj.GetComponent<FollowTargetedPlatform>().m_ActivatorParent = m_activatorScript;
+                }
+
+                m_onTarget = false;
+            }
             foreach (MovingPlatform platform in m_gameObjectsToLerp)
                 platform.LerpToTarget();
+        }
         else
+        {
             foreach (MovingPlatform platform in m_gameObjectsToLerp)
                 platform.LerpBack();
+            
+            m_onTarget = true;
+        }
     }
     
     [Serializable]

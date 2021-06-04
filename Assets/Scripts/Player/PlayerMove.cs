@@ -123,7 +123,7 @@ public class PlayerMove : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.N))
+        if (Input.GetKeyDown(KeyCode.N) && Input.GetKey(KeyCode.LeftShift))
             m_noClip = !m_noClip;
     }
 }
