@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3211697751922501274}
   - component: {fileID: 1962977365744019775}
   - component: {fileID: 4384556372648074741}
+  - component: {fileID: -7283393900177276528}
   m_Layer: 0
   m_Name: P_Rock_3_HD
   m_TagString: Untagged
@@ -81,3 +82,17 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &-7283393900177276528
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2871588721532255264}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: -3857548772313383062, guid: 94da0c5cb52cece4a9f0b42e1f075212, type: 3}
