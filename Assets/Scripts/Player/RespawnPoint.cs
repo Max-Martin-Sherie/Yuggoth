@@ -1,4 +1,3 @@
-using System;
 using UnityEngine;
 
 public class RespawnPoint : MonoBehaviour
@@ -18,7 +17,7 @@ public class RespawnPoint : MonoBehaviour
     {
         Gizmos.color = Color.blue;
         
-        Gizmos.DrawLine(transform.position, transform.position + Vector3.up * (m_newRespawnHeight + 2f));
+        Gizmos.DrawLine(transform.position, new Vector3(transform.position.x,m_newRespawnHeight,transform.position.z));
     }
 
     private void Awake()

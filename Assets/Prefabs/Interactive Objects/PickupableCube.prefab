@@ -16,8 +16,8 @@ GameObject:
   - component: {fileID: 778296120}
   - component: {fileID: 3192340751764017380}
   - component: {fileID: 1947151284350645530}
-  - component: {fileID: 2345460919817464236}
-  - component: {fileID: 9119257562760445049}
+  - component: {fileID: 9051350804817756195}
+  - component: {fileID: 5845832786830512482}
   m_Layer: 7
   m_Name: PickupableCube
   m_TagString: Selectable
@@ -35,8 +35,7 @@ Transform:
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -32.051083, y: 1.2441279, z: 165.05609}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 8947020177585410301}
+  m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -165,9 +164,9 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
-  MinDistance: 0.3098297
-  MaxDistance: 54.958282
+  DopplerLevel: 5
+  MinDistance: 1.7567596
+  MaxDistance: 500
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -202,7 +201,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 0.7910218
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -217,7 +216,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 0
+      value: 1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -242,7 +241,7 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!198 &2345460919817464236
+--- !u!198 &9051350804817756195
 ParticleSystem:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -315,7 +314,7 @@ ParticleSystem:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  moveWithTransform: 0
+  moveWithTransform: 1
   moveWithCustomTransform: {fileID: 0}
   scalingMode: 1
   randomSeed: 0
@@ -325,7 +324,7 @@ ParticleSystem:
     startLifetime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 5
+      scalar: 0.3
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -378,7 +377,7 @@ ParticleSystem:
     startSpeed:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 0.1
+      scalar: 0.5
       minScalar: 5
       maxCurve:
         serializedVersion: 2
@@ -875,9 +874,9 @@ ParticleSystem:
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
-    m_Position: {x: 0.005640112, y: -0.24851266, z: 0.012053403}
-    m_Rotation: {x: 270, y: -3.9835763e-11, z: 0}
-    m_Scale: {x: 1, y: 1, z: 1}
+    m_Position: {x: 0.00564003, y: 0.10007286, z: 0.0120533705}
+    m_Rotation: {x: 270, y: -3.983577e-11, z: 0}
+    m_Scale: {x: 0.7476775, y: 0.7476775, z: 0.7476775}
     placementMode: 0
     m_MeshMaterialIndex: 0
     m_MeshNormalOffset: 0
@@ -945,7 +944,7 @@ ParticleSystem:
     m_UseMeshMaterialIndex: 0
     m_UseMeshColors: 1
     alignToDirection: 0
-    m_Texture: {fileID: 2800000, guid: f003d682d8c23794eb8a3f9ab487f565, type: 3}
+    m_Texture: {fileID: 2800000, guid: a6ab02ea4efd4734991363c8cd772b2f, type: 3}
     m_TextureClipChannel: 3
     m_TextureClipThreshold: 0
     m_TextureUVChannel: 0
@@ -1075,7 +1074,7 @@ ParticleSystem:
     rateOverTime:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 30
+      scalar: 60
       minScalar: 10
       maxCurve:
         serializedVersion: 2
@@ -4948,7 +4947,7 @@ ParticleSystem:
         m_PostInfinity: 2
         m_RotationOrder: 4
     vectorLabel1_3: W
---- !u!199 &9119257562760445049
+--- !u!199 &5845832786830512482
 ParticleSystemRenderer:
   serializedVersion: 6
   m_ObjectHideFlags: 0
@@ -5014,65 +5013,3 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
---- !u!1001 &3616652248507187091
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 6661509562828746658}
-    m_Modifications:
-    - target: {fileID: 692550941028994127, guid: 38043d49dbb71ed45945b6eea50f2be7, type: 3}
-      propertyPath: m_Name
-      value: ParticlesCube
-      objectReference: {fileID: 0}
-    - target: {fileID: 5628054210598170478, guid: 38043d49dbb71ed45945b6eea50f2be7, type: 3}
-      propertyPath: m_RootOrder
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5628054210598170478, guid: 38043d49dbb71ed45945b6eea50f2be7, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 444.21
-      objectReference: {fileID: 0}
-    - target: {fileID: 5628054210598170478, guid: 38043d49dbb71ed45945b6eea50f2be7, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: 64.9121
-      objectReference: {fileID: 0}
-    - target: {fileID: 5628054210598170478, guid: 38043d49dbb71ed45945b6eea50f2be7, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 800.03064
-      objectReference: {fileID: 0}
-    - target: {fileID: 5628054210598170478, guid: 38043d49dbb71ed45945b6eea50f2be7, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5628054210598170478, guid: 38043d49dbb71ed45945b6eea50f2be7, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: -0.7071068
-      objectReference: {fileID: 0}
-    - target: {fileID: 5628054210598170478, guid: 38043d49dbb71ed45945b6eea50f2be7, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5628054210598170478, guid: 38043d49dbb71ed45945b6eea50f2be7, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5628054210598170478, guid: 38043d49dbb71ed45945b6eea50f2be7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: -90
-      objectReference: {fileID: 0}
-    - target: {fileID: 5628054210598170478, guid: 38043d49dbb71ed45945b6eea50f2be7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 5628054210598170478, guid: 38043d49dbb71ed45945b6eea50f2be7, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 38043d49dbb71ed45945b6eea50f2be7, type: 3}
---- !u!4 &8947020177585410301 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 5628054210598170478, guid: 38043d49dbb71ed45945b6eea50f2be7, type: 3}
-  m_PrefabInstance: {fileID: 3616652248507187091}
-  m_PrefabAsset: {fileID: 0}

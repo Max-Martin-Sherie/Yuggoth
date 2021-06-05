@@ -1,10 +1,10 @@
+using System;
 using UnityEngine;
 /// <summary>
 /// This class allows the player to control a gameObject using the horizontal and vertical axis
 /// </summary>
 public class PlayerMove : MonoBehaviour
 {
-    
     CharacterController m_cr = null;
     [HideInInspector]public Vector3 m_velocity = Vector3.zero;
     [HideInInspector]public bool m_canJump = true;
@@ -16,14 +16,16 @@ public class PlayerMove : MonoBehaviour
     [SerializeField][Tooltip("If enabled the previously set gravity value will be replaced by the in game gravity")] private bool m_useUnityPhysicsGravity;
     [SerializeField][Tooltip("The multiplier that will be affected to the acceleration every frame")][Range(0.5f,1)] private float m_drag;
     [SerializeField][Tooltip("The range at which the player will cast a sphere to check if he is grounded")][Range(.1f,.5f)] private float m_groundCheckRange = .3f;
-    
-    
+
     [SerializeField] private bool m_joMode = false;
 
     [HideInInspector]
     public bool m_grounded;
     
-    private Vector3 m_inputMove =Vector3.zero;
+    private bool m_noClip = false;
+    [SerializeField]private float m_noclipSpeed = 20f;
+    
+    private Vector3 m_inputMove = Vector3.zero;
     
     // Start is called before the first frame update
     void Start()
@@ -35,7 +37,7 @@ public class PlayerMove : MonoBehaviour
 
     // Update is called once per frame
     void FixedUpdate() {
-        
+
         float radius = m_cr.radius; //The radius of the character controller
         
         //The point from where the ground checking SphereCast will be sent
@@ -59,8 +61,7 @@ public class PlayerMove : MonoBehaviour
             m_velocity.x += (yOpposite * hitNormal.x) * m_slideAcceleration;
             m_velocity.z += (yOpposite * hitNormal.z) * m_slideAcceleration;
         }
-        
-        
+
         bool aircontrol = (m_joMode && m_grounded) || !m_joMode;
 
         if(aircontrol)
@@ -77,8 +78,7 @@ public class PlayerMove : MonoBehaviour
         {
             m_canJump = true;
         }
-
-
+        
         //Projecting the player's movement direction onto a plane to avoid stepping
         if(!onSlope && m_grounded){
             m_inputMove = Vector3.ProjectOnPlane(m_inputMove, hitNormal);
@@ -94,9 +94,24 @@ public class PlayerMove : MonoBehaviour
         //Adding the player's input to the global velocity
         m_velocity += m_inputMove;
 
+        if (m_noClip)
+        {
+            m_velocity = Vector3.zero;
+            
+            m_velocity = transform.forward * Input.GetAxis("Vertical");
+            m_velocity += transform.right * Input.GetAxis("Horizontal");
+
+            if(Input.GetButton("Jump"))
+                m_velocity += Vector3.up;
+            
+            if(Input.GetKey(KeyCode.LeftControl))
+                m_velocity -= Vector3.up;
+
+            m_velocity *= m_noclipSpeed;
+        }
+        
         //Applying the global velocity
         m_cr.Move( m_velocity * Time.deltaTime);
-        
         
         //Applying Drag to the horizontal axis
         m_velocity.x *= m_drag;
@@ -104,6 +119,15 @@ public class PlayerMove : MonoBehaviour
         
         //Applying drag to the vertical axis if the player is grounded and on a slope
         if(m_grounded && !onSlope) m_velocity.y *= m_drag;
-        
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.N) && Input.GetKey(KeyCode.LeftShift))
+        {
+            m_noClip = !m_noClip;
+            GetComponent<ShakeCameraOnHighVSpeed>().enabled = !m_noClip;
+            GetComponent<CameraSway>().enabled = !m_noClip;
+        }
     }
 }
