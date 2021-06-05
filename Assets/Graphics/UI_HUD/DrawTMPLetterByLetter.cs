@@ -47,11 +47,8 @@ public class DrawTMPLetterByLetter : MonoBehaviour
 
     IEnumerator ShowText()
     {
-        m_speed = m_pm.m_moveSpeed;
-        m_pm.m_moveSpeed = 0;
-        m_pm.m_canJump = false;
-        m_sensitivity = m_cc.m_mouseSensitivity;
-        m_cc.m_mouseSensitivity = 0;
+        m_pm.enabled = false; 
+        m_cc.enabled = false;
         String text = m_text.text;
         m_text.text = "";
         if (Input.GetKeyDown(KeyCode.Escape)) m_HUDIsActive.SetActive(true);
@@ -90,11 +87,10 @@ public class DrawTMPLetterByLetter : MonoBehaviour
             m_text.color = new Color(0,0,0,0);
             m_canvasToDisable.enabled = false;
             m_HUDIsActive.SetActive(true);
+            m_pm.enabled = true;
             
-            m_pm.m_moveSpeed = m_speed;
-            m_pm.m_canJump = true;
             m_ro.enabled = true;
-            m_cc.m_mouseSensitivity = m_sensitivity;
+            m_cc.enabled = true;
             m_asAmbient.Play();
             Destroy(this);
         }

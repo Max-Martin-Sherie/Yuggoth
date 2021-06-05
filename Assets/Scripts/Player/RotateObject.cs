@@ -31,7 +31,7 @@ public class RotateObject : MonoBehaviour
     {
         if (Input.GetButtonDown("Fire1"))
         {
-            m_sensitivity = m_cameraController.m_mouseSensitivity;
+            m_sensitivity = CameraController.m_mouseSensitivity;
         }
         //Checking if the player has clicked the lmb
         if (Input.GetButton("Fire1"))
@@ -48,7 +48,7 @@ public class RotateObject : MonoBehaviour
                 if (hitObject.layer == 6)
                 {
                     //removing the player's control
-                    m_cameraController.m_mouseSensitivity = 0;
+                    CameraController.m_mouseSensitivity = 0;
                     m_controllerScript.m_moveSpeed = 0;
                     m_controllerScript.m_canJump = false;
                     
@@ -71,7 +71,7 @@ public class RotateObject : MonoBehaviour
             if(m_controllerScript.m_moveSpeed != m_speed)
             {
                 m_controllerScript.m_moveSpeed = m_speed;
-                m_cameraController.m_mouseSensitivity = m_sensitivity;
+                CameraController.m_mouseSensitivity = m_sensitivity;
                 m_controllerScript.m_canJump = true;
                 InteractRaycast.m_interacting = false;
             }

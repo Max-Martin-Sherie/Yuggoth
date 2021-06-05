@@ -114,7 +114,6 @@ public class OnActivateLerp : MonoBehaviour
         {
             if (m_onTarget)
             {
-                Debug.Log("yay?");
                 foreach (MovingPlatform platform in m_gameObjectsToLerp)
                 {
                     GameObject obj = Instantiate(m_particuleSystemPrefab);

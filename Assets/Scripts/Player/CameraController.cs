@@ -5,8 +5,7 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    //Définition de la ensibilité de la caméra
-    [Range(200, 1000)] public float m_mouseSensitivity = 200;
+    public static float m_mouseSensitivity = 300;
     
     //Varibles d'inversion de caméra
     [SerializeField] [Range(-1,1)] private int m_yInvertion = -1;

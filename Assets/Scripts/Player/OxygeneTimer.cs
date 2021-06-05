@@ -45,7 +45,7 @@ public class OxygeneTimer : MonoBehaviour
         if (time <= 0)
         {
             m_playerController.m_moveDir = new Vector3(0f, 0f, 0f);
-            m_cameraController.m_mouseSensitivity = 0f;
+            CameraController.m_mouseSensitivity = 0f;
         }
 
         if (!m_stopTimer)
