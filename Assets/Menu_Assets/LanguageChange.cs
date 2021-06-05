@@ -13,8 +13,8 @@ public class LanguageChange : MonoBehaviour
 
     private void Start()
     {
-        SwitchToEnglish += SwitchEng;
-        SwitchToFrench += SwitchFr;
+        SwitchToEnglish += SwitchLanguageEN;
+        SwitchToFrench += SwitchLanguageFR;
     }
 
     private void SwitchLanguageFR()
