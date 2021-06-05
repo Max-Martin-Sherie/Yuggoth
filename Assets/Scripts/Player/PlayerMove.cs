@@ -98,8 +98,8 @@ public class PlayerMove : MonoBehaviour
         {
             m_velocity = Vector3.zero;
             
-            m_velocity = Camera.main.transform.forward * Input.GetAxis("Vertical");
-            m_velocity += Camera.main.transform.right * Input.GetAxis("Horizontal");
+            m_velocity = transform.forward * Input.GetAxis("Vertical");
+            m_velocity += transform.right * Input.GetAxis("Horizontal");
 
             if(Input.GetButton("Jump"))
                 m_velocity += Vector3.up;
@@ -124,6 +124,10 @@ public class PlayerMove : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.N) && Input.GetKey(KeyCode.LeftShift))
+        {
             m_noClip = !m_noClip;
+            GetComponent<ShakeCameraOnHighVSpeed>().enabled = !m_noClip;
+            GetComponent<CameraSway>().enabled = !m_noClip;
+        }
     }
 }
