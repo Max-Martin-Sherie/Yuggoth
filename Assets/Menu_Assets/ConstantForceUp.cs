@@ -18,7 +18,10 @@ public class ConstantForceUp : MonoBehaviour
     void Update()
     {
         m_rt.Translate(new Vector2(0,1) * m_speed * Time.deltaTime);
-        if (m_rt.transform.position.y >= m_exitHeight)
+        if (m_rt.transform.position.y >= m_exitHeight){
             SceneManager.LoadScene(0);
+            Cursor.lockState = CursorLockMode.None;
+            Cursor.visible = true;
+        }
     }
 }
