@@ -31,6 +31,6 @@ public class FadeInOnStart : MonoBehaviour
             
         }
         
-        Destroy(m_blackScreen.gameObject);
+        m_blackScreen.gameObject.SetActive(false);
     }
 }

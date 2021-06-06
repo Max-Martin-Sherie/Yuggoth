@@ -38,17 +38,14 @@ public class DrawTMPLetterByLetter : MonoBehaviour
     {
         m_ro.enabled = false;
         m_text = GetComponent<TextMeshProUGUI>();
-
-
-        Debug.Log(m_text.text[0]);
-
+        m_text.color = new Color(0, 0, 0, 0);
         StartCoroutine(ShowText());
     }
 
     IEnumerator ShowText()
     {
-        m_pm.enabled = false; 
-        m_cc.enabled = false;
+        yield return new WaitForSeconds(.5f);
+        m_text.color = new Color(1, 1, 1, 1);
         String text = m_text.text;
         m_text.text = "";
         if (Input.GetKeyDown(KeyCode.Escape)) m_HUDIsActive.SetActive(true);

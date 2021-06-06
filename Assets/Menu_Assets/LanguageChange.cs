@@ -10,21 +10,29 @@ public class LanguageChange : MonoBehaviour
     public delegate void OnLanguageChange();
     public static OnLanguageChange SwitchToEnglish;
     public static OnLanguageChange SwitchToFrench;
+    public static bool m_french = true;
+
+    private TextMeshProUGUI m_tmpText;
 
     private void Start()
     {
         SwitchToEnglish += SwitchLanguageEN;
         SwitchToFrench += SwitchLanguageFR;
+
+        m_tmpText = GetComponent<TextMeshProUGUI>();
+
+        if (m_french) SwitchLanguageFR();
+        else SwitchLanguageEN();
     }
 
     private void SwitchLanguageFR()
     {
-        GetComponent<TextMeshProUGUI>().text = m_frenchText;
+        m_tmpText.text = m_frenchText;
     }
     
     private void SwitchLanguageEN()
     {
-        GetComponent<TextMeshProUGUI>().text = m_englishText;
+        m_tmpText.text = m_englishText;
     }
 
     public void SwitchEng()
