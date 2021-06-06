@@ -1,6 +1,7 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class CameraPan : MonoBehaviour
@@ -58,8 +59,10 @@ public class CameraPan : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(GetComponent<Camera>().enabled && m_start)
-            m_image.color = Color.Lerp(m_image.color,new Color(0,0,0,0),Time.deltaTime*.1f);
+        if (GetComponent<Camera>().enabled && m_start)
+            m_image.color = Color.Lerp(m_image.color, new Color(0, 0, 0, 0), Time.deltaTime * .1f);
+        
+        if(Input.GetKeyUp(KeyCode.Escape))SceneManager.LoadScene(0);
     }
 
     IEnumerator StartFadeDelay()

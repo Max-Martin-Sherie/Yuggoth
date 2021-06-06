@@ -197,6 +197,7 @@ public class PickupRb : MonoBehaviour
     /// </summary>
     public void DropObject()
     {
+        StopCoroutine(ChangePickupControl());
         StartCoroutine(FadeOut(m_heldObj.GetComponent<AudioSource>()));
         m_heldObj.GetComponent<MeshRenderer>().material.SetFloat("_Metallic", 0f);
         Rigidbody objRb = m_heldObj.GetComponent<Rigidbody>();

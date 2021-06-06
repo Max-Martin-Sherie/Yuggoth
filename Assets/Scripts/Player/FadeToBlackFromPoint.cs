@@ -43,7 +43,7 @@ public class FadeToBlackFromPoint : MonoBehaviour
         Color bsClr = m_blackScreen.color;
         
         //https://www.geogebra.org/calculator/uyjc6cyb
-        float newAlpha = -Vector3.Distance(transform.position, m_endPosition.position) / (m_distanceBetweenNodes - m_minEndDistance) + 1f;
+        float newAlpha = -Vector3.Distance(transform.position, m_endPosition.position) / (m_distanceBetweenNodes + m_minEndDistance) + 1f;
 
         newAlpha = Mathf.Clamp(newAlpha,0f,1f);
 

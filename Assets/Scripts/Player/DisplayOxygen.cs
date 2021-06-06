@@ -8,15 +8,20 @@ public class DisplayOxygen : MonoBehaviour
     [SerializeField] Transform m_targetPoint;
     [SerializeField] float m_MinStartDistance = 2f;
     [SerializeField] float m_flashSpeed = 1f;
-    [SerializeField] Text m_text ;
+    [SerializeField] GameObject m_alertImage ;
+    [SerializeField] GameObject m_oldDisplay ;
 
     private bool m_startFlashing = false;
 
+    private bool active = true;
+
     IEnumerator OxygenFlash()
     {
+        m_oldDisplay.SetActive(false);
         while (true)
         {
-            m_text.enabled = !m_text.enabled;
+            active = !active;
+            m_alertImage.SetActive(active);
 
             yield return new WaitForSeconds(m_flashSpeed);
         }
