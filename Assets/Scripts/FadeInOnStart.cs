@@ -21,7 +21,7 @@ public class FadeInOnStart : MonoBehaviour
 
     IEnumerator FadeOut()
     {
-        if(Time.realtimeSinceStartup <= 5f)yield return new WaitForSeconds(m_startDelay);
+        if(Time.realtimeSinceStartup <= 5f) yield return new WaitForSeconds(m_startDelay);
         
         while (m_blackScreen.color.a >= 0.001f)
         {

@@ -76,7 +76,7 @@ public class FadeToBlackFromPoint : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex+1);
     }
 
-    private void TheEnd()
+    public void TheEnd()
     {
         m_finalStatue.SetActive(true);
         m_finalStatue.transform.position = transform.position + Vector3.down;
