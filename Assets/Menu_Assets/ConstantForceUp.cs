@@ -17,7 +17,7 @@ public class ConstantForceUp : MonoBehaviour
     void Update()
     {
         m_rt.Translate(new Vector2(0,1) * m_speed * Time.deltaTime);
-        if (m_rt.transform.position.y >= 3000f)
+        if (m_rt.transform.position.y >= 3500f)
             SceneManager.LoadScene(0);
     }
 }
